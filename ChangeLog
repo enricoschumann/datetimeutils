@@ -1,0 +1,9 @@
+2015-05-15  Enrico Schumann  <es@enricoschumann.net>
+
+	* DESCRIPTION (Version): Version: 0.0-2
+
+	* man/convertDate.Rd: added documentation
+
+2015-05-12  Enrico Schumann  <es@enricoschumann.net>
+
+	* DESCRIPTION (Version): Version: 0.0-1 -- Initial version

@@ -1,0 +1,20 @@
+## exportPattern("^[[:alpha:]]+")
+
+export(
+    "dayOfMonth<-",   ## datetimetools
+    "mday<-",         ## datetimetools
+    convertDate,
+    dayOfMonth,         ## datetimetools
+    endOfMonth,         ## datetimetools
+    endOfPreviousMonth, ## datetimetools
+    firstOfMonth,
+    isLeapyear,
+    isWeekend,
+    lastWeekday,
+    mday,
+    nextBusinessDay,
+    nthWeekday,
+    previousBusinessDay,
+    roundPOSIXt,
+    timegrid
+    )
