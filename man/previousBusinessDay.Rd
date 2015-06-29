@@ -1,4 +1,4 @@
-\name{datetimeutils}
+\name{lastWeekday}
 \alias{dayOfMonth<-}
 \alias{dayOfMonth}
 \alias{mday<-}

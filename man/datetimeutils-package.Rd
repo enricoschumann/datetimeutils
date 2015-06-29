@@ -17,13 +17,11 @@ Helper functions for dealing with times and dates.
   Maintainer: \packageMaintainer{datetimeutils}
 }
 \references{
-  Ripley Hornik
+  B.D. Ripley and K. Hornik. \emph{Date-Time Classes}. R-News,
+  \strong{1}(2):8--12, 2001.
 }
 \keyword{ package }
-%% \seealso{
-%% ~~ Optional links to other man pages, e.g. ~~
-%% ~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
-%% }
-%% \examples{
-%% ~~ simple examples of the most important functions ~~
-%% }
+\seealso{
+  \code{\link{DateTimeClasses}}, \code{\link{POSIXt}},
+  \code{\link{lastWeekday}}  
+}
