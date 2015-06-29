@@ -12,8 +12,7 @@ roundPOSIXt(t, interval, up = FALSE)
 \arguments{
   \item{t}{
     
-    a vector of length one that inherits from class
-    \code{\link{POSIXt}}
+    a vector that inherits from class \code{\link{POSIXt}}
     
   }
   \item{interval}{
@@ -50,8 +49,8 @@ roundPOSIXt(t, interval, up = FALSE)
     \code{\link{DateTimeClasses}}, \code{\link[PMwR]{plotTradingHours}}
 }
 \examples{
-
-times <- as.POSIXct("2012-03-24 22:00:00") + 1:1e2
-roundPOSIXt(times, "2 min")
+times <- as.POSIXct("2012-03-24 22:17:27") + 1:3
+roundPOSIXt(times, "5 min")
+roundPOSIXt(times, "5 min", TRUE)
 }
 \keyword{chron}
