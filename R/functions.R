@@ -1,5 +1,5 @@
 ## -*- truncate-lines: t; fill-column: 65; comment-column: 50; -*-
-## Time-stamp: <2015-06-29 16:34:29 CEST (es)>
+## Time-stamp: <2015-06-29 16:38:03 CEST (es)>
 
 
                                         # DATES
@@ -171,7 +171,7 @@ roundPOSIXt <- function(t, interval, up = FALSE) {
     n <- as.integer(strsplit(interval, " ", fixed = TRUE)[[c(1L,1L)]])
 
     if (grepl("sec", interval, ignore.case = TRUE)) {
-        ## Default unit in 'interval' is 'sec': do nothing.
+        ## Default unit in 'POSIXct' is 'sec': do nothing.
     } else if (grepl("min", interval, ignore.case = TRUE)) {
         n <- 60L * n
     } else if (grepl("hour", interval, ignore.case = TRUE)) {
@@ -179,7 +179,7 @@ roundPOSIXt <- function(t, interval, up = FALSE) {
     } else if (grepl("day", interval, ignore.case = TRUE)) {
         n <- 24L * 60L * 60L * n
     } else {
-        stop("'interval' not clear")
+        stop(sQuote("interval"), " not clear")
     }
     if (up)
         .POSIXct(n*ceiling(unclass(t)/n), tz = tz)

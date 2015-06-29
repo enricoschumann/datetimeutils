@@ -12,7 +12,6 @@
 \alias{lastWeekday}
 \alias{nextBusinessDay}
 \alias{previousBusinessDay}
-\alias{roundPOSIXt}
 \alias{timegrid}
 \title{
   Handling and Manipulating Dates and Times
@@ -27,8 +26,6 @@
 \usage{
 timegrid(from, to, interval, excludeWeekends = TRUE, holidays = NULL,
          fromHHMMSS = "080000", toHHMMSS = "220000")
-
-roundPOSIXt(t, interval)
 
 previousBusinessDay(x, holidays = NULL)
 nextBusinessDay(x, holidays = NULL)
@@ -83,9 +80,6 @@ nthWeekday(weekday, x, n = 1L)
     coerced to class \code{Date} by \code{\link{as.Date}} (eg, \code{\link{POSIXt}}).
 
   }
-  \item{t}{
-    a vector of length one that inherits from class \code{\link{POSIXt}}
-  }
   \item{x}{
     a vector of class \code{Date}
   }
@@ -115,9 +109,6 @@ nthWeekday(weekday, x, n = 1L)
 
   \code{timegrid} creates an equally-spaced grid of class \code{POSIXct}
   (or \code{character(0)} in case no valid points remain).
-
-  \code{roundPOSIXt} rounds down an input of class \code{POSIXt}; it
-  returns a vector of class \code{POSIXct}.
   
   \code{previousBusinessDay} takes a \code{\link{Date}} \code{x} and
   returns the last non-weekend day before.
@@ -160,9 +151,6 @@ from <- as.POSIXct("2012-04-30 08:00:00")
 to   <- as.POSIXct("2012-05-04 22:00:00")
 res  <- timegrid(from, to, interval = "1 hour",
                  holidays = as.Date("2012-05-01"))
-
-times <- as.POSIXct("2012-03-24 22:00:00") + 1:1e2
-roundPOSIXt(times, "2 min")
 
 ## businessdays
 previousBusinessDay(Sys.Date())

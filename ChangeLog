@@ -1,3 +1,11 @@
+2015-06-29  Enrico Schumann  <enrico.schumann@aquila-capital.com>
+
+	* DESCRIPTION (Version): Version: 0.0-3
+
+	* R/functions.R (roundPOSIXt): new argument 'up' for rounding up
+
+	* man/roundPOSIXt.Rd: updated and moved documentation
+
 2015-05-15  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Version): Version: 0.0-2
