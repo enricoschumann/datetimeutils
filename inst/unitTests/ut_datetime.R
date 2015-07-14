@@ -18,7 +18,6 @@ test.convertDate <- function() {
     checkEquals(convertDate(41824, "excel"), as.Date("2014-07-04"))
     checkEquals(convertDate(61, "excel"), as.Date("1900-03-1"))
     checkEquals(convertDate(61, "excel"), as.Date("1900-03-1"))
-
 }
 
 test.roundPOSIXt <- function() {
@@ -35,4 +34,47 @@ test.roundPOSIXt <- function() {
                 structure(1435590000,
                           tzone = "GMT",
                           class = c("POSIXct", "POSIXt")))    
+}
+
+
+test.nextBusinessDay <- function() {
+    dates <- seq(as.Date("2012-1-1"), as.Date("2015-1-10"), by = "1 day")
+    should <- dates + 1
+    should[as.POSIXlt(dates)$wday == 5L] <- dates[as.POSIXlt(dates)$wday == 5L] + 3
+    should[as.POSIXlt(dates)$wday == 6L] <- dates[as.POSIXlt(dates)$wday == 6L] + 2
+    should[as.POSIXlt(dates)$wday == 0L] <- dates[as.POSIXlt(dates)$wday == 0L] + 1
+    checkTrue(all(should == nextBusinessDay(dates)))
+
+    should <- dates + 0
+    should[as.POSIXlt(dates)$wday == 6L] <- dates[as.POSIXlt(dates)$wday == 6L] + 2
+    should[as.POSIXlt(dates)$wday == 0L] <- dates[as.POSIXlt(dates)$wday == 0L] + 1
+    checkTrue(all(should == nextBusinessDay(dates, shift = 0)))
+
+    checkTrue(all(
+        nextBusinessDay(nextBusinessDay(dates)) ==
+            nextBusinessDay(dates, shift = 2)))
+    checkTrue(all(
+        nextBusinessDay(nextBusinessDay(nextBusinessDay(dates))) ==
+            nextBusinessDay(dates, shift = 3)))
+}
+
+test.previousBusinessDay <- function() {
+    dates <- seq(as.Date("2012-1-1"), as.Date("2015-1-10"), by = "1 day")
+    should <- dates - 1
+    should[as.POSIXlt(dates)$wday == 1L] <- dates[as.POSIXlt(dates)$wday == 1L] - 3
+    should[as.POSIXlt(dates)$wday == 6L] <- dates[as.POSIXlt(dates)$wday == 6L] - 1
+    should[as.POSIXlt(dates)$wday == 0L] <- dates[as.POSIXlt(dates)$wday == 0L] - 2
+    checkTrue(all(should == previousBusinessDay(dates)))
+
+    should <- dates + 0
+    should[as.POSIXlt(dates)$wday == 6L] <- dates[as.POSIXlt(dates)$wday == 6L] - 1
+    should[as.POSIXlt(dates)$wday == 0L] <- dates[as.POSIXlt(dates)$wday == 0L] - 2
+    checkTrue(all(should == previousBusinessDay(dates, shift = 0)))
+
+    checkTrue(all(
+        previousBusinessDay(previousBusinessDay(dates)) ==
+            previousBusinessDay(dates, shift = -2)))
+    checkTrue(all(
+        previousBusinessDay(previousBusinessDay(previousBusinessDay(dates))) ==
+            previousBusinessDay(dates, shift = -3)))    
 }

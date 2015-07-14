@@ -1,33 +1,56 @@
 ## -*- truncate-lines: t; fill-column: 65; comment-column: 50; -*-
-## Time-stamp: <2015-06-29 16:38:03 CEST (es)>
+## Time-stamp: <2015-07-14 08:20:52 CEST (es)>
 
 
                                         # DATES
 
-previousBusinessDay <- function (x, holidays = NULL) {
+previousBusinessDay <- function (x, holidays = NULL, shift = -1) {
     if (!all(inherits(x, "Date") | inherits(x, "POSIXt")))
         stop("input must inherit from classes ",
              sQuote("Date"), " or ", sQuote("POSIXt"))
     x <- as.Date(x)
-    x <- x - 1
-    tmp <- as.POSIXlt(x)
-    tmpi <- tmp$wday == 6L
-    x[tmpi] <- x[tmpi] - 1L
-    tmpi <- tmp$wday == 0L
-    x[tmpi] <- x[tmpi] - 2L
+    if (shift == -1L || shift == 0L) {
+        x <- x + shift
+        tmp <- as.POSIXlt(x)
+        tmpi <- tmp$wday == 6L
+        x[tmpi] <- x[tmpi] - 1L
+        tmpi <- tmp$wday == 0L
+        x[tmpi] <- x[tmpi] - 2L
+    } else {
+        for (i in 1:(-shift)) {
+            x <- x - 1
+            tmp <- as.POSIXlt(x)
+            tmpi <- tmp$wday == 6L
+            x[tmpi] <- x[tmpi] - 1L
+            tmpi <- tmp$wday == 0L
+            x[tmpi] <- x[tmpi] - 2L
+        }
+    }
     x
 }
 
-nextBusinessDay <- function(x, holidays = NULL) {
+nextBusinessDay <- function(x, holidays = NULL, shift = 1) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     x <- as.Date(x)
-    x <- x + 1
-    tmp <- as.POSIXlt(x)
-    tmpi <- tmp$wday == 6L
-    x[tmpi] <- x[tmpi] + 2L
-    tmpi <- tmp$wday == 0L
-    x[tmpi] <- x[tmpi] + 1L
+    if (shift == 1L || shift == 0L) {
+        x <- x + shift
+        tmp <- as.POSIXlt(x)
+        tmpi <- tmp$wday == 6L
+        x[tmpi] <- x[tmpi] + 2L
+        tmpi <- tmp$wday == 0L
+        x[tmpi] <- x[tmpi] + 1L
+        
+    } else {
+        for (i in 1:shift) {
+            x <- x + 1
+            tmp <- as.POSIXlt(x)
+            tmpi <- tmp$wday == 6L
+            x[tmpi] <- x[tmpi] + 2L
+            tmpi <- tmp$wday == 0L
+        x[tmpi] <- x[tmpi] + 1L
+        }
+    }
     x
 }
 

@@ -27,8 +27,8 @@
 timegrid(from, to, interval, excludeWeekends = TRUE, holidays = NULL,
          fromHHMMSS = "080000", toHHMMSS = "220000")
 
-previousBusinessDay(x, holidays = NULL)
-nextBusinessDay(x, holidays = NULL)
+previousBusinessDay(x, holidays = NULL, shift = -1)
+nextBusinessDay(x, holidays = NULL, shift = 1)
 isWeekend(x)
 isLeapyear(x)
 firstOfMonth(x)
@@ -111,7 +111,11 @@ nthWeekday(weekday, x, n = 1L)
   (or \code{character(0)} in case no valid points remain).
   
   \code{previousBusinessDay} takes a \code{\link{Date}} \code{x} and
-  returns the last non-weekend day before.
+  returns the last non-weekend day before. When \code{shift} is less
+  than -1, the function evaluates to the \code{shift}-th previous
+  day. When \code{shift} is 0, the function will return \code{x} if
+  it is a non-weekend day, else the previous business
+  day. \code{nextBusinessDay} works analogously.
 
   \code{endOfMonth} returns the last calendar day of a given month. If
   \code{shift} is positive, then shift \code{months} into the future; if

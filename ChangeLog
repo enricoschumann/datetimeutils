@@ -1,4 +1,16 @@
-2015-06-29  Enrico Schumann  <enrico.schumann@aquila-capital.com>
+2015-07-14  Enrico Schumann  <es@enricoschumann.net>
+
+	* DESCRIPTION (Version): Version: 0.0-4
+
+	* inst/unitTests/ut_datetime.R (test.nextBusinessDay): added tests
+
+	* man/previousBusinessDay.Rd: updated docs
+
+	* R/functions.R (previousBusinessDay, nextBusinessDay): new
+	arguments 'shift' to get the shift-th previous or next business
+	day.
+
+2015-06-29  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Version): Version: 0.0-3
 
