@@ -1,5 +1,5 @@
 ## -*- truncate-lines: t; fill-column: 65; comment-column: 50; -*-
-## Time-stamp: <2015-07-14 08:20:52 CEST (es)>
+## Time-stamp: <2015-10-06 08:59:22 CEST (es)>
 
 
                                         # DATES
@@ -87,6 +87,16 @@ endOfPreviousMonth <- function(x) {
     tmp <- as.POSIXlt(x)
     tmp$mday <- 1L
     as.Date(tmp) - 1L
+}
+
+endOfPreviousYear <- function(x) {
+    if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
+        stop("input must inherit from class Date or POSIXt")
+    tmp <- as.POSIXlt(x)
+    tmp$mday <- 31L
+    tmp$mon <- 11L
+    tmp$year <- tmp$year - 1L
+    as.Date(tmp)
 }
 
 mday <- function(x)
@@ -233,4 +243,23 @@ convertDate <- function(x, type, fraction = FALSE, tz = "") {
         as.POSIXct(strptime(format(tmp), format = "%Y-%m-%d %H:%M:%S", tz = tz))        
     } else
         stop("unknown type")
+}
+
+
+## timestamps <- seq(as.Date("2015-1-1"), as.Date("2015-12-15"), by = "1 day")
+## ultimo, firstofmonth, 
+reftimestamp <- function(what, when = Sys.Date(), timestamps, index = FALSE) {
+    what <- tolower(what)
+    if (!is.null(when) && what == "mtd") {
+        ii <- suppressWarnings(max(which(as.Date(timestamps) <=
+                                         endOfPreviousMonth(as.Date(when)))))
+        ii[ii == -Inf] <- 0
+        
+    } else if (!is.null(when) && what == "ytd") {
+        ii <- suppressWarnings(max(which(as.Date(timestamps) <=
+                                         endOfPreviousYear(as.Date(when)))))
+        ii[ii == -Inf] <- 0
+    }
+    if (index)
+        timestamps[ii] else ii
 }
