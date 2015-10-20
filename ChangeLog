@@ -1,5 +1,9 @@
 2015-10-20  Enrico Schumann  <es@enricoschumann.net>
 
+        * DESCRIPTION (Version): 0.0-5
+
+2015-10-20  Enrico Schumann  <es@enricoschumann.net>
+
 	* R/functions.R (rfc822t): new argument 'include.dow'; function is
 	renamed to rfc822t ('_RFC_ 822 date and _T_ime') and is now
 	exported
