@@ -1,5 +1,5 @@
 ## -*- truncate-lines: t; fill-column: 65; comment-column: 50; -*-
-## Time-stamp: <2015-10-06 08:59:22 CEST (es)>
+## Time-stamp: <2015-10-20 13:53:00 CEST (es)>
 
 
                                         # DATES
@@ -262,4 +262,19 @@ reftimestamp <- function(what, when = Sys.Date(), timestamps, index = FALSE) {
     }
     if (index)
         timestamps[ii] else ii
+}
+
+rfc822t <- function(x, include.dow = TRUE) {
+
+    days <- c("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
+    mons <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun",
+              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+
+    xx <- as.POSIXlt(x)
+    if (include.dow)
+        paste0(days[xx$wday+1], ", ", xx$mday, " ", mons[xx$mon + 1], " ",
+               format(xx, "%Y %H:%M:%S %z"))
+    else
+        paste0(xx$mday, " ", mons[xx$mon + 1], " ",
+               format(xx, "%Y %H:%M:%S %z"))
 }

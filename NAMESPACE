@@ -15,6 +15,7 @@ export(
     nextBusinessDay,
     nthWeekday,
     previousBusinessDay,
+    rfc822t,
     roundPOSIXt,
     timegrid
     )

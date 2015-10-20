@@ -1,33 +1,43 @@
+2015-10-20  Enrico Schumann  <es@enricoschumann.net>
+
+	* R/functions.R (rfc822t): new argument 'include.dow'; function is
+	renamed to rfc822t ('_RFC_ 822 date and _T_ime') and is now
+	exported
+
+2015-10-15  Enrico Schumann  <es@enricoschumann.net>
+
+        * R/functions.R (rfc822): new function; not yet exported
+
 2015-10-06  Enrico Schumann  <es@enricoschumann.net>
 
-	* R/functions.R (reftimestamp): new function; not yet exported
+        * R/functions.R (reftimestamp): new function; not yet exported
 
 2015-07-14  Enrico Schumann  <es@enricoschumann.net>
 
-	* DESCRIPTION (Version): Version: 0.0-4
+        * DESCRIPTION (Version): Version: 0.0-4
 
-	* inst/unitTests/ut_datetime.R (test.nextBusinessDay): added tests
+        * inst/unitTests/ut_datetime.R (test.nextBusinessDay): added tests
 
-	* man/previousBusinessDay.Rd: updated docs
+        * man/previousBusinessDay.Rd: updated docs
 
-	* R/functions.R (previousBusinessDay, nextBusinessDay): new
-	arguments 'shift' to get the shift-th previous or next business
-	day.
+        * R/functions.R (previousBusinessDay, nextBusinessDay): new
+        arguments 'shift' to get the shift-th previous or next business
+        day.
 
 2015-06-29  Enrico Schumann  <es@enricoschumann.net>
 
-	* DESCRIPTION (Version): Version: 0.0-3
+        * DESCRIPTION (Version): Version: 0.0-3
 
-	* R/functions.R (roundPOSIXt): new argument 'up' for rounding up
+        * R/functions.R (roundPOSIXt): new argument 'up' for rounding up
 
-	* man/roundPOSIXt.Rd: updated and moved documentation
+        * man/roundPOSIXt.Rd: updated and moved documentation
 
 2015-05-15  Enrico Schumann  <es@enricoschumann.net>
 
-	* DESCRIPTION (Version): Version: 0.0-2
+        * DESCRIPTION (Version): Version: 0.0-2
 
-	* man/convertDate.Rd: added documentation
+        * man/convertDate.Rd: added documentation
 
 2015-05-12  Enrico Schumann  <es@enricoschumann.net>
 
-	* DESCRIPTION (Version): Version: 0.0-1 -- Initial version
+        * DESCRIPTION (Version): Version: 0.0-1 -- Initial version
