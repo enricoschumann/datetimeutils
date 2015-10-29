@@ -20,9 +20,9 @@ rfc822t(x, include.dow = TRUE)
 \details{
 
   Formats a timestamp as \sQuote{\code{\%Y \%H:\%M:\%S \%z}}, possibly
-  prepending an abbreviated day-of-week. The function ignores locale
-  settings; day-of-week or month names are all English. The format is
-  required for timestamps in RSS feeds.
+  prepending an abbreviated day-of-week. The function ignores the
+  current locale: day-of-week and month names are in English. The
+  format is required for timestamps in RSS feeds.
   
 }
 \value{
@@ -36,7 +36,7 @@ rfc822t(x, include.dow = TRUE)
   \url{http://www.rssboard.org/rss-specification}
 }
 \seealso{
-  \code{\link{strftime}}
+  \code{\link{strftime}}, \code{\link{date}}
 }
 \examples{
 rfc822t(Sys.time())

@@ -1,3 +1,7 @@
+2015-10-29  Enrico Schumann  <es@enricoschumann.net>
+
+	* man/rfc822t.Rd: doc update
+
 2015-10-20  Enrico Schumann  <es@enricoschumann.net>
 
         * DESCRIPTION (Version): 0.0-5
