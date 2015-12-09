@@ -6,6 +6,7 @@ export(
     convertDate,
     dayOfMonth,         ## datetimetools
     endOfMonth,         ## datetimetools
+    endOfYear,         ## datetimetools
     endOfPreviousMonth, ## datetimetools
     firstOfMonth,
     isLeapyear,

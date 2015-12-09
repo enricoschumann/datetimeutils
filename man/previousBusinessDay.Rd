@@ -4,6 +4,7 @@
 \alias{mday<-}
 \alias{mday}
 \alias{endOfMonth}
+\alias{endOfYear}
 \alias{endOfPreviousMonth}
 \alias{firstOfMonth}
 \alias{isWeekend}
@@ -33,6 +34,7 @@ isWeekend(x)
 isLeapyear(x)
 firstOfMonth(x)
 endOfMonth(x, shift = 0L)
+endOfYear(x, shift = 0L)
 endOfPreviousMonth(x)
 dayOfMonth(x)
 dayOfMonth(x) <- value
