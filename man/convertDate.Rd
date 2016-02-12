@@ -4,7 +4,7 @@
   Convert Various Formats to Dates
 }
 \description{
-  Convert dates in external formats (e.g., MATLAB) into Dates.
+  Convert dates in external formats (e.g. MATLAB) into Dates.
 }
 \usage{
 convertDate(x, type, fraction = FALSE, tz = "")
@@ -17,7 +17,8 @@ convertDate(x, type, fraction = FALSE, tz = "")
     character: currently \code{"excel"} and \code{"matlab"} are supported.
   }
   \item{fraction}{
-    logical: should fractional dates (ie, times) be used?  Default is \code{FALSE}.
+    logical: should fractional dates (i.e. times) be used?  Default is
+    \code{FALSE}.
   }
   \item{tz}{
     character: if fraction is TRUE, then what time zone is to be
@@ -27,7 +28,7 @@ convertDate(x, type, fraction = FALSE, tz = "")
 \details{
 
   Convert the numeric representation of a date to class
-  \code{\link{Date}}.  For Excel, only the Windows format is supported.
+  \code{\link{Date}}. For Excel, only the Windows format is supported.
   Note that dates before 1 Mar 1900 are probably wrong since Excel
   considers 1900 a leap year (which it is not).
 

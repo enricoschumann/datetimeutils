@@ -33,6 +33,7 @@ rfc822t(x, include.dow = TRUE)
 }
 \references{
   \url{https://www.ietf.org/rfc/rfc0822.txt}
+
   \url{http://www.rssboard.org/rss-specification}
 }
 \seealso{

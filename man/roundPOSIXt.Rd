@@ -34,7 +34,7 @@ roundPOSIXt(t, interval, up = FALSE)
 
 }
 \value{
-  Vectors of class \code{POSIXct};
+  Vectors of class \code{POSIXct}.
 }
 \references{
 
