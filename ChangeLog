@@ -1,4 +1,8 @@
-2015-12-09  Enrico Schumann  <enrico.schumann@aq-investment.ch>
+2016-02-22  Enrico Schumann  <es@enricoschumann.net>
+
+	* man/timegrid.Rd: separate help page
+	
+2015-12-09  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Version): Version: 0.1-0
 

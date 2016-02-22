@@ -13,7 +13,6 @@
 \alias{lastWeekday}
 \alias{nextBusinessDay}
 \alias{previousBusinessDay}
-\alias{timegrid}
 \title{
   Handling and Manipulating Dates and Times
 }
@@ -25,8 +24,6 @@
 
 }
 \usage{
-timegrid(from, to, interval, excludeWeekends = TRUE, holidays = NULL,
-         fromHHMMSS = "080000", toHHMMSS = "220000")
 
 previousBusinessDay(x, holidays = NULL, shift = -1)
 nextBusinessDay(x, holidays = NULL, shift = 1)
@@ -44,35 +41,12 @@ nthWeekday(weekday, x, n = 1L)
 }
 \arguments{
 
-  \item{from}{
-    a vector of length one that inherits from class \code{\link{POSIXt}}
-  }
-  \item{to}{
-    a vector of length one that inherits from class \code{\link{POSIXt}}
-  }
   \item{interval}{
     
     A character string like \dQuote{\code{num} \code{units}}, in which
     \code{num} is a number, and \code{units} is \code{sec}, \code{min},
     \code{hour} or \code{day}. \code{num} and \code{units} must be
     separated by white space.
-
-  }
-  \item{excludeWeekends}{
-    logical; default is \code{TRUE}
-  }
-  \item{fromHHMMSS}{
-    
-    A character vector of length one like
-    \dQuote{\code{HHMMSS}}. Times-of-day earlier than \code{HHMMSS} are
-    excluded from the grid.
-
-  }
-  \item{toHHMMSS}{
-
-    A character vector of length one like
-    \dQuote{\code{HHMMSS}}. Times-of-day later than \code{HHMMSS} are
-    excluded from the grid.
 
   }
   \item{holidays}{
@@ -109,9 +83,6 @@ nthWeekday(weekday, x, n = 1L)
 }
 \details{
 
-  \code{timegrid} creates an equally-spaced grid of class \code{POSIXct}
-  (or \code{character(0)} in case no valid points remain).
-  
   \code{previousBusinessDay} takes a \code{\link{Date}} \code{x} and
   returns the last non-weekend day before. When \code{shift} is less
   than -1, the function evaluates to the \code{shift}-th previous
@@ -153,10 +124,6 @@ nthWeekday(weekday, x, n = 1L)
   Many useful functions are also in package \pkg{chron}.
 }
 \examples{
-from <- as.POSIXct("2012-04-30 08:00:00")
-to   <- as.POSIXct("2012-05-04 22:00:00")
-res  <- timegrid(from, to, interval = "1 hour",
-                 holidays = as.Date("2012-05-01"))
 
 ## businessdays
 previousBusinessDay(Sys.Date())
@@ -171,9 +138,13 @@ dayOfMonth(d <- as.Date("2013-01-22"))
 dayOfMonth(d) <- 5
 d
 
-## goal:   find the third Friday in March 2013
-## how to: find the last Friday in February 2013 and 
+## GOAL    find the third Friday in March 2013
+## HOW TO  find the last Friday in February 2013 and 
 ##         shift forward by 3 weeks
 lastWeekday(5, as.Date("2013-02-01"), shift = 3)
+
+## ... or much simpler
+nthWeekday(5, as.Date("2013-03-01"), 3)
+
 }
 \keyword{chron}
