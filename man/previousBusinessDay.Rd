@@ -41,19 +41,12 @@ nthWeekday(weekday, x, n = 1L)
 }
 \arguments{
 
-  \item{interval}{
-    
-    A character string like \dQuote{\code{num} \code{units}}, in which
-    \code{num} is a number, and \code{units} is \code{sec}, \code{min},
-    \code{hour} or \code{day}. \code{num} and \code{units} must be
-    separated by white space.
-
-  }
   \item{holidays}{
 
-    A vector of class \code{\link{Date}}, or a character vector in a format that
-    is understood by \code{\link{as.Date}}, or anything that can be
-    coerced to class \code{Date} by \code{\link{as.Date}} (eg, \code{\link{POSIXt}}).
+    A vector of class \code{\link{Date}}, or a character vector in a
+    format that is understood by \code{\link{as.Date}}, or anything that
+    can be coerced to class \code{Date} by \code{\link{as.Date}} (eg,
+    \code{\link{POSIXt}}).
 
   }
   \item{x}{
