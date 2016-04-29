@@ -1,5 +1,5 @@
 ## -*- truncate-lines: t; fill-column: 65; comment-column: 50; -*-
-## Time-stamp: <2015-11-05 15:57:28 CET (es)>
+## Time-stamp: <2016-04-29 15:35:33 CEST (es)>
 
 
                                         # DATES
@@ -69,6 +69,15 @@ firstOfMonth <- function (x) {
         stop("input must inherit from class Date or POSIXt")
     tmp <- as.POSIXlt(x)
     tmp$mday <- 1L
+    as.Date(tmp)
+}
+
+firstOfYear <- function (x) {
+    if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
+        stop("input must inherit from class Date or POSIXt")
+    tmp <- as.POSIXlt(x)
+    tmp$mday <- 1L
+    tmp$mon <- 0L
     as.Date(tmp)
 }
 

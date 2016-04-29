@@ -1,9 +1,13 @@
+2016-04-29  Enrico Schumann  <es@enricoschumann.net>
+
+	* R/functions.R (firstOfYear): new function
+
 2016-02-22  Enrico Schumann  <es@enricoschumann.net>
 
         * DESCRIPTION (Version): 0.1-1
 
 	* man/timegrid.Rd: separate help page
-	
+
 2015-12-09  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Version): Version: 0.1-0

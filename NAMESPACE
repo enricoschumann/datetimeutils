@@ -1,14 +1,15 @@
 ## exportPattern("^[[:alpha:]]+")
 
 export(
-    "dayOfMonth<-",   ## datetimetools
-    "mday<-",         ## datetimetools
+    "dayOfMonth<-",
+    "mday<-",
     convertDate,
-    dayOfMonth,         ## datetimetools
-    endOfMonth,         ## datetimetools
-    endOfYear,         ## datetimetools
-    endOfPreviousMonth, ## datetimetools
+    dayOfMonth,
+    endOfMonth,
+    endOfYear,
+    endOfPreviousMonth,
     firstOfMonth,
+    firstOfYear,
     isLeapyear,
     isWeekend,
     lastWeekday,
