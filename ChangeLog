@@ -1,5 +1,7 @@
 2016-04-29  Enrico Schumann  <es@enricoschumann.net>
 
+        * DESCRIPTION (Version): 0.1-2
+
 	* R/functions.R (firstOfYear): new function
 
 2016-02-22  Enrico Schumann  <es@enricoschumann.net>
