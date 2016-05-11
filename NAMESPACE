@@ -4,6 +4,7 @@ export(
     "dayOfMonth<-",
     "mday<-",
     convertDate,
+    convertTZ,
     dayOfMonth,
     endOfMonth,
     endOfYear,

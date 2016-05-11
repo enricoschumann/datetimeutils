@@ -1,3 +1,7 @@
+2016-05-11  Enrico Schumann  <es@enricoschumann.net>
+
+	* R/functions.R (convertTZ): new function
+
 2016-04-29  Enrico Schumann  <es@enricoschumann.net>
 
         * DESCRIPTION (Version): 0.1-2

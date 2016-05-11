@@ -1,5 +1,5 @@
 ## -*- truncate-lines: t; fill-column: 65; comment-column: 50; -*-
-## Time-stamp: <2016-04-29 15:35:33 CEST (es)>
+## Time-stamp: <2016-05-11 11:18:05 CEST (es)>
 
 
                                         # DATES
@@ -296,3 +296,14 @@ rfc822t <- function(x, include.dow = TRUE) {
         paste0(xx$mday, " ", mons[xx$mon + 1], " ",
                format(xx, "%Y %H:%M:%S %z"))
 }
+
+convertTZ <- function(datetime, from = "", to) {
+    if (inherits(datetime, "POSIXt"))
+        datetime <- format(datetime, tz = from,
+                           format = "%Y-%m-%d %H:%M:%S")
+    ans <- as.POSIXct(datetime, tz = from)
+    attr(ans, "tzone") <- to
+    ans
+}
+
+
