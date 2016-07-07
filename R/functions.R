@@ -1,6 +1,4 @@
-## -*- truncate-lines: t; fill-column: 65; comment-column: 50; -*-
-## Time-stamp: <2016-05-11 11:18:05 CEST (es)>
-
+## -*- truncate-lines: t; comment-column: 50; -*-
 
                                         # DATES
 
@@ -63,6 +61,12 @@ isWeekend <- function(x) {
 
 isLeapyear <- function(x)
     x %% 4 == 0 & (x %% 100 != 0 | x %% 400 == 0)
+
+## isBusinessDay <- function(x, holidays = NULL) {
+##     if (!is.null(holidays))
+##         .NotYetUsed("holidays", FALSE)
+##     !isWeekend(x)
+## }
 
 firstOfMonth <- function (x) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
@@ -162,11 +166,10 @@ nthWeekday <- function(weekday, x, n = 1L) {
         stop("input must inherit from class Date or POSIXt")
     tmp <- as.POSIXlt(x)
     tmp$mday <- 1L
-    fweekday <- tmp$wday   
-    as.Date(tmp) + (weekday - fweekday) %% 7L + 7L*(n - 1L)
+    tmp <- as.POSIXlt(as.Date(tmp)) ## 'wday' is not recomputed
+    weekday1 <- tmp$wday            ## when 'mday' is changed
+    as.Date(tmp) + (weekday - weekday1) %% 7L + 7L*(n - 1L)
 }
-
-
                                         # TIMES
 makeHHMMSS <- function(x, label = "time specification (HHMMSS)") {
     x <- as.character(x)
@@ -297,7 +300,7 @@ rfc822t <- function(x, include.dow = TRUE) {
                format(xx, "%Y %H:%M:%S %z"))
 }
 
-convertTZ <- function(datetime, from = "", to) {
+convertTZ <- function(datetime, from = "", to = "") {
     if (inherits(datetime, "POSIXt"))
         datetime <- format(datetime, tz = from,
                            format = "%Y-%m-%d %H:%M:%S")

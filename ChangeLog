@@ -1,5 +1,11 @@
 2016-07-07  Enrico Schumann  <es@enricoschumann.net>
 
+	* R/functions.R (isBusinessDay): new function
+	(nthWeekday): fixed -- the function had failed
+	because it had relied on POSIXlt's 'wday',
+	which is not updated when the POSIXlt object is
+	manipulated
+
 	* man/isWeekend.Rd: separate help page
 
 2016-05-11  Enrico Schumann  <es@enricoschumann.net>

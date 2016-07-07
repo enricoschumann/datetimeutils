@@ -78,3 +78,51 @@ test.previousBusinessDay <- function() {
         previousBusinessDay(previousBusinessDay(previousBusinessDay(dates))) ==
             previousBusinessDay(dates, shift = -3)))    
 }
+
+test.nthWeekday <- function() {
+
+    checkTrue(all(nthWeekday(1, as.Date("2016-1-1")+0:30, 1) ==
+                  as.Date("2016-1-4")))
+    checkTrue(all(nthWeekday(2, as.Date("2016-1-1")+0:30, 1) ==
+                  as.Date("2016-1-5")))
+    checkTrue(all(nthWeekday(3, as.Date("2016-1-1")+0:30, 1) ==
+                  as.Date("2016-1-6")))
+    checkTrue(all(nthWeekday(4, as.Date("2016-1-1")+0:30, 1) ==
+                  as.Date("2016-1-7")))
+    checkTrue(all(nthWeekday(5, as.Date("2016-1-1")+0:30, 1) ==
+                  as.Date("2016-1-1")))
+    checkTrue(all(nthWeekday(6, as.Date("2016-1-1")+0:30, 1) ==
+                  as.Date("2016-1-2")))
+    checkTrue(all(nthWeekday(7, as.Date("2016-1-1")+0:30, 1) ==
+                  as.Date("2016-1-3")))
+
+    ## 2016 is a leap year
+    checkTrue(all(nthWeekday(1, as.Date("2016-2-1")+0:28, 1) ==
+                  as.Date("2016-2-1")))
+    checkTrue(all(nthWeekday(2, as.Date("2016-2-1")+0:28, 1) ==
+                  as.Date("2016-2-2")))
+    checkTrue(all(nthWeekday(3, as.Date("2016-2-1")+0:28, 1) ==
+                  as.Date("2016-2-3")))
+    checkTrue(all(nthWeekday(4, as.Date("2016-2-1")+0:28, 1) ==
+                  as.Date("2016-2-4")))
+    checkTrue(all(nthWeekday(5, as.Date("2016-2-1")+0:28, 1) ==
+                  as.Date("2016-2-5")))
+    checkTrue(all(nthWeekday(6, as.Date("2016-2-1")+0:28, 1) ==
+                  as.Date("2016-2-6")))
+    checkTrue(all(nthWeekday(7, as.Date("2016-2-1")+0:28, 1) ==
+                  as.Date("2016-2-7")))
+
+    checkTrue(all(nthWeekday(1, as.Date("2016-2-1")+0:28, 2) ==
+                  as.Date("2016-2-8")))
+    checkTrue(all(nthWeekday(1, as.Date("2016-2-1")+0:28, 3) ==
+                  as.Date("2016-2-15")))
+    checkTrue(all(nthWeekday(1, as.Date("2016-2-1")+0:28, 4) ==
+                  as.Date("2016-2-22")))
+    checkTrue(all(nthWeekday(1, as.Date("2016-2-1")+0:28, 5) ==
+                  as.Date("2016-2-29")))
+
+    ## 6th Monday of February == 1st Monday of March
+    checkTrue(all(nthWeekday(1, as.Date("2016-2-1")+0:28, 6) ==
+                  as.Date("2016-3-7")))    
+}
+
