@@ -8,7 +8,6 @@
 \alias{endOfPreviousMonth}
 \alias{firstOfMonth}
 \alias{firstOfYear}
-\alias{isWeekend}
 \alias{isLeapyear}
 \alias{nthWeekday}
 \alias{lastWeekday}
@@ -28,7 +27,6 @@
 
 previousBusinessDay(x, holidays = NULL, shift = -1)
 nextBusinessDay(x, holidays = NULL, shift = 1)
-isWeekend(x)
 isLeapyear(x)
 firstOfMonth(x)
 firstOfYear(x)
@@ -100,8 +98,7 @@ nthWeekday(weekday, x, n = 1L)
 }
 \value{
   
-  Vectors of class \code{Date} or \code{POSIXct}; \code{isWeekend}
-  returns \code{TRUE} or \code{FALSE}.
+  Vectors of class \code{Date} or \code{POSIXct}; or \code{logical}
 
 }
 \references{
