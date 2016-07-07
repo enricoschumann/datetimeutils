@@ -22,7 +22,12 @@ convertTZ(datetime, from = "", to)
 }
 }
 \details{
+
   See \code{\link{timezones}}.
+
+  Be careful: if the specified timezones do not exist on your
+  system, the function will \bold{not} return an error.
+  
 }
 \value{
   \code{\link{POSIXct}}
