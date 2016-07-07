@@ -11,6 +11,7 @@ export(
     endOfPreviousMonth,
     firstOfMonth,
     firstOfYear,
+    isBusinessDay,
     isLeapyear,
     isWeekend,
     lastWeekday,

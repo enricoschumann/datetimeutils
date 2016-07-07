@@ -9,6 +9,7 @@
 \alias{firstOfMonth}
 \alias{firstOfYear}
 \alias{isLeapyear}
+\alias{isBusinessDay}
 \alias{nthWeekday}
 \alias{lastWeekday}
 \alias{nextBusinessDay}
@@ -28,6 +29,7 @@
 previousBusinessDay(x, holidays = NULL, shift = -1)
 nextBusinessDay(x, holidays = NULL, shift = 1)
 isLeapyear(x)
+isBusinessDay(x, holidays = NULL)
 firstOfMonth(x)
 firstOfYear(x)
 endOfMonth(x, shift = 0L)

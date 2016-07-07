@@ -62,11 +62,11 @@ isWeekend <- function(x) {
 isLeapyear <- function(x)
     x %% 4 == 0 & (x %% 100 != 0 | x %% 400 == 0)
 
-## isBusinessDay <- function(x, holidays = NULL) {
-##     if (!is.null(holidays))
-##         .NotYetUsed("holidays", FALSE)
-##     !isWeekend(x)
-## }
+isBusinessDay <- function(x, holidays = NULL) {
+    if (!is.null(holidays))
+        .NotYetUsed("holidays", FALSE)
+    !isWeekend(x)
+}
 
 firstOfMonth <- function (x) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
