@@ -1,5 +1,7 @@
 2016-07-07  Enrico Schumann  <es@enricoschumann.net>
 
+        * DESCRIPTION (Version): 0.1-4
+
 	* R/functions.R (isBusinessDay): new function
 	(nthWeekday): fixed -- the function had failed
 	because it had relied on POSIXlt's 'wday',
