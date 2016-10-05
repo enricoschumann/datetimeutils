@@ -13,7 +13,9 @@
 \alias{nthWeekday}
 \alias{lastWeekday}
 \alias{nextBusinessDay}
+\alias{nextBDay}
 \alias{previousBusinessDay}
+\alias{prevBDay}
 \title{
   Handling and Manipulating Dates and Times
 }
@@ -25,9 +27,11 @@
 
 }
 \usage{
-
 previousBusinessDay(x, holidays = NULL, shift = -1)
+prevBDay(x, holidays = NULL, shift = -1)
 nextBusinessDay(x, holidays = NULL, shift = 1)
+nextBDay(x, holidays = NULL, shift = 1)
+
 isLeapyear(x)
 isBusinessDay(x, holidays = NULL)
 firstOfMonth(x)
@@ -81,9 +85,10 @@ nthWeekday(weekday, x, n = 1L)
   \code{previousBusinessDay} takes a \code{\link{Date}} \code{x} and
   returns the last non-weekend day before. When \code{shift} is less
   than -1, the function evaluates to the \code{shift}-th previous
-  day. When \code{shift} is 0, the function will return \code{x} if
-  it is a non-weekend day, else the previous business
-  day. \code{nextBusinessDay} works analogously.
+  day. When \code{shift} is 0, the function will return \code{x} if it
+  is a non-weekend day, else the previous business
+  day. \code{nextBusinessDay} works analogously. There are shorter-named
+  versions \code{nextBDay} and \code{prevBDay}.
 
   \code{endOfMonth} returns the last calendar day of a given month. If
   \code{shift} is positive, then shift \code{months} into the future; if

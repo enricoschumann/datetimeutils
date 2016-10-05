@@ -2,7 +2,7 @@
 
                                         # DATES
 
-previousBusinessDay <- function (x, holidays = NULL, shift = -1) {
+prevBDay  <- previousBusinessDay <- function (x, holidays = NULL, shift = -1) {
     if (!all(inherits(x, "Date") | inherits(x, "POSIXt")))
         stop("input must inherit from classes ",
              sQuote("Date"), " or ", sQuote("POSIXt"))
@@ -27,7 +27,7 @@ previousBusinessDay <- function (x, holidays = NULL, shift = -1) {
     x
 }
 
-nextBusinessDay <- function(x, holidays = NULL, shift = 1) {
+nextBDay  <- nextBusinessDay <- function(x, holidays = NULL, shift = 1) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     x <- as.Date(x)

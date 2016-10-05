@@ -1,3 +1,8 @@
+v0.1-5  (2016-10-04)
+
+  o add short-hands 'prevBDay' and 'nextBDay' for
+    'previousBusinessDay' and 'nextBusinessDay'
+
 v0.1-4  (2016-07-07)
 
   o fixed: 'nthWeekday' had failed in some cases

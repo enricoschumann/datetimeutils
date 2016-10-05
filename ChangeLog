@@ -1,3 +1,9 @@
+2016-10-04  Enrico Schumann  <es@enricoschumann.net>
+
+	* R/functions.R (prevBDay, nextBDay):
+	short-hands for 'previousBusinessDay' and
+	'nextBusinessDay'
+
 2016-07-07  Enrico Schumann  <es@enricoschumann.net>
 
         * DESCRIPTION (Version): 0.1-4
