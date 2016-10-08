@@ -46,7 +46,7 @@ roundPOSIXt(t, interval, up = FALSE)
   Enrico Schumann
 }
 \seealso{
-    \code{\link{DateTimeClasses}}, \code{\link[PMwR]{plotTradingHours}}
+    \code{\link{DateTimeClasses}}
 }
 \examples{
 times <- as.POSIXct("2012-03-24 22:17:27") + 1:3

@@ -39,7 +39,7 @@ isWeekend(x)
   Enrico Schumann
 }
 \seealso{
-  \code{\link{DateTimeClasses}}, \code{\link[PMwR]{plotTradingHours}}
+  \code{\link{DateTimeClasses}}
 }
 \examples{
 isWeekend(Sys.Date())

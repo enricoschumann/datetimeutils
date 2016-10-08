@@ -118,7 +118,7 @@ nthWeekday(weekday, x, n = 1L)
   Enrico Schumann
 }
 \seealso{
-  \code{\link{DateTimeClasses}}, \code{\link[PMwR]{plotTradingHours}}
+  \code{\link{DateTimeClasses}}
 
   Many useful functions are also in package \pkg{chron}.
 }
