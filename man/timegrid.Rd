@@ -64,9 +64,8 @@ timegrid(from, to, interval, excludeWeekends = TRUE, holidays = NULL,
   Enrico Schumann
 }
 \references{
-  \url{https://www.ietf.org/rfc/rfc0822.txt}
-
-  \url{http://www.rssboard.org/rss-specification}
+  B.D. Ripley and K. Hornik. \emph{Date-Time Classes}. R-News,
+  \strong{1}(2):8--12, 2001.
 }
 \seealso{
   \code{\link{strftime}}, \code{\link{date}}

@@ -1,4 +1,4 @@
-\name{lastWeekday}
+\name{dayOfMonth}
 \alias{dayOfMonth<-}
 \alias{dayOfMonth}
 \alias{mday<-}
@@ -10,8 +10,6 @@
 \alias{firstOfYear}
 \alias{isLeapyear}
 \alias{isBusinessDay}
-\alias{nthWeekday}
-\alias{lastWeekday}
 \alias{nextBusinessDay}
 \alias{nextBDay}
 \alias{previousBusinessDay}
@@ -41,9 +39,6 @@ endOfYear(x, shift = 0L)
 endOfPreviousMonth(x)
 dayOfMonth(x)
 dayOfMonth(x) <- value
-lastWeekday(weekday, x, shift = 0L,
-            period = "month", before, inclusive = TRUE)
-nthWeekday(weekday, x, n = 1L)
 }
 \arguments{
 
@@ -64,21 +59,6 @@ nthWeekday(weekday, x, n = 1L)
   \item{shift}{
     a vector of integers
   }
-  \item{weekday}{
-    an integer (\code{1} is Monday, \code{2} is Tuesday, and so on)
-  }
-  \item{period}{
-    character. 
-  }
-  \item{before}{
-    a Date. See also \code{inclusive}.
-  }
-  \item{inclusive}{
-    logical. Is \code{before} meant is \sQuote{before but including}? 
-  }
-  \item{n}{
-    an integer
-  }
 }
 \details{
 
@@ -95,11 +75,6 @@ nthWeekday(weekday, x, n = 1L)
   negative, the end of previous months. (\code{endOfMonth(x, -1)} is
   equivalent to \code{endOfPreviousMonth(x)}.
   
-  \code{lastWeekday} gives the last day of the week (specified as an
-  integer 0 to 6, with Sunday being 0) of a given month.  \code{shift}
-  moves forward (when positive) or backward (when negative) by one week;
-  see Examples.
-
   \code{mday} is a wrapper for \code{dayOfMonth}.
   
 }
@@ -136,14 +111,6 @@ endOfMonth(as.Date("2013-01-15") + 0:100)
 dayOfMonth(d <- as.Date("2013-01-22"))
 dayOfMonth(d) <- 5
 d
-
-## GOAL    find the third Friday in March 2013
-## HOW TO  find the last Friday in February 2013 and 
-##         shift forward by 3 weeks
-lastWeekday(5, as.Date("2013-02-01"), shift = 3)
-
-## ... or much simpler
-nthWeekday(5, as.Date("2013-03-01"), 3)
 
 }
 \keyword{chron}
