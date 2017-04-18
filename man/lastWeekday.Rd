@@ -29,7 +29,7 @@ nthWeekday(weekday, x, n = 1L)
     character. 
   }
   \item{before}{
-    a Date. See also \code{inclusive}.
+    a \code{\link{Date}}. See also \code{inclusive}.
   }
   \item{inclusive}{
     logical. Is \code{before} meant is \sQuote{before but including}? 
