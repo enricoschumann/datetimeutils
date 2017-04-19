@@ -1,4 +1,4 @@
-## -*- truncate-lines: t; comment-column: 50; -*-
+## -*- truncate-lines: t; -*-
 
                                         # DATES
 
