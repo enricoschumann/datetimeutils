@@ -1,14 +1,14 @@
-\name{dayOfMonth}
-\alias{dayOfMonth<-}
-\alias{dayOfMonth}
+\name{day_of_month}
+\alias{day_of_month<-}
+\alias{day_of_month}
 \alias{mday<-}
 \alias{mday}
-\alias{endOfMonth}
-\alias{endOfYear}
-\alias{endOfPreviousMonth}
-\alias{firstOfMonth}
-\alias{firstOfYear}
-\alias{isLeapyear}
+\alias{end_of_month}
+\alias{end_of_year}
+\alias{end_of_previous_month}
+\alias{first_of_month}
+\alias{first_of_year}
+\alias{is_leapyear}
 \title{
   Handling and Manipulating Dates and Times
 }
@@ -20,15 +20,15 @@
 
 }
 \usage{
-isLeapyear(x)
-firstOfMonth(x)
-firstOfYear(x)
-endOfMonth(x, shift = 0L)
-endOfYear(x, shift = 0L)
-endOfPreviousMonth(x)
-dayOfMonth(x)
+is_leapyear(x)
+first_of_month(x)
+first_of_year(x)
+end_of_month(x, shift = 0L)
+end_of_year(x, shift = 0L)
+end_of_previous_month(x)
+day_of_month(x)
 mday(x)
-dayOfMonth(x) <- value
+day_of_month(x) <- value
 mday(x) <- value
 }
 \arguments{
@@ -46,12 +46,12 @@ mday(x) <- value
 \details{
 
 
-  \code{endOfMonth} returns the last calendar day of a given month. If
+  \code{end_of_month} returns the last calendar day of a given month. If
   \code{shift} is positive, then shift \code{months} into the future; if
-  negative, the end of previous months. (\code{endOfMonth(x, -1)} is
-  equivalent to \code{endOfPreviousMonth(x)}.
+  negative, the end of previous months. (\code{end_of_month(x, -1)} is
+  equivalent to \code{end_of_previous_month(x)}.
   
-  \code{mday} is a wrapper for \code{dayOfMonth}.
+  \code{mday} is a wrapper for \code{day_of_month}.
   
 }
 \value{
@@ -75,12 +75,12 @@ mday(x) <- value
 }
 \examples{
 ## vectorisation: x *or* shift (but not both)
-endOfMonth(as.Date("2013-01-15"), shift = c(-1, 0, 1))
-endOfMonth(as.Date("2013-01-15") + 0:100)
+end_of_month(as.Date("2013-01-15"), shift = c(-1, 0, 1))
+end_of_month(as.Date("2013-01-15") + 0:100)
 
 
-dayOfMonth(d <- as.Date("2013-01-22"))
-dayOfMonth(d) <- 5
+day_of_month(d <- as.Date("2013-01-22"))
+day_of_month(d) <- 5
 d
 }
 \keyword{chron}

@@ -23,5 +23,5 @@ Helper functions for dealing with times and dates.
 \keyword{ package }
 \seealso{
   \code{\link{DateTimeClasses}}, \code{\link{POSIXt}},
-  \code{\link{lastWeekday}}  
+  \code{\link{last_weekday}}  
 }

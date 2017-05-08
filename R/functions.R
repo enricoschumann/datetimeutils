@@ -103,7 +103,7 @@ end_of_year <- function(x, shift = 0L) {
     as.Date(tmp) - 1L
 }
 
-end_of_previousmonth <- function(x) {
+end_of_previous_month <- function(x) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     tmp <- as.POSIXlt(x)
@@ -111,7 +111,7 @@ end_of_previousmonth <- function(x) {
     as.Date(tmp) - 1L
 }
 
-end_of_previousyear <- function(x) {
+end_of_previous_year <- function(x) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     tmp <- as.POSIXlt(x)
@@ -122,10 +122,10 @@ end_of_previousyear <- function(x) {
 }
 
 mday <- function(x)
-    dayOfMonth(x)
+    day_of_month(x)
 
 `mday<-` <- function(x, value){
-    dayOfMonth(x) <- value
+    day_of_month(x) <- value
     x
 }
 
@@ -250,7 +250,7 @@ ssm <- function(time, tz = "") {
     }
 }
 
-convert_timestamp <- function(x, type, fraction = FALSE, tz = "") {
+convert_date <- function(x, type, fraction = FALSE, tz = "") {
     type <- tolower(type)
     if (type == "excel" && !fraction){
         as.Date(x, origin = "1899-12-30")
@@ -273,12 +273,12 @@ ref_timestamp <- function(what, when = Sys.Date(), timestamps, index = FALSE) {
     what <- tolower(what)
     if (!is.null(when) && what == "mtd") {
         ii <- suppressWarnings(max(which(as.Date(timestamps) <=
-                                         endOfPreviousMonth(as.Date(when)))))
+                                         end_of_previous_month(as.Date(when)))))
         ii[ii == -Inf] <- 0
         
     } else if (!is.null(when) && what == "ytd") {
         ii <- suppressWarnings(max(which(as.Date(timestamps) <=
-                                         endOfPreviousYear(as.Date(when)))))
+                                         end_of_previous_year(as.Date(when)))))
         ii[ii == -Inf] <- 0
     }
     if (index)

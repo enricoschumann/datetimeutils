@@ -1,9 +1,28 @@
-2017-05-05  Enrico Schumann  <es@enricoschumann.net>
-
-	* R/functions.R (convertDate)
-	(convert_timestamp): rename functions
+2017-05-08  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Version): Version: 0.2-0
+
+	* R/functions.R: *BACKWARD* *INCOMPATIBLE* *CHANGES*:
+	rename functions:
+
+	convertDate   => convert_date
+        convertTZ     => convert_tz
+        dayOfMonth    => "day_of_month<-"
+        dayOfMonth    => day_of_month
+        endOfMonth    => end_of_month
+        endOfPreviousMonth => end_of_previous_month
+        endOfYear     => end_of_year
+        firstOfMonth  => first_of_month
+        firstOfYear   => first_of_year
+        isBusinessDay => is_businessday
+        isLeapyear    => is_leapyear
+        isWeekend     => is_weekend
+        lastWeekday   => last_weekday
+        nextBDay      => next_bday
+        nextBusinessDay => next_businessday
+        nthWeekday    => nth_weekday
+        prevBDay      => prev_bday
+        previousBusinessDay => previous_businessday
 
 2017-01-26  Enrico Schumann  <es@enricoschumann.net>
 

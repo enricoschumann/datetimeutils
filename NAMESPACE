@@ -3,11 +3,11 @@
 export(
     "day_of_month<-",
     "mday<-",
-    convert_timestamp,
+    convert_date,
     convert_tz,
     day_of_month,
     end_of_month,
-    end_of_previousmonth,
+    end_of_previous_month,
     end_of_year,
     first_of_month,
     first_of_year,

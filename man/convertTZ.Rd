@@ -1,5 +1,5 @@
-\name{convertTZ}
-\alias{convertTZ}
+\name{convert_tz}
+\alias{convert_tz}
 \title{
   Convert Timestamps from one Timezone to another
 }
@@ -7,7 +7,7 @@
   Convert a timestamp from one timezone to another.
 }
 \usage{
-convertTZ(datetime, from = "", to)
+convert_tz(datetime, from = "", to)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -46,14 +46,14 @@ convertTZ(datetime, from = "", to)
 }
 \examples{
 
-convertTZ("2016-05-10 12:00:00",
+convert_tz("2016-05-10 12:00:00",
           "America/Chicago", "America/Chicago")
 
-convertTZ("2016-05-10 12:00:00",
+convert_tz("2016-05-10 12:00:00",
           "Europe/Berlin", "America/Chicago")
 
-convertTZ(Sys.time(), to = "Europe/London")
-convertTZ(Sys.time(), to = "America/Chicago")
+convert_tz(Sys.time(), to = "Europe/London")
+convert_tz(Sys.time(), to = "America/Chicago")
 
 
 }

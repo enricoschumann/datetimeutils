@@ -1,5 +1,5 @@
-\name{convertDate}
-\alias{convertDate}
+\name{convert_date}
+\alias{convert_date}
 \title{
   Convert Various Formats to Dates
 }
@@ -7,7 +7,7 @@
   Convert dates in external formats (e.g. MATLAB) into Dates.
 }
 \usage{
-convertDate(x, type, fraction = FALSE, tz = "")
+convert_date(x, type, fraction = FALSE, tz = "")
 }
 \arguments{
   \item{x}{
@@ -44,5 +44,5 @@ fraction is \code{TRUE}.
 \code{\link{as.Date}}
 }
 \examples{
-convertDate(40000, "excel")
+convert_date(40000, "excel")
 }

@@ -1,6 +1,6 @@
-\name{lastWeekday}
-\alias{lastWeekday}
-\alias{nthWeekday}
+\name{last_weekday}
+\alias{last_weekday}
+\alias{nth_weekday}
 \title{
   Functions for Computing Days of the Week
 }
@@ -11,9 +11,9 @@
   
 }
 \usage{
-lastWeekday(weekday, x, shift = 0L,
+last_weekday(weekday, x, shift = 0L,
             period = "month", before, inclusive = TRUE)
-nthWeekday(weekday, x, n = 1L)
+nth_weekday(weekday, x, n = 1L)
 }
 \arguments{
   \item{x}{
@@ -40,13 +40,13 @@ nthWeekday(weekday, x, n = 1L)
 }
 \details{
 
-  \code{lastWeekday} computes the last day-of-the-week
+  \code{last_weekday} computes the last day-of-the-week
   (specified as an integer 0 to 6, with Sunday being 0)
   in a given month, e.g. \sQuote{the last Friday}.
   \code{shift} moves forward (when positive) or
   backward (when negative) by one week; see Examples.
 
-  \code{nthWeekday} gives the \emph{n}-th
+  \code{nth_weekday} gives the \emph{n}-th
   day-of-the-week (specified as an integer 0 to 6, with
   Sunday being 0) of a given month, e.g. \sQuote{the
   second Monday}.
@@ -75,10 +75,10 @@ nthWeekday(weekday, x, n = 1L)
 ## GOAL:     find the third Friday in March 2013
 ## SOLUTION: find the last Friday in February 2013 and 
 ##           shift forward by 3 weeks
-lastWeekday(5, as.Date("2013-02-01"), shift = 3)
+last_weekday(5, as.Date("2013-02-01"), shift = 3)
 
 ## ... or much simpler
-nthWeekday(5, as.Date("2013-03-01"), 3)
+nth_weekday(5, as.Date("2013-03-01"), 3)
 
 }
 \keyword{chron}
