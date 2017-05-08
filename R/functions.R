@@ -2,7 +2,7 @@
 
                                         # DATES
 
-prevBDay  <- previousBusinessDay <- function (x, holidays = NULL, shift = -1) {
+prev_bday  <- previous_businessday <- function (x, holidays = NULL, shift = -1) {
     if (!all(inherits(x, "Date") | inherits(x, "POSIXt")))
         stop("input must inherit from classes ",
              sQuote("Date"), " or ", sQuote("POSIXt"))
@@ -27,7 +27,7 @@ prevBDay  <- previousBusinessDay <- function (x, holidays = NULL, shift = -1) {
     x
 }
 
-nextBDay  <- nextBusinessDay <- function(x, holidays = NULL, shift = 1) {
+next_bday  <- next_businessday <- function(x, holidays = NULL, shift = 1) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     x <- as.Date(x)
@@ -52,23 +52,23 @@ nextBDay  <- nextBusinessDay <- function(x, holidays = NULL, shift = 1) {
     x
 }
 
-isWeekend <- function(x) {
+is_weekend <- function(x) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     tmp <- as.POSIXlt(x)
     tmp$wday == 0L | tmp$wday == 6L
 }
 
-isLeapyear <- function(x)
+is_leapyear <- function(x)
     x %% 4 == 0 & (x %% 100 != 0 | x %% 400 == 0)
 
-isBusinessDay <- function(x, holidays = NULL) {
+is_businessday <- function(x, holidays = NULL) {
     if (!is.null(holidays))
         .NotYetUsed("holidays", FALSE)
-    !isWeekend(x)
+    !is_weekend(x)
 }
 
-firstOfMonth <- function (x) {
+first_of_month <- function (x) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     tmp <- as.POSIXlt(x)
@@ -76,7 +76,7 @@ firstOfMonth <- function (x) {
     as.Date(tmp)
 }
 
-firstOfYear <- function (x) {
+first_of_year <- function (x) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     tmp <- as.POSIXlt(x)
@@ -85,7 +85,7 @@ firstOfYear <- function (x) {
     as.Date(tmp)
 }
 
-endOfMonth <- function(x, shift = 0L) {
+end_of_month <- function(x, shift = 0L) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     tmp <- as.POSIXlt(x)
@@ -94,7 +94,7 @@ endOfMonth <- function(x, shift = 0L) {
     as.Date(tmp) - 1L
 }
 
-endOfYear <- function(x, shift = 0L) {
+end_of_year <- function(x, shift = 0L) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     tmp <- as.POSIXlt(x)
@@ -103,7 +103,7 @@ endOfYear <- function(x, shift = 0L) {
     as.Date(tmp) - 1L
 }
 
-endOfPreviousMonth <- function(x) {
+end_of_previousmonth <- function(x) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     tmp <- as.POSIXlt(x)
@@ -111,7 +111,7 @@ endOfPreviousMonth <- function(x) {
     as.Date(tmp) - 1L
 }
 
-endOfPreviousYear <- function(x) {
+end_of_previousyear <- function(x) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     tmp <- as.POSIXlt(x)
@@ -129,13 +129,13 @@ mday <- function(x)
     x
 }
 
-dayOfMonth <- function(x) {
+day_of_month <- function(x) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     as.POSIXlt(x)$mday
 }
 
-`dayOfMonth<-` <- function(x, value) {
+`day_of_month<-` <- function(x, value) {
     if (!all(inherits(x, "Date") | inherits(x, "POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     cl <- class(x)
@@ -149,7 +149,7 @@ dayOfMonth <- function(x) {
         tmp
 }
 
-lastWeekday <- function(weekday, x, shift = 0L,
+last_weekday <- function(weekday, x, shift = 0L,
                         period = "month", before, inclusive = TRUE) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
@@ -161,7 +161,7 @@ lastWeekday <- function(weekday, x, shift = 0L,
     ldate - (lweekday - weekday)%%7L + (shift*7L)
 }
 
-nthWeekday <- function(weekday, x, n = 1L) {
+nth_weekday <- function(weekday, x, n = 1L) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     tmp <- as.POSIXlt(x)
@@ -171,7 +171,7 @@ nthWeekday <- function(weekday, x, n = 1L) {
     as.Date(tmp) + (weekday - weekday1) %% 7L + 7L*(n - 1L)
 }
                                         # TIMES
-makeHHMMSS <- function(x, label = "time specification (HHMMSS)") {
+make_hhmmss <- function(x, label = "time specification (HHMMSS)") {
     x <- as.character(x)
     if (nchar(x) == 1L)
         x <- paste("0", x, "0000", sep = "")
@@ -198,8 +198,8 @@ timegrid <- function(from, to, interval,
                      fromHHMMSS = "080000",
                      toHHMMSS   = "220000") {
 
-    fromHHMMSS <- makeHHMMSS(fromHHMMSS)
-    toHHMMSS   <- makeHHMMSS(toHHMMSS)
+    fromHHMMSS <- make_hhmmss(fromHHMMSS)
+    toHHMMSS   <- make_hhmmss(toHHMMSS)
     
     if (!inherits(from, "POSIXt") || !inherits(to, "POSIXt"))
         stop(sQuote("from"), " and ", sQuote("to"), " must inherit from POSIXt")
@@ -250,7 +250,7 @@ ssm <- function(time, tz = "") {
     }
 }
 
-convertDate <- function(x, type, fraction = FALSE, tz = "") {
+convert_timestamp <- function(x, type, fraction = FALSE, tz = "") {
     type <- tolower(type)
     if (type == "excel" && !fraction){
         as.Date(x, origin = "1899-12-30")
@@ -269,7 +269,7 @@ convertDate <- function(x, type, fraction = FALSE, tz = "") {
 
 ## timestamps <- seq(as.Date("2015-1-1"), as.Date("2015-12-15"), by = "1 day")
 ## ultimo, firstofmonth, 
-reftimestamp <- function(what, when = Sys.Date(), timestamps, index = FALSE) {
+ref_timestamp <- function(what, when = Sys.Date(), timestamps, index = FALSE) {
     what <- tolower(what)
     if (!is.null(when) && what == "mtd") {
         ii <- suppressWarnings(max(which(as.Date(timestamps) <=
@@ -300,7 +300,7 @@ rfc822t <- function(x, include.dow = TRUE) {
                format(xx, "%Y %H:%M:%S %z"))
 }
 
-convertTZ <- function(datetime, from = "", to = "") {
+convert_tz <- function(datetime, from = "", to = "") {
     if (inherits(datetime, "POSIXt"))
         datetime <- format(datetime, tz = from,
                            format = "%Y-%m-%d %H:%M:%S")

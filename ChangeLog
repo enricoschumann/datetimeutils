@@ -1,3 +1,10 @@
+2017-05-05  Enrico Schumann  <es@enricoschumann.net>
+
+	* R/functions.R (convertDate)
+	(convert_timestamp): rename functions
+
+	* DESCRIPTION (Version): Version: 0.2-0
+
 2017-01-26  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Description): expand package
