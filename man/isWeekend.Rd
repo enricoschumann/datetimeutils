@@ -1,5 +1,5 @@
-\name{isWeekend}
-\alias{isWeekend}
+\name{is_weekend}
+\alias{is_weekend}
 \alias{isBusinessDay}
 \alias{nextBusinessDay}
 \alias{nextBDay}
@@ -17,7 +17,7 @@
   
 }
 \usage{
-isWeekend(x)
+is_weekend(x)
 isBusinessDay(x, holidays = NULL)
 previousBusinessDay(x, holidays = NULL, shift = -1)
 prevBDay(x, holidays = NULL, shift = -1)
@@ -44,7 +44,7 @@ nextBDay(x, holidays = NULL, shift = 1)
 }
 \details{
 
-  \code{isWeekend} checks whether a given date is a Saturday or Sunday.
+  \code{is_weekend} checks whether a given date is a Saturday or Sunday.
 
   \code{previousBusinessDay} takes a \code{\link{Date}} \code{x} and
   returns the last non-weekend day before. When \code{shift} is less
@@ -73,7 +73,7 @@ nextBDay(x, holidays = NULL, shift = 1)
   \code{\link{DateTimeClasses}}
 }
 \examples{
-isWeekend(Sys.Date())
+is_weekend(Sys.Date())
 previousBusinessDay(Sys.Date())
 nextBusinessDay(Sys.Date())
 
