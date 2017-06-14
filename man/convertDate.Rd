@@ -4,7 +4,7 @@
   Convert Various Formats to Dates
 }
 \description{
-  Convert dates in external formats (e.g. MATLAB) into Dates.
+  Convert dates in external formats (e.g. from MATLAB) into Dates.
 }
 \usage{
 convert_date(x, type, fraction = FALSE, tz = "")

@@ -1,10 +1,10 @@
 test.Datetime <- function() {
     x <- as.Date(c("1996-05-30","1996-05-20"))
 
-    checkEquals(lastWeekday(6, x, 0),
+    checkEquals(last_weekday(6, x, 0),
                 structure(c(9641, 9641), class = "Date"))
 
-    checkEquals(lastWeekday(6, x, -1),
+    checkEquals(last_weekday(6, x, -1),
                 structure(c(9641, 9641), class = "Date") - 7)
 
     ## from <- ISOdatetime(2012,1,1,12,00,00)
@@ -14,10 +14,9 @@ test.Datetime <- function() {
     ##          excludeWeekends = TRUE, holidays = NULL)
 }
 
-test.convertDate <- function() {
-    checkEquals(convertDate(41824, "excel"), as.Date("2014-07-04"))
-    checkEquals(convertDate(61, "excel"), as.Date("1900-03-1"))
-    checkEquals(convertDate(61, "excel"), as.Date("1900-03-1"))
+test.convert_date <- function() {
+    checkEquals(convert_date(41824, "excel"), as.Date("2014-07-04"))
+    checkEquals(convert_date(61, "excel"), as.Date("1900-03-01"))
 }
 
 test.roundPOSIXt <- function() {
@@ -37,92 +36,92 @@ test.roundPOSIXt <- function() {
 }
 
 
-test.nextBusinessDay <- function() {
+test.next_businessday <- function() {
     dates <- seq(as.Date("2012-1-1"), as.Date("2015-1-10"), by = "1 day")
     should <- dates + 1
     should[as.POSIXlt(dates)$wday == 5L] <- dates[as.POSIXlt(dates)$wday == 5L] + 3
     should[as.POSIXlt(dates)$wday == 6L] <- dates[as.POSIXlt(dates)$wday == 6L] + 2
     should[as.POSIXlt(dates)$wday == 0L] <- dates[as.POSIXlt(dates)$wday == 0L] + 1
-    checkTrue(all(should == nextBusinessDay(dates)))
+    checkTrue(all(should == next_businessday(dates)))
 
     should <- dates + 0
     should[as.POSIXlt(dates)$wday == 6L] <- dates[as.POSIXlt(dates)$wday == 6L] + 2
     should[as.POSIXlt(dates)$wday == 0L] <- dates[as.POSIXlt(dates)$wday == 0L] + 1
-    checkTrue(all(should == nextBusinessDay(dates, shift = 0)))
+    checkTrue(all(should == next_businessday(dates, shift = 0)))
 
     checkTrue(all(
-        nextBusinessDay(nextBusinessDay(dates)) ==
-            nextBusinessDay(dates, shift = 2)))
+        next_businessday(next_businessday(dates)) ==
+            next_businessday(dates, shift = 2)))
     checkTrue(all(
-        nextBusinessDay(nextBusinessDay(nextBusinessDay(dates))) ==
-            nextBusinessDay(dates, shift = 3)))
+        next_businessday(next_businessday(next_businessday(dates))) ==
+            next_businessday(dates, shift = 3)))
 }
 
-test.previousBusinessDay <- function() {
+test.previous_businessday <- function() {
     dates <- seq(as.Date("2012-1-1"), as.Date("2015-1-10"), by = "1 day")
     should <- dates - 1
     should[as.POSIXlt(dates)$wday == 1L] <- dates[as.POSIXlt(dates)$wday == 1L] - 3
     should[as.POSIXlt(dates)$wday == 6L] <- dates[as.POSIXlt(dates)$wday == 6L] - 1
     should[as.POSIXlt(dates)$wday == 0L] <- dates[as.POSIXlt(dates)$wday == 0L] - 2
-    checkTrue(all(should == previousBusinessDay(dates)))
+    checkTrue(all(should == previous_businessday(dates)))
 
     should <- dates + 0
     should[as.POSIXlt(dates)$wday == 6L] <- dates[as.POSIXlt(dates)$wday == 6L] - 1
     should[as.POSIXlt(dates)$wday == 0L] <- dates[as.POSIXlt(dates)$wday == 0L] - 2
-    checkTrue(all(should == previousBusinessDay(dates, shift = 0)))
+    checkTrue(all(should == previous_businessday(dates, shift = 0)))
 
     checkTrue(all(
-        previousBusinessDay(previousBusinessDay(dates)) ==
-            previousBusinessDay(dates, shift = -2)))
+        previous_businessday(previous_businessday(dates)) ==
+            previous_businessday(dates, shift = -2)))
     checkTrue(all(
-        previousBusinessDay(previousBusinessDay(previousBusinessDay(dates))) ==
-            previousBusinessDay(dates, shift = -3)))    
+        previous_businessday(previous_businessday(previous_businessday(dates))) ==
+            previous_businessday(dates, shift = -3)))    
 }
 
-test.nthWeekday <- function() {
+test.nth_weekday <- function() {
 
-    checkTrue(all(nthWeekday(1, as.Date("2016-1-1")+0:30, 1) ==
+    checkTrue(all(nth_weekday(1, as.Date("2016-1-1")+0:30, 1) ==
                   as.Date("2016-1-4")))
-    checkTrue(all(nthWeekday(2, as.Date("2016-1-1")+0:30, 1) ==
+    checkTrue(all(nth_weekday(2, as.Date("2016-1-1")+0:30, 1) ==
                   as.Date("2016-1-5")))
-    checkTrue(all(nthWeekday(3, as.Date("2016-1-1")+0:30, 1) ==
+    checkTrue(all(nth_weekday(3, as.Date("2016-1-1")+0:30, 1) ==
                   as.Date("2016-1-6")))
-    checkTrue(all(nthWeekday(4, as.Date("2016-1-1")+0:30, 1) ==
+    checkTrue(all(nth_weekday(4, as.Date("2016-1-1")+0:30, 1) ==
                   as.Date("2016-1-7")))
-    checkTrue(all(nthWeekday(5, as.Date("2016-1-1")+0:30, 1) ==
+    checkTrue(all(nth_weekday(5, as.Date("2016-1-1")+0:30, 1) ==
                   as.Date("2016-1-1")))
-    checkTrue(all(nthWeekday(6, as.Date("2016-1-1")+0:30, 1) ==
+    checkTrue(all(nth_weekday(6, as.Date("2016-1-1")+0:30, 1) ==
                   as.Date("2016-1-2")))
-    checkTrue(all(nthWeekday(7, as.Date("2016-1-1")+0:30, 1) ==
+    checkTrue(all(nth_weekday(7, as.Date("2016-1-1")+0:30, 1) ==
                   as.Date("2016-1-3")))
 
     ## 2016 is a leap year
-    checkTrue(all(nthWeekday(1, as.Date("2016-2-1")+0:28, 1) ==
+    checkTrue(all(nth_weekday(1, as.Date("2016-2-1")+0:28, 1) ==
                   as.Date("2016-2-1")))
-    checkTrue(all(nthWeekday(2, as.Date("2016-2-1")+0:28, 1) ==
+    checkTrue(all(nth_weekday(2, as.Date("2016-2-1")+0:28, 1) ==
                   as.Date("2016-2-2")))
-    checkTrue(all(nthWeekday(3, as.Date("2016-2-1")+0:28, 1) ==
+    checkTrue(all(nth_weekday(3, as.Date("2016-2-1")+0:28, 1) ==
                   as.Date("2016-2-3")))
-    checkTrue(all(nthWeekday(4, as.Date("2016-2-1")+0:28, 1) ==
+    checkTrue(all(nth_weekday(4, as.Date("2016-2-1")+0:28, 1) ==
                   as.Date("2016-2-4")))
-    checkTrue(all(nthWeekday(5, as.Date("2016-2-1")+0:28, 1) ==
+    checkTrue(all(nth_weekday(5, as.Date("2016-2-1")+0:28, 1) ==
                   as.Date("2016-2-5")))
-    checkTrue(all(nthWeekday(6, as.Date("2016-2-1")+0:28, 1) ==
+    checkTrue(all(nth_weekday(6, as.Date("2016-2-1")+0:28, 1) ==
                   as.Date("2016-2-6")))
-    checkTrue(all(nthWeekday(7, as.Date("2016-2-1")+0:28, 1) ==
+    checkTrue(all(nth_weekday(7, as.Date("2016-2-1")+0:28, 1) ==
                   as.Date("2016-2-7")))
 
-    checkTrue(all(nthWeekday(1, as.Date("2016-2-1")+0:28, 2) ==
+    checkTrue(all(nth_weekday(1, as.Date("2016-2-1")+0:28, 2) ==
                   as.Date("2016-2-8")))
-    checkTrue(all(nthWeekday(1, as.Date("2016-2-1")+0:28, 3) ==
+    checkTrue(all(nth_weekday(1, as.Date("2016-2-1")+0:28, 3) ==
                   as.Date("2016-2-15")))
-    checkTrue(all(nthWeekday(1, as.Date("2016-2-1")+0:28, 4) ==
+    checkTrue(all(nth_weekday(1, as.Date("2016-2-1")+0:28, 4) ==
                   as.Date("2016-2-22")))
-    checkTrue(all(nthWeekday(1, as.Date("2016-2-1")+0:28, 5) ==
+    checkTrue(all(nth_weekday(1, as.Date("2016-2-1")+0:28, 5) ==
                   as.Date("2016-2-29")))
 
     ## 6th Monday of February == 1st Monday of March
-    checkTrue(all(nthWeekday(1, as.Date("2016-2-1")+0:28, 6) ==
+    checkTrue(all(nth_weekday(1, as.Date("2016-2-1")+0:28, 6) ==
                   as.Date("2016-3-7")))    
 }
 

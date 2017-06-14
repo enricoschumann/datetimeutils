@@ -1,3 +1,9 @@
+2017-06-14  Enrico Schumann  <es@enricoschumann.net>
+
+	* inst/unitTests/ut_datetime.R: fix unit tests,
+	as many were broken because of the renaming of
+	functions for version 0.2-0
+
 2017-05-08  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Version): Version: 0.2-0
