@@ -1,4 +1,4 @@
-\name{is_weekend}
+\name{business_days}
 \alias{is_weekend}
 \alias{is_businessday}
 \alias{next_businessday}
@@ -17,8 +17,8 @@
   
 }
 \usage{
-is_weekend(x)
 is_businessday(x, holidays = NULL)
+is_weekend(x)
 previous_businessday(x, holidays = NULL, shift = -1)
 prev_bday(x, holidays = NULL, shift = -1)
 next_businessday(x, holidays = NULL, shift = 1)

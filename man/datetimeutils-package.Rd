@@ -9,7 +9,7 @@
 \packageDescription{datetimeutils}
 }
 \details{
-Helper functions for dealing with times and dates. 
+  Helper functions for dealing with times and dates. 
 }
 \author{
   Enrico Schumann
