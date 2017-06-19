@@ -1,7 +1,7 @@
 \name{convert_tz}
 \alias{convert_tz}
 \title{
-  Convert Timestamps from one Timezone to another
+  Convert a Timestamp from one Timezone to Another
 }
 \description{
   Convert a timestamp from one timezone to another.
@@ -25,7 +25,7 @@ convert_tz(datetime, from = "", to)
 
   See \code{\link{timezones}}.
 
-  Be careful: if the specified timezones do not exist on your
+  Be careful: if the specified timezone does not exist on your
   system, the function will \bold{not} return an error.
   
 }

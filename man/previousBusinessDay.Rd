@@ -1,4 +1,4 @@
-\name{day_of_month}
+\name{end_of_period}
 \alias{day_of_month<-}
 \alias{day_of_month}
 \alias{mday<-}
@@ -48,7 +48,7 @@ mday(x) <- value
 
   \code{end_of_month} returns the last calendar day of a given month. If
   \code{shift} is positive, then shift \code{months} into the future; if
-  negative, the end of previous months. (\code{end_of_month(x, -1)} is
+  negative, the end of previous months. \code{end_of_month(x, -1)} is
   equivalent to \code{end_of_previous_month(x)}.
   
   \code{mday} is a wrapper for \code{day_of_month}.

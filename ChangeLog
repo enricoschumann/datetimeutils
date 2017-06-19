@@ -1,3 +1,9 @@
+2017-06-19  Enrico Schumann  <es@enricoschumann.net>
+
+	* README.md: add file
+
+	* man/*: update docs
+
 2017-06-14  Enrico Schumann  <es@enricoschumann.net>
 
 	* inst/unitTests/ut_datetime.R: fix unit tests,

@@ -12,12 +12,12 @@
 }
 \usage{
 last_weekday(weekday, x, shift = 0L,
-            period = "month", before, inclusive = TRUE)
+             period = "month", before, inclusive = TRUE)
 nth_weekday(weekday, x, n = 1L)
 }
 \arguments{
   \item{x}{
-    a vector of class \code{Date}
+    a vector of class \code{Date} (but only the \code{YYYY-MM} part is relevant)
   }
   \item{shift}{
     a vector of integers
@@ -54,7 +54,7 @@ nth_weekday(weekday, x, n = 1L)
 }
 \value{
   
-  Vectors of class \code{Date} or \code{POSIXct}; or \code{logical}
+  \code{Date}
 
 }
 \references{

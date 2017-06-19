@@ -1,10 +1,10 @@
 \name{convert_date}
 \alias{convert_date}
 \title{
-  Convert Various Formats to Dates
+  Convert Various Formats to Date
 }
 \description{
-  Convert dates in external formats (e.g. from MATLAB) into Dates.
+  Convert dates in external formats (e.g. from MATLAB) to Date or POSIXct.
 }
 \usage{
 convert_date(x, type, fraction = FALSE, tz = "")
@@ -22,20 +22,20 @@ convert_date(x, type, fraction = FALSE, tz = "")
   }
   \item{tz}{
     character: if fraction is TRUE, then what time zone is to be
-    assumed?  Default is \sQuote{\code{""}}, ie, the local time zone.
+    assumed?  Default is \code{""}, i.e. the local time zone.
   }
 }
 \details{
 
   Convert the numeric representation of a date to class
   \code{\link{Date}}. For Excel, only the Windows format is supported.
-  Note that dates before 1 Mar 1900 are probably wrong since Excel
+  Note that dates before 1 March 1900 are probably wrong since Excel
   considers 1900 a leap year (which it is not).
 
 }
 \value{
-A vector of class \code{\link{Date}}, or \code{\link{POSIXct}} if
-fraction is \code{TRUE}.
+  A vector of class \code{\link{Date}}, or \code{\link{POSIXct}} if
+  fraction is \code{TRUE}.
 }
 \author{
   Enrico Schumann
