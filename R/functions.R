@@ -288,15 +288,12 @@ ref_timestamp <- function(what, when = Sys.Date(), timestamps, index = FALSE) {
 rfc822t <- function(x, include.dow = TRUE) {
 
     days <- c("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
-    mons <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun",
-              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-
     xx <- as.POSIXlt(x)
     if (include.dow)
-        paste0(days[xx$wday+1], ", ", xx$mday, " ", mons[xx$mon + 1], " ",
+        paste0(days[xx$wday+1], ", ", xx$mday, " ", month.abb[xx$mon + 1], " ",
                format(xx, "%Y %H:%M:%S %z"))
     else
-        paste0(xx$mday, " ", mons[xx$mon + 1], " ",
+        paste0(xx$mday, " ", month.abb[xx$mon + 1], " ",
                format(xx, "%Y %H:%M:%S %z"))
 }
 

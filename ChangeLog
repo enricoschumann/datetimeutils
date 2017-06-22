@@ -1,3 +1,7 @@
+2017-06-22  Enrico Schumann  <es@enricoschumann.net>
+
+	* R/functions.R (rfc822t): use 'month.abb'
+
 2017-06-19  Enrico Schumann  <es@enricoschumann.net>
 
 	* README.md: add file
