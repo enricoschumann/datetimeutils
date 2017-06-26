@@ -36,7 +36,7 @@
 
 	convertDate   => convert_date
         convertTZ     => convert_tz
-        dayOfMonth    => "day_of_month<-"
+        dayOfMonth<-  => day_of_month<-
         dayOfMonth    => day_of_month
         endOfMonth    => end_of_month
         endOfPreviousMonth => end_of_previous_month
