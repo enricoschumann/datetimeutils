@@ -13,7 +13,8 @@
 \description{
   
   Check whether a timestamp of class \code{\link{Date}} or
-  \code{\link{POSIXt}} is a business day.
+  \code{\link{POSIXt}} is a business day; compute past or future
+  business days.
   
 }
 \usage{
@@ -35,7 +36,7 @@ next_bday(x, holidays = NULL, shift = 1)
     A vector of class \code{\link{Date}}, or a character vector in a
     format that is understood by \code{\link{as.Date}}, or anything that
     can be coerced to class \code{Date} by \code{\link{as.Date}} (e.g.
-    \code{\link{POSIXt}}).
+    \code{\link{POSIXt}}). \bold{Not supported yet.}
     
   }
   \item{shift}{
@@ -50,7 +51,7 @@ next_bday(x, holidays = NULL, shift = 1)
   returns the last non-weekend day before. When \code{shift} is less
   than -1, the function evaluates to the \code{shift}-th previous
   day. When \code{shift} is 0, the function will return \code{x} if it
-  is a non-weekend day, else the previous business
+  is a business day, else the previous business
   day. \code{next_businessday} works analogously. There are shorter-named
   versions \code{next_bday} and \code{prev_bday}.
 
