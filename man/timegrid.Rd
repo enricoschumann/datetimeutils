@@ -12,7 +12,9 @@ timegrid(from, to, interval, excludeWeekends = TRUE, holidays = NULL,
 }
 \arguments{
   \item{from}{
-    a vector of length one that inherits from class \code{\link{POSIXt}}
+    a vector of length one that inherits from class
+    \code{\link{POSIXt}}. If there from has a timezone attribute, it
+    will be used for the grid.
   }
   \item{to}{
     a vector of length one that inherits from class \code{\link{POSIXt}}
@@ -32,14 +34,16 @@ timegrid(from, to, interval, excludeWeekends = TRUE, holidays = NULL,
     
     A character vector of length one like
     \dQuote{\code{HHMMSS}}. Times-of-day earlier than \code{HHMMSS} are
-    excluded from the grid.
+    excluded from the grid. The applicable timezone will be taken from the
+    \code{from} argument.
 
   }
   \item{toHHMMSS}{
 
     A character vector of length one like
     \dQuote{\code{HHMMSS}}. Times-of-day later than \code{HHMMSS} are
-    excluded from the grid.
+    excluded from the grid. The applicable timezone will be taken from the
+    \code{from} argument.
 
   }
   \item{holidays}{
@@ -73,6 +77,14 @@ timegrid(from, to, interval, excludeWeekends = TRUE, holidays = NULL,
 \examples{
 from <- as.POSIXct("2012-04-30 08:00:00")
 to   <- as.POSIXct("2012-05-04 22:00:00")
-res  <- timegrid(from, to, interval = "1 hour",
-                 holidays = as.Date("2012-05-01"))
+timegrid(from, to, interval = "1 hour",
+         holidays = as.Date("2012-05-01"))
+
+
+timegrid(as.POSIXlt("2017-06-23 21:00:00"), ## system timezone
+         as.POSIXlt("2017-06-26 10:00:00"),
+         interval = "15 min")
+timegrid(as.POSIXlt("2017-06-23 21:00:00", tz = "UTC"),
+         as.POSIXlt("2017-06-26 10:00:00", tz = "UTC"),
+         interval = "15 min")
 }

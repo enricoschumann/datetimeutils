@@ -22,6 +22,5 @@
 }
 \keyword{ package }
 \seealso{
-  \code{\link{DateTimeClasses}}, \code{\link{POSIXt}},
-  \code{\link{last_weekday}}  
+  \code{\link{DateTimeClasses}}, \code{\link{Dates}}
 }

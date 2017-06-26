@@ -1,3 +1,16 @@
+2017-06-26  Enrico Schumann  <es@enricoschumann.net>
+
+	* DESCRIPTION (Version): 0.2-1
+
+	* R/functions.R (timegrid): fix handling of
+	'excludeWeekends' (which had been ignored) and
+	handling of timezone
+
+	* inst/unitTests/ut_datetime.R (test.timegrid):
+	add tests
+
+	* man/*: several minor updates
+
 2017-06-22  Enrico Schumann  <es@enricoschumann.net>
 
 	* R/functions.R (rfc822t): use 'month.abb'

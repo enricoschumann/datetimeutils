@@ -53,8 +53,13 @@ test.next_businessday <- function() {
         next_businessday(next_businessday(dates)) ==
             next_businessday(dates, shift = 2)))
     checkTrue(all(
+        next_bday(next_bday(dates)) == next_bday(dates, shift = 2)))
+
+    checkTrue(all(
         next_businessday(next_businessday(next_businessday(dates))) ==
-            next_businessday(dates, shift = 3)))
+        next_businessday(dates, shift = 3)))
+    checkTrue(all(
+        next_bday(next_bday(next_bday(dates))) == next_bday(dates, shift = 3)))
 }
 
 test.previous_businessday <- function() {
@@ -74,8 +79,13 @@ test.previous_businessday <- function() {
         previous_businessday(previous_businessday(dates)) ==
             previous_businessday(dates, shift = -2)))
     checkTrue(all(
+        prev_bday(prev_bday(dates)) == prev_bday(dates, shift = -2)))
+
+    checkTrue(all(
         previous_businessday(previous_businessday(previous_businessday(dates))) ==
             previous_businessday(dates, shift = -3)))    
+    checkTrue(all(
+        prev_bday(prev_bday(prev_bday(dates))) == prev_bday(dates, shift = -3)))    
 }
 
 test.nth_weekday <- function() {
@@ -125,3 +135,29 @@ test.nth_weekday <- function() {
                   as.Date("2016-3-7")))    
 }
 
+test.timegrid <- function() {
+
+    x <- timegrid(as.POSIXlt("2017-06-23 21:00:00", tz = "UTC"),
+                  as.POSIXlt("2017-06-26 10:00:00", tz = "UTC"),
+                  interval = "15 min")
+    checkEquals(x,
+                structure(c(1498251600, 1498252500, 1498253400,
+                            1498254300, 1498255200, 1498464000,
+                            1498464900, 1498465800, 1498466700,
+                            1498467600, 1498468500, 1498469400,
+                            1498470300, 1498471200),
+                          class = c("POSIXct", "POSIXt"), tzone = "UTC"))
+
+    x <- timegrid(as.POSIXlt("2017-06-23 21:00:00", tz = "Europe/Zurich"),
+                  as.POSIXlt("2017-06-26 10:00:00", tz = "Europe/Zurich"),
+                  interval = "15 min")
+    checkEquals(x,
+                structure(c(1498244400, 1498245300, 1498246200,
+                            1498247100, 1498248000, 1498456800,
+                            1498457700, 1498458600, 1498459500,
+                            1498460400, 1498461300, 1498462200,
+                            1498463100, 1498464000),
+                          class = c("POSIXct", "POSIXt"),
+                          tzone = "Europe/Zurich"))
+
+}

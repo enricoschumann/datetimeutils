@@ -3,6 +3,8 @@
                                         # DATES
 
 prev_bday  <- previous_businessday <- function (x, holidays = NULL, shift = -1) {
+    if (!is.null(holidays))
+        .NotYetUsed("holidays", FALSE)
     if (!all(inherits(x, "Date") | inherits(x, "POSIXt")))
         stop("input must inherit from classes ",
              sQuote("Date"), " or ", sQuote("POSIXt"))
@@ -28,6 +30,8 @@ prev_bday  <- previous_businessday <- function (x, holidays = NULL, shift = -1) 
 }
 
 next_bday  <- next_businessday <- function(x, holidays = NULL, shift = 1) {
+    if (!is.null(holidays))
+        .NotYetUsed("holidays", FALSE)
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     x <- as.Date(x)
@@ -175,9 +179,9 @@ make_hhmmss <- function(x, label = "time specification (HHMMSS)") {
     x <- as.character(x)
     if (nchar(x) == 1L)
         x <- paste("0", x, "0000", sep = "")
-    if (nchar(x) == 2L)
+    else if (nchar(x) == 2L)
         x <- paste(x, "0000", sep = "")
-    if (nchar(x) == 4L)
+    else if (nchar(x) == 4L)
         x <- paste(x, "00", sep = "")
 
     ss <- substr(x, 1, 2)
@@ -198,22 +202,26 @@ timegrid <- function(from, to, interval,
                      fromHHMMSS = "080000",
                      toHHMMSS   = "220000") {
 
+    if (missing(interval))
+        stop(sQuote("interval"), " missing")
+    if (!inherits(from, "POSIXt") || !inherits(to, "POSIXt"))
+        stop(sQuote("from"), " and ", sQuote("to"),
+             " must inherit from POSIXt")
     fromHHMMSS <- make_hhmmss(fromHHMMSS)
     toHHMMSS   <- make_hhmmss(toHHMMSS)
     
-    if (!inherits(from, "POSIXt") || !inherits(to, "POSIXt"))
-        stop(sQuote("from"), " and ", sQuote("to"), " must inherit from POSIXt")
     grd <- seq(from, to, by = interval)
     if (!is.null(holidays)) {
-        if (!inherits(holidays, "Date")) {
+        if (!inherits(holidays, "Date"))
             holidays <- as.Date(holidays)
-        }
         grd <- grd[!(as.Date(grd) %in% holidays)]
     }
-    lt <- as.POSIXlt(grd)
+    lt <- as.POSIXlt(grd, tz = attr(from, "tzone"))
     tmp <- lt$hour*10000 + lt$min*100 + lt$sec
-    grd <- grd[lt$wday > 0L & lt$wday < 6L &
-               as.numeric(fromHHMMSS) <= tmp & as.numeric(toHHMMSS) >= tmp] 
+    if (excludeWeekends)
+        grd <- grd[lt$wday > 0L & lt$wday < 6L &
+                   as.numeric(fromHHMMSS) <= tmp &
+                   as.numeric(toHHMMSS) >= tmp] 
     as.POSIXct(grd)
 }
 

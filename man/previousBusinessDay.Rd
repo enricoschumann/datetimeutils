@@ -15,20 +15,22 @@
 \description{
   
   Functions for manipulating vectors that inherit from class
-  \code{POSIXt} or \code{Date}.  If times are returned, they are
-  typically of class \code{POSIXct}.
+  \code{POSIXt} or \code{Date}.
 
 }
 \usage{
 is_leapyear(x)
+
 first_of_month(x)
-first_of_year(x)
 end_of_month(x, shift = 0L)
-end_of_year(x, shift = 0L)
 end_of_previous_month(x)
+
+first_of_year(x)
+end_of_year(x, shift = 0L)
+
 day_of_month(x)
-mday(x)
 day_of_month(x) <- value
+mday(x)
 mday(x) <- value
 }
 \arguments{
