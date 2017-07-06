@@ -216,7 +216,8 @@ timegrid <- function(from, to, interval,
             holidays <- as.Date(holidays)
         grd <- grd[!(as.Date(grd) %in% holidays)]
     }
-    lt <- as.POSIXlt(grd, tz = attr(from, "tzone"))
+    tz <- attr(from, "tzone")
+    lt <- as.POSIXlt(grd, tz = if (is.null(tz)) "" else tz)
     tmp <- lt$hour*10000 + lt$min*100 + lt$sec
     if (excludeWeekends)
         grd <- grd[lt$wday > 0L & lt$wday < 6L &
