@@ -275,25 +275,6 @@ convert_date <- function(x, type, fraction = FALSE, tz = "") {
         stop("unknown type")
 }
 
-
-## timestamps <- seq(as.Date("2015-1-1"), as.Date("2015-12-15"), by = "1 day")
-## ultimo, firstofmonth, 
-ref_timestamp <- function(what, when = Sys.Date(), timestamps, index = FALSE) {
-    what <- tolower(what)
-    if (!is.null(when) && what == "mtd") {
-        ii <- suppressWarnings(max(which(as.Date(timestamps) <=
-                                         end_of_previous_month(as.Date(when)))))
-        ii[ii == -Inf] <- 0
-        
-    } else if (!is.null(when) && what == "ytd") {
-        ii <- suppressWarnings(max(which(as.Date(timestamps) <=
-                                         end_of_previous_year(as.Date(when)))))
-        ii[ii == -Inf] <- 0
-    }
-    if (index)
-        timestamps[ii] else ii
-}
-
 rfc822t <- function(x, include.dow = TRUE) {
 
     days <- c("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
@@ -315,4 +296,65 @@ convert_tz <- function(datetime, from = "", to = "") {
     ans
 }
 
+## timestamps <- seq(as.Date("2015-1-1"), as.Date("2015-12-15"), by = "1 day")
+## ultimo, firstofmonth, 
+ref_timestamp <- function(what, when = Sys.Date(), timestamps, index = FALSE) {
+    what <- tolower(what)
+    if (!is.null(when) && what == "mtd") {
+        ii <- suppressWarnings(max(which(as.Date(timestamps) <=
+                                         end_of_previous_month(as.Date(when)))))
+        ii[ii == -Inf] <- 0
+        
+    } else if (!is.null(when) && what == "ytd") {
+        ii <- suppressWarnings(max(which(as.Date(timestamps) <=
+                                         end_of_previous_year(as.Date(when)))))
+        ii[ii == -Inf] <- 0
+    }
+    if (index)
+        timestamps[ii] else ii
+}
 
+
+
+.tp <- c(
+    "[1-2][0-9][0-9][0-9]-[0-9]+-[0-9]+ +[0-9]+:[0-9]+:[0-9]+", "%Y-%m-%d %H:%M:%S",
+    "[0-9][0-9]+-[0-9]+-[0-9]+ +[0-9]+:[0-9]+",                 "%Y-%m-%d %H:%M",
+    "[0-9]+/[0-9]+/[0-9][0-9] +[0-9]+:[0-9]+:[0-9]+",           "%m/%d/%y %H:%M:%S",
+    "[0-9]+/[0-9]+/[1-2][0-9][0-9][0-9] +[0-9]+:[0-9]+:[0-9]+", "%m/%d/%Y %H:%M:%S"
+)
+
+guess_time <- function(s) {
+
+    x <- as.character(s)
+    ans <- .POSIXct(rep(NA_real_, length(x)))
+    done <- logical(length(x))
+
+    ii <- seq(1, length(.tp), by = 2)
+
+    for (t in ii) {
+
+        i <- grepl(.tp[t], x) & !done
+        ans[i] <- as.POSIXct(strptime(x[i], .tp[t + 1]))
+        done[i] <- TRUE
+
+        if (all(done))
+            break
+    }
+
+    ans
+}
+
+## s <- c("  2017-4-1   10:00:31   ",
+##        "2017-4-1 11:00",
+##        "6/27/99 09:00:10",
+##        "6/27/1999 09:00:17")
+
+
+
+guess_date <- function(s) {
+
+    ans <- rep(NA_real_, length(s))
+    x <- as.character(s)
+   
+
+}
