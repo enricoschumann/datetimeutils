@@ -2,6 +2,8 @@
 
         * DESCRIPTION (Version): 0.2-4
 
+	* man/guess_datetime.Rd: update docs
+
 	* DESCRIPTION (Version): 0.2-3
 
 	* R/functions.R (guess_datetime): rename
