@@ -1,3 +1,10 @@
+2017-07-09  Enrico Schumann  <es@enricoschumann.net>
+
+	* DESCRIPTION (Version): 0.2-3
+
+	* R/functions.R (guess_datetime): rename
+	function and export it
+
 2017-07-07  Enrico Schumann  <es@enricoschumann.net>
 
 	* R/functions.R (guess_time): add function (not

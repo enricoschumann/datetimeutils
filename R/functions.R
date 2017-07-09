@@ -316,25 +316,29 @@ ref_timestamp <- function(what, when = Sys.Date(), timestamps, index = FALSE) {
 
 
 
-.tp <- c(
-    "[1-2][0-9][0-9][0-9]-[0-9]+-[0-9]+ +[0-9]+:[0-9]+:[0-9]+", "%Y-%m-%d %H:%M:%S",
-    "[0-9][0-9]+-[0-9]+-[0-9]+ +[0-9]+:[0-9]+",                 "%Y-%m-%d %H:%M",
-    "[0-9]+/[0-9]+/[0-9][0-9] +[0-9]+:[0-9]+:[0-9]+",           "%m/%d/%y %H:%M:%S",
-    "[0-9]+/[0-9]+/[1-2][0-9][0-9][0-9] +[0-9]+:[0-9]+:[0-9]+", "%m/%d/%Y %H:%M:%S"
+.dt_patterns <- c(
+    "[1-2][0-9][0-9][0-9]-[0-9]+-[0-9]+ +[0-9]+:[0-9]+:[0-9]+",           "%Y-%m-%d %H:%M:%S",
+    "[0-9][0-9]+-[0-9]+-[0-9]+ +[0-9]+:[0-9]+",                           "%Y-%m-%d %H:%M",
+    "[0-9]+/[0-9]+/[0-9][0-9] +[0-9]+:[0-9]+:[0-9]+",                     "%m/%d/%y %H:%M:%S",
+    "[0-9]+/[0-9]+/[1-2][0-9][0-9][0-9] +[0-9]+:[0-9]+:[0-9]+",           "%m/%d/%Y %H:%M:%S",
+    "[0-9]+/[0-9]+/[0-9][0-9] +[0-9]+:[0-9]+",                            "%m/%d/%y %H:%M",
+    "[0-9]+/[0-9]+/[1-2][0-9][0-9][0-9] +[0-9]+:[0-9]+",                  "%m/%d/%Y %H:%M",
+    "[0-9][0-9]*[.][0-9]+[.][1-2][0-9][0-9][0-9]* +[0-9]+:[0-9]+:[0-9]+", "%d.%m.%Y %H:%M:%S",
+    "[0-9][0-9]*[.][0-9]+[.][1-2][0-9][0-9][0-9]* +[0-9]+:[0-9]+",        "%d.%m.%Y %H:%M"
 )
 
-guess_time <- function(s) {
+guess_datetime <- function(s) {
 
     x <- as.character(s)
     ans <- .POSIXct(rep(NA_real_, length(x)))
     done <- logical(length(x))
 
-    ii <- seq(1, length(.tp), by = 2)
+    ii <- seq(1, length(.dt_patterns), by = 2L)
 
     for (t in ii) {
 
-        i <- grepl(.tp[t], x) & !done
-        ans[i] <- as.POSIXct(strptime(x[i], .tp[t + 1]))
+        i <- grepl(.dt_patterns[t], x) & !done
+        ans[i] <- as.POSIXct(strptime(x[i], .dt_patterns[t + 1L]))
         done[i] <- TRUE
 
         if (all(done))
@@ -344,17 +348,10 @@ guess_time <- function(s) {
     ans
 }
 
-## s <- c("  2017-4-1   10:00:31   ",
-##        "2017-4-1 11:00",
-##        "6/27/99 09:00:10",
-##        "6/27/1999 09:00:17")
+## guess_date <- function(s) {
 
-
-
-guess_date <- function(s) {
-
-    ans <- rep(NA_real_, length(s))
-    x <- as.character(s)
+##     ans <- rep(NA_real_, length(s))
+##     x <- as.character(s)
    
 
-}
+## }

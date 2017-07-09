@@ -11,6 +11,7 @@ export(
     end_of_year,
     first_of_month,
     first_of_year,
+    guess_datetime,
     is_businessday,
     is_leapyear,
     is_weekend,
