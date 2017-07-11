@@ -1,3 +1,11 @@
+v0.2-4  (2017-07-09)
+
+  o update documentation + internal changes
+
+v0.2-3  (2017-07-09)
+
+  o new function 'guess_datetime'
+
 v0.2-2  (2017-06-26)
 
   o fixed: 'timegrid' had failed when timezone was
