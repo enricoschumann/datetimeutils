@@ -1,0 +1,86 @@
+%% \VignetteIndexEntry{Examples for the datetimeutils package}
+\documentclass[a4paper,11pt]{article}
+\usepackage[left = 3cm, top = 2cm, bottom = 2cm, right = 4cm]{geometry}
+\usepackage[noae,nogin]{Sweave}
+\usepackage{libertine}
+\usepackage[scaled=0.8]{DejaVuSansMono}
+\usepackage[T1]{fontenc}
+\renewcommand*\familydefault{\sfdefault} 
+\usepackage{amsmath,amstext}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{fancyvrb}
+\definecolor{grau2}{rgb}{.2,.2,.2}
+\definecolor{grau7}{rgb}{.7,.7,.7}
+\DefineVerbatimEnvironment{Sinput}{Verbatim}{}
+\DefineVerbatimEnvironment{Soutput}{Verbatim}{frame=single,xleftmargin=0em,%
+  formatcom=\color{grau2},rulecolor=\color{grau7}}
+\DefineVerbatimEnvironment{Scode}{Verbatim}{xleftmargin=2em}
+\fvset{listparameters={\setlength{\topsep}{0pt}}}
+\renewenvironment{Schunk}{\vspace{\topsep}}{\vspace{\topsep}}
+\SweaveOpts{keep.source = TRUE, eps = TRUE}
+
+<<echo=false>>=
+options(continue = "  ", digits = 3, width = 60, useFancyQuotes = FALSE)
+require("datetimeutils")
+@
+
+\begin{document}
+\title{Examples for the \texttt{datetimeutils} package}
+\author{Enrico Schumann\\\url{es@enricoschumann.net}}
+
+{\raggedright{\LARGE Examples for the \texttt{datetimeutils} package}}\medskip
+
+\noindent Enrico Schumann\\
+\noindent \url{es@enricoschumann.net}\\
+\bigskip
+
+
+\noindent\textbf{\texttt{convert\_date}}\smallskip
+
+\noindent Convert dates in numeric external formats
+(e.g. from \textsc{matlab} or Excel) to Date.
+<<>>=
+convert_date(40000, "excel")
+convert_date(725935, "matlab")
+@ 
+
+\noindent\textbf{\texttt{convert\_tz}}\smallskip
+
+\noindent Convert a timestamp from one timezone to another.
+<<>>=
+convert_tz("2016-05-10 12:00:00", "Europe/Berlin", "America/Chicago")
+@ 
+
+\noindent \textbf{Business days}\smallskip
+
+\noindent See \texttt{?business\_days}.
+<<>>=
+is_weekend(as.Date("2017-1-5"))
+next_businessday(as.Date("2017-1-5"))   ## there is also 'previous_businessday'
+next_businessday(as.Date("2017-1-5"), shift = 2)     ## short-hand: 'next_bday'
+@ 
+
+\noindent \textbf{Guess Timestamp Format}
+
+<<>>=
+s <- c(" 1999-08-19 10:00",  
+       "19.8.1999 10:00",    ## Central-European, e.g. Germany
+       "8/19/99 10:00:00")   ## US
+guess_datetime(s)
+@ 
+
+
+\noindent \textbf{Days of the week}
+
+<<>>=
+last_weekday(5, as.Date("2017-1-1"))   ## last Friday of Jan 2017
+nth_weekday(1, as.Date("2017-1-1"), 2) ## second Monday of Jan 2017
+@ 
+\appendix
+<<results=tex>>=
+toLatex(sessionInfo())
+@ 
+\end{document}
