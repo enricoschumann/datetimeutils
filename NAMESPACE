@@ -9,6 +9,7 @@ export(
     end_of_month,
     end_of_previous_month,
     end_of_year,
+    end_of_previous_year,
     first_of_month,
     first_of_year,
     guess_datetime,

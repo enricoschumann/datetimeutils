@@ -1,3 +1,16 @@
+2017-08-17  Enrico Schumann  <es@enricoschumann.net>
+
+	* DESCRIPTION (Version): Version: 0.2-6
+
+	* R/functions.R (end_of_year): fix shift
+	parameter (which had been applied to months
+	instead of years)
+	(end_of_previous_year): add function
+
+	* inst/unitTests/ut_datetime.R
+	(test.end_of_year, test.end_of_month): add test
+	cases
+
 2017-08-07  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Version): 0.2-5

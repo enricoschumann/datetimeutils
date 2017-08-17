@@ -5,6 +5,7 @@
 \alias{mday}
 \alias{end_of_month}
 \alias{end_of_year}
+\alias{end_of_previous_year}
 \alias{end_of_previous_month}
 \alias{first_of_month}
 \alias{first_of_year}
@@ -27,6 +28,7 @@ end_of_previous_month(x)
 
 first_of_year(x)
 end_of_year(x, shift = 0L)
+end_of_previous_year(x)
 
 day_of_month(x)
 day_of_month(x) <- value
@@ -51,7 +53,9 @@ mday(x) <- value
   \code{end_of_month} returns the last calendar day of a given month. If
   \code{shift} is positive, then shift \code{months} into the future; if
   negative, the end of previous months. \code{end_of_month(x, -1)} is
-  equivalent to \code{end_of_previous_month(x)}.
+  equivalent to \code{end_of_previous_month(x)}. \code{end_of_year}
+  works in the same way, but for calendar years.
+
   
   \code{mday} is a wrapper for \code{day_of_month}.
   

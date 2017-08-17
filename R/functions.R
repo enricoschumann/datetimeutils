@@ -102,28 +102,17 @@ end_of_year <- function(x, shift = 0L) {
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     tmp <- as.POSIXlt(x)
-    tmp$mon <- 12+shift
+    tmp$year <- tmp$year + shift
+    tmp$mon <- 12
     tmp$mday <- 1L
     as.Date(tmp) - 1L
 }
 
-end_of_previous_month <- function(x) {
-    if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
-        stop("input must inherit from class Date or POSIXt")
-    tmp <- as.POSIXlt(x)
-    tmp$mday <- 1L
-    as.Date(tmp) - 1L
-}
+end_of_previous_month <- function(x)
+    end_of_month(x, -1L)
 
-end_of_previous_year <- function(x) {
-    if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
-        stop("input must inherit from class Date or POSIXt")
-    tmp <- as.POSIXlt(x)
-    tmp$mday <- 31L
-    tmp$mon <- 11L
-    tmp$year <- tmp$year - 1L
-    as.Date(tmp)
-}
+end_of_previous_year <- function(x)
+    end_of_year(x, shift = -1L)
 
 mday <- function(x)
     day_of_month(x)

@@ -177,6 +177,88 @@ test.guess_datetime <- function() {
     checkTrue(all(as.character(guess_datetime(s)) ==
                   "1999-08-19 10:00:00"))
 
+}
 
+test.end_of_year <- function() {
+    checkTrue(all(
+        end_of_year(as.Date(
+            c("2017-01-01",
+              "2017-12-31",
+              "2017-08-01"))) == as.Date("2017-12-31")))
+
+    checkTrue(all(
+        end_of_year(as.Date(
+            c("2017-01-01",
+              "2017-12-31",
+              "2017-08-01")), shift = 0) == as.Date("2017-12-31")))
+
+    checkTrue(all(
+        end_of_year(as.Date(
+            c("2017-01-01",
+              "2017-12-31",
+              "2017-08-01")), shift = 1) == as.Date("2018-12-31")))
+
+    checkTrue(all(
+        end_of_year(as.Date(
+            c("2017-01-01",
+              "2017-12-31",
+              "2017-08-01")), shift = -1) == as.Date("2016-12-31")))
+
+    checkTrue(all(
+        end_of_previous_year(as.Date(
+            c("2017-01-01",
+              "2017-12-31",
+              "2017-08-01"))) == as.Date("2016-12-31")))
+}
+
+test.end_of_month <- function() {
+    checkTrue(all(
+        end_of_month(as.Date(
+            c("2017-01-01",
+              "2017-12-31",
+              "2017-08-01"))) ==
+        as.Date(
+            c("2017-01-31",
+              "2017-12-31",
+              "2017-08-31"))))
+
+    checkTrue(all(
+        end_of_month(as.Date(
+            c("2017-01-01",
+              "2017-12-31",
+              "2017-08-01")), shift = 0) ==
+        as.Date(
+            c("2017-01-31",
+              "2017-12-31",
+              "2017-08-31"))))
     
+    checkTrue(all(
+        end_of_month(as.Date(
+            c("2017-01-01",
+              "2017-12-31",
+              "2017-08-01")), shift = 1) ==
+        as.Date(
+            c("2017-02-28",
+              "2018-01-31",
+              "2017-09-30"))))
+
+    checkTrue(all(
+        end_of_month(as.Date(
+            c("2017-01-01",
+              "2017-12-31",
+              "2017-08-01")), shift = -1) ==
+        as.Date(
+            c("2016-12-31",
+              "2017-11-30",
+              "2017-07-31"))))
+
+    checkTrue(all(
+        end_of_previous_month(as.Date(
+            c("2017-01-01",
+              "2017-12-31",
+              "2017-08-01"))) ==
+        as.Date(
+            c("2016-12-31",
+              "2017-11-30",
+              "2017-07-31"))))    
 }

@@ -1,3 +1,10 @@
+v0.2-6  (2017-08-17)
+
+  o new function 'end_of_previous_year'
+
+  o fixed: the 'shift' argument in 'end_of_year' had
+    been applied to months instead of years
+
 v0.2-5  (2017-08-07)
 
   o add vignette with examples
