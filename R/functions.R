@@ -336,11 +336,3 @@ guess_datetime <- function(s) {
 
     ans
 }
-
-## guess_date <- function(s) {
-
-##     ans <- rep(NA_real_, length(s))
-##     x <- as.character(s)
-   
-
-## }
