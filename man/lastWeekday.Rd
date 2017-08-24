@@ -26,7 +26,7 @@ nth_weekday(weekday, x, n = 1L)
     an integer (\code{1} is Monday, \code{2} is Tuesday, and so on)
   }
   \item{period}{
-    character. 
+    character. Currently ignored.
   }
   \item{before}{
     a \code{\link{Date}}. See also \code{inclusive}.

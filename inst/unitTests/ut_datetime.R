@@ -1,4 +1,4 @@
-test.Datetime <- function() {
+test.last_weekday <- function() {
     x <- as.Date(c("1996-05-30","1996-05-20"))
 
     checkEquals(last_weekday(6, x, 0),
@@ -7,6 +7,12 @@ test.Datetime <- function() {
     checkEquals(last_weekday(6, x, -1),
                 structure(c(9641, 9641), class = "Date") - 7)
 
+    checkEquals(last_weekday(1:5, as.Date("2017-1-1")),
+                last_weekday(1:5, before=as.Date("2017-1-31")))
+    checkEquals(last_weekday(1:5, as.Date("2017-2-28")),
+                last_weekday(1:5, before=as.Date("2017-2-28")))
+                 
+    
     ## from <- ISOdatetime(2012,1,1,12,00,00)
     ## to <- from + 36000
     ## timegrid(from, to,

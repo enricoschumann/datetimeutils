@@ -1,3 +1,8 @@
+2017-08-24  Enrico Schumann  <es@enricoschumann.net>
+
+	* R/functions.R (last_weekday): support
+	arguments 'before' and 'inclusive'
+
 2017-08-17  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Version): Version: 0.2-6

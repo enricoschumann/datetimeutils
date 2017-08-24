@@ -144,12 +144,15 @@ day_of_month <- function(x) {
 
 last_weekday <- function(weekday, x, shift = 0L,
                         period = "month", before, inclusive = TRUE) {
-    if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
+    if (missing(before) && !all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
-    tmp <- as.POSIXlt(x)
-    tmp$mon <- tmp$mon + 1L
-    tmp$mday <- 1L
-    ldate <- as.Date(tmp) - 1L
+    if (missing(before)) {
+        tmp <- as.POSIXlt(x)
+        tmp$mon <- tmp$mon + 1L
+        tmp$mday <- 1L
+        ldate <- as.Date(tmp) - 1L
+    } else
+        ldate <- if (inclusive) before else before - 1L
     lweekday <- as.POSIXlt(ldate)$wday
     ldate - (lweekday - weekday)%%7L + (shift*7L)
 }
