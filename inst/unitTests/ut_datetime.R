@@ -1,4 +1,5 @@
 test.last_weekday <- function() {
+
     x <- as.Date(c("1996-05-30","1996-05-20"))
 
     checkEquals(last_weekday(6, x, 0),
@@ -12,12 +13,17 @@ test.last_weekday <- function() {
     checkEquals(last_weekday(1:5, as.Date("2017-2-28")),
                 last_weekday(1:5, before=as.Date("2017-2-28")))
                  
-    
-    ## from <- ISOdatetime(2012,1,1,12,00,00)
-    ## to <- from + 36000
-    ## timegrid(from, to,
-    ##          interval = "15 sec",
-    ##          excludeWeekends = TRUE, holidays = NULL)
+    tmp <- seq(from = as.Date("2017-01-01"),
+               to   = as.Date("2018-12-31"),
+               by   = "1 day")
+
+    for (i in 1:5) {
+        checkEquals(last_weekday(i, before = tmp[as.POSIXlt(tmp)$wday == i]),
+                    tmp[as.POSIXlt(tmp)$wday == i]-0)
+        checkEquals(last_weekday(i, before = tmp[as.POSIXlt(tmp)$wday == i],
+                                 inclusive = FALSE),
+                    tmp[as.POSIXlt(tmp)$wday == i]-7)
+    }    
 }
 
 test.convert_date <- function() {
