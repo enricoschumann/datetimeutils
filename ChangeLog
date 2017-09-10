@@ -116,6 +116,11 @@
         * man/timegrid.Rd: minor change in example to
         avoid error on Solaris (CRAN check)
 
+2017-09-10  Enrico Schumann  <es@enricoschumann.net>
+
+        * R/functions.R (convert_date): add support for
+        SPSS/PSPP dates, based on a patch by J\"org Beyer
+
 2017-08-24  Enrico Schumann  <es@enricoschumann.net>
 
         * DESCRIPTION (Version): 0.2-7

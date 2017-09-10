@@ -44,7 +44,6 @@ next_bday  <- next_businessday <-
         x[tmpi] <- x[tmpi] + 2L
         tmpi <- tmp$wday == 0L
         x[tmpi] <- x[tmpi] + 1L
-
     } else {
         for (i in 1:shift) {
             x <- x + 1
@@ -270,6 +269,8 @@ ssm <- function(time, tz = "") {
 
 convert_date <- function(x, type, fraction = FALSE, tz = "") {
     type <- tolower(type)
+    if (type == "spss")
+        type = "pspp"
     if (type == "excel" && !fraction){
         as.Date(x, origin = "1899-12-30")
     } else if (type == "excel") {
@@ -280,6 +281,11 @@ convert_date <- function(x, type, fraction = FALSE, tz = "") {
     } else if (type == "matlab" && fraction) {
         tmp <- as.POSIXct((x - 719529) * 86400, origin = "1970-01-01")
         as.POSIXct(strptime(format(tmp), format = "%Y-%m-%d %H:%M:%S", tz = tz))
+    } else if (type == "pspp" && !fraction) {
+        as.Date(x/86400, origin = "1582-10-14")
+    } else if (type == "pspp" && fraction) {
+        tmp <- as.POSIXct(x, origin = "1582-10-14", tz = "UTC")
+        as.POSIXct(strptime(format(tmp), format = "%Y-%m-%d %H:%M:%S"))
     } else
         stop("unknown type")
 }
