@@ -1,6 +1,11 @@
+v0.2-8  (2017-10-11)
+
+  o minor change in example for 'timegrid' to avoid
+    error on Solaris
+
 v0.2-7  (2017-08-25)
 
-  o last_weekday now supports arguments 'before' and
+  o 'last_weekday' now supports arguments 'before' and
     'inclusive'
 
 v0.2-6  (2017-08-17)
