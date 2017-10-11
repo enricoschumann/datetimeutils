@@ -81,8 +81,8 @@ timegrid(from, to, interval = "1 hour",
          holidays = as.Date("2012-05-01"))
 
 
-timegrid(as.POSIXlt("2017-06-23 21:00:00"), ## system timezone
-         as.POSIXlt("2017-06-26 10:00:00"),
+timegrid(as.POSIXct("2017-06-23 21:00:00"), ## system timezone
+         as.POSIXct("2017-06-26 10:00:00"),
          interval = "15 min")
 timegrid(as.POSIXlt("2017-06-23 21:00:00", tz = "UTC"),
          as.POSIXlt("2017-06-26 10:00:00", tz = "UTC"),
