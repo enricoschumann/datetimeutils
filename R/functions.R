@@ -339,3 +339,17 @@ guess_datetime <- function(s) {
 
     ans
 }
+
+year <- function(x, as.character = FALSE) {
+    if (as.character)
+        as.character(as.POSIXlt(x)$year + 1900)
+    else
+        as.POSIXlt(x)$year + 1900
+}
+
+month <- function(x, as.character = FALSE) {
+    if (as.character)
+        as.character(as.POSIXlt(x)$mon + 1)
+    else
+        as.POSIXlt(x)$mon + 1
+}

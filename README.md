@@ -4,13 +4,13 @@ Utilities for handling dates and times, such as
 selecting particular days of the week or month,
 formatting timestamps as required by RSS feeds, or
 converting timestamp representations of other software
-(such as MATLAB and Excel) to R. The package is
+(such as 'MATLAB' and 'Excel') to R. The package is
 lightweight (no dependencies, pure R implementations)
 and relies only on R's standard classes to represent
-dates and times (Date and POSIXt); it aims to provide
-efficient implementations, through vectorisation and
-the use of R's native numeric representations of
-timestamps where possible.
+dates and times ('Date' and 'POSIXt'); it aims to
+provide efficient implementations, through
+vectorisation and the use of R's native numeric
+representations of timestamps where possible.
 
 [ [More] ](http://enricoschumann.net/R/packages/datetimeutils/)
 

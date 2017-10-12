@@ -1,3 +1,7 @@
+2017-10-12  Enrico Schumann  <es@enricoschumann.net>
+
+	* R/functions.R (year, month): add functions
+
 2017-10-11  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Version): 0.2-8
