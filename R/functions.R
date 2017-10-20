@@ -42,7 +42,7 @@ next_bday  <- next_businessday <- function(x, holidays = NULL, shift = 1) {
         x[tmpi] <- x[tmpi] + 2L
         tmpi <- tmp$wday == 0L
         x[tmpi] <- x[tmpi] + 1L
-        
+
     } else {
         for (i in 1:shift) {
             x <- x + 1
@@ -214,7 +214,7 @@ timegrid <- function(from, to, interval,
     if (excludeWeekends)
         grd <- grd[lt$wday > 0L & lt$wday < 6L &
                    as.numeric(fromHHMMSS) <= tmp &
-                   as.numeric(toHHMMSS) >= tmp] 
+                   as.numeric(toHHMMSS) >= tmp]
     as.POSIXct(grd)
 }
 

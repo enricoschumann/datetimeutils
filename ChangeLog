@@ -1,3 +1,7 @@
+2017-10-20  Enrico Schumann  <es@enricoschumann.net>
+
+	* NAMESPACE: export month and year
+
 2017-10-12  Enrico Schumann  <es@enricoschumann.net>
 
 	* R/functions.R (year, month): add functions

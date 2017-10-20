@@ -18,6 +18,7 @@ export(
     is_weekend,
     last_weekday,
     mday,
+    month,
     next_bday,
     next_businessday,
     nth_weekday,
@@ -25,5 +26,6 @@ export(
     previous_businessday,
     rfc822t,
     roundPOSIXt,
-    timegrid
+    timegrid,
+    year
     )
