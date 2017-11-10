@@ -306,7 +306,37 @@ ref_timestamp <- function(what, when = Sys.Date(), timestamps, index = FALSE) {
         timestamps[ii] else ii
 }
 
+ref_dates <- function(timestamps, period = "month", n,
+                      start, end, 
+                      business.days = FALSE,
+                      missing = "previous") {
 
+    if (missing(timestamps))
+        timestamps <- seq(from = start,
+                          to = end,
+                          by = "1 day")
+
+    if (period == "month") {
+        by <- format(timestamps, "%Y-%m")
+            
+        
+
+    }
+    if (n == "last") {
+        lby <- length(by)
+        rby <- by[lby:1]
+        ii <- lby - match(unique(by), rby) + 1L
+    } else if (n == "first") {
+
+
+    } else {
+        
+
+    }
+        
+
+        
+}
 
 .dt_patterns <- c(
     "[1-2][0-9][0-9][0-9]-[0-9]+-[0-9]+ +[0-9]+:[0-9]+:[0-9]+",           "%Y-%m-%d %H:%M:%S",
