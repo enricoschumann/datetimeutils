@@ -21,6 +21,7 @@ export(
     month,
     next_bday,
     next_businessday,
+    nth_day,
     nth_weekday,
     prev_bday,
     previous_businessday,

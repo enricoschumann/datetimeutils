@@ -2,6 +2,10 @@
 
 	* R/functions.R (nth_day): add function
 
+	* NAMESPACE: export 'nth_day'
+
+	* man/nth_day.Rd: add file
+
 2017-10-20  Enrico Schumann  <es@enricoschumann.net>
 
 	* NAMESPACE: export month and year
