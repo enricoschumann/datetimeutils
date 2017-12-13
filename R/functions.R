@@ -306,36 +306,44 @@ ref_timestamp <- function(what, when = Sys.Date(), timestamps, index = FALSE) {
         timestamps[ii] else ii
 }
 
-ref_dates <- function(timestamps, period = "month", n,
-                      start, end, 
-                      business.days = FALSE,
-                      missing = "previous") {
+nth_day <- function(timestamps,
+                    period = "month", n,
+                    start, end, 
+                    business.days = FALSE,
+                    missing = "previous",
+                    index = FALSE) {
 
-    if (missing(timestamps))
+    if (missing(timestamps)) {
+        if (index)
+            stop("timestamps must be supplied")
         timestamps <- seq(from = start,
                           to = end,
                           by = "1 day")
 
+    } else if (is.unsorted(timestamps))
+        stop("timestamps must be sorted")
+        
+    period <- tolower(period)
     if (period == "month") {
         by <- format(timestamps, "%Y-%m")
-            
-        
-
-    }
+    } else if (period == "quarter") {
+        by <- as.POSIXlt(timestamps)$mon %/% 3L + 1L
+    } else
+        stop("unknown period")
     if (n == "last") {
         lby <- length(by)
         rby <- by[lby:1]
         ii <- lby - match(unique(by), rby) + 1L
     } else if (n == "first") {
-
-
+        ii <- match(unique(by), by)
     } else {
-        
-
+        stop("only keywords first and last are implemented")
     }
         
-
-        
+    if (index) {
+        ii
+    } else
+        timestamps[ii]
 }
 
 .dt_patterns <- c(
