@@ -2,8 +2,8 @@ test.last_weekday <- function() {
 
     x <- as.Date(c("1996-05-30","1996-05-20"))
 
-    checkEquals(last_weekday(6, x, 0),
-                structure(c(9641, 9641), class = "Date"))
+    checkEquals(last_weekday(6, x, 0), structure(c(9641, 9641), class
+                = "Date"))
 
     checkEquals(last_weekday(6, x, -1),
                 structure(c(9641, 9641), class = "Date") - 7)
@@ -273,4 +273,27 @@ test.end_of_month <- function() {
             c("2016-12-31",
               "2017-11-30",
               "2017-07-31"))))    
+}
+
+
+test.nth_day <- function() {
+    sq <- seq(as.Date("2000-1-1"), as.Date("2001-11-30"), by = "day")
+
+    checkEquals(nth_day(sq, "quarter", n = "first"),
+                structure(c(10957, 11048, 11139, 11231,
+                            11323, 11413, 11504, 11596),
+                          class = "Date"))
+    
+    checkEquals(nth_day(sq, "quarter", n = "last"),
+                structure(c(11047, 11138, 11230, 11322,
+                            11412, 11503, 11595, 11656),
+                          class = "Date"))
+
+    checkEquals(nth_day(sq, "halfyear", n = "first"),
+                structure(c(10957, 11139, 11323, 11504),
+                          class = "Date"))
+
+    checkEquals(nth_day(sq, "halfyear", n = "last"),
+                structure(c(11138, 11322, 11503, 11656),
+                          class = "Date"))
 }

@@ -47,9 +47,13 @@ nth_day(timestamps, period = "month", n,
 }
 \value{
 
+  
+  
   A vector of timestamps or, if \code{index} is \code{TRUE}, a vector of
   integers.
 
+  The function is experimental and its behaviour may change.
+  
 }
 \author{
   Enrico Schumann

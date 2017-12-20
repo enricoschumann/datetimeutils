@@ -1,3 +1,8 @@
+2017-12-20  Enrico Schumann  <es@enricoschumann.net>
+
+	* R/functions.R (nth_day): fix computation when
+	'period' is "quarter"; add period "halfyear"
+
 2017-12-13  Enrico Schumann  <es@enricoschumann.net>
 
 	* R/functions.R (nth_day): add function

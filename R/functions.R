@@ -322,14 +322,24 @@ nth_day <- function(timestamps,
 
     } else if (is.unsorted(timestamps))
         stop("timestamps must be sorted")
-        
-    period <- tolower(period)
+
+    if (all(is.character(period)))
+        period <- tolower(period)
+
     if (period == "month") {
         by <- format(timestamps, "%Y-%m")
     } else if (period == "quarter") {
-        by <- as.POSIXlt(timestamps)$mon %/% 3L + 1L
+        by <- paste(year(timestamps),
+                    as.POSIXlt(timestamps)$mon %/% 3L + 1L)
+    } else if (period == "halfyear" || period == "half-year") {
+        by <- paste(year(timestamps),
+                    as.POSIXlt(timestamps)$mon %/% 6L + 1L)
+        ## mon <- month(timestamps)
+        ## timestamps <- timestamps[mon == 1L | mon == 7L]
+        ## by <- format(timestamps, "%Y-%m")
     } else
         stop("unknown period")
+
     if (n == "last") {
         lby <- length(by)
         rby <- by[lby:1]
