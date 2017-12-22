@@ -73,11 +73,14 @@ guess_datetime(s)
 @ 
 
 
-\noindent \textbf{Days of the week}
+\noindent \textbf{Days of the week (or some other calendar period)}
 
 <<>>=
 last_weekday(5, as.Date("2017-1-1"))   ## last Friday of Jan 2017
 nth_weekday(1, as.Date("2017-1-1"), 2) ## second Monday of Jan 2017
+
+dates <- seq(as.Date("2012-1-1"), as.Date("2013-4-15"), by = "day")
+nth_day(dates, period = "quarter", n = "first")
 @ 
 \appendix
 <<results=tex>>=
