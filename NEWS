@@ -1,3 +1,7 @@
+v0.2-9  (2018-01-05)
+
+  o new functions 'year', 'month' and 'nth_day'
+
 v0.2-8  (2017-10-11)
 
   o minor change in example for 'timegrid' to avoid
