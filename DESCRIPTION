@@ -6,7 +6,8 @@ Date: 2018-01-05
 Maintainer: Enrico Schumann <es@enricoschumann.net>
 Authors@R: person("Enrico", "Schumann",
                   role  = c("aut", "cre"),
-                  email = "es@enricoschumann.net")
+                  email = "es@enricoschumann.net",
+                  comment = c(ORCID = "0000-0001-7601-6576"))
 Description: Utilities for handling dates and times, such
    as selecting particular days of the week or month,
    formatting timestamps as required by RSS feeds, or
