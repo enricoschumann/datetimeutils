@@ -315,40 +315,55 @@ nth_day <- function(timestamps,
 
     if (missing(timestamps)) {
         if (index)
-            stop("timestamps must be supplied")
+            stop(sQuote("index"), " is TRUE but no ",
+                 sQuote("timestamps"), " supplied")
         timestamps <- seq(from = start,
                           to = end,
                           by = "1 day")
-
-    } else if (is.unsorted(timestamps))
-        stop("timestamps must be sorted")
-
+        
+    } else if (is.unsorted(timestamps)) {
+        warning(sQuote("timestamps"), " was unsorted")
+        timestamps <- sort(timestamps)
+    }
+        
     if (all(is.character(period)))
-        period <- tolower(period)
+        period <- tolower(period)        
 
-    if (period == "month") {
+    jj <- NULL
+    if (period[1] == "month") {
         by <- format(timestamps, "%Y-%m")
-    } else if (period == "quarter") {
+    } else if (period[1] == "quarter") {
         by <- paste(year(timestamps),
                     as.POSIXlt(timestamps)$mon %/% 3L + 1L)
-    } else if (period == "halfyear" || period == "half-year") {
+    } else if (period[1] == "halfyear" || period[1] == "half-year") {
         by <- paste(year(timestamps),
                     as.POSIXlt(timestamps)$mon %/% 6L + 1L)
         ## mon <- month(timestamps)
         ## timestamps <- timestamps[mon == 1L | mon == 7L]
         ## by <- format(timestamps, "%Y-%m")
+    } else if (all(is.numeric(period)) && all(period < 13)) {
+        by <- format(timestamps, "%Y-%m")
     } else
-        stop("unknown period")
-
+        stop("unknown ", sQuote("period"))
+    
     if (n == "last") {
         lby <- length(by)
         rby <- by[lby:1]
         ii <- lby - match(unique(by), rby) + 1L
     } else if (n == "first") {
         ii <- match(unique(by), by)
-    } else {
-        stop("only keywords first and last are implemented")
-    }
+    } else if (is.numeric(n) && 
+               all(is.numeric(period)) &&
+               all(period < 13)) {
+        jj <- which(month(timestamps) %in% period)
+        timestamps_ <- timestamps[jj]
+        ans <- unname(tapply(timestamps_,
+                             INDEX = format(timestamps_, "%Y-%m"),
+                             function(x) x[n]))        
+        class(ans) <- class(timestamps_)
+        ii <- match(ans, timestamps)
+    } else
+        stop("unknown ", sQuote("n"))
         
     if (index) {
         ii

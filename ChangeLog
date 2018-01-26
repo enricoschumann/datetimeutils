@@ -1,3 +1,16 @@
+2018-01-26  Enrico Schumann  <es@enricoschumann.net>
+
+	* DESCRIPTION (Version): 0.2-10
+
+	* R/functions.R (nth_day): unsorted
+	'timestamps' get automatically sorted (instead
+	of raising an error)
+
+2018-01-16  Enrico Schumann  <es@enricoschumann.net>
+
+	* R/functions.R (nth_day): support numeric
+	'period', which is interpreted as month
+
 2018-01-05  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Version): 0.2-9

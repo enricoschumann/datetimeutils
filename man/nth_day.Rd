@@ -74,5 +74,12 @@ nth_day(timestamps, period = "quarter", n = "last")
 nth_day(timestamps, period = "month", n = "last")
 ## [1] "2001-01-31" "2001-02-28" "2001-03-31" "2001-04-15"
 
+
+
+nth_day(start = as.Date("2016-06-03"),
+        end   = as.Date("2017-08-01"),
+        period = c(6, 12), n = 3)
+## [1] "2016-06-05" "2016-12-03" "2017-06-03"
+
 }
 \keyword{chron}

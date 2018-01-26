@@ -296,4 +296,11 @@ test.nth_day <- function() {
     checkEquals(nth_day(sq, "halfyear", n = "last"),
                 structure(c(11138, 11322, 11503, 11656),
                           class = "Date"))
+
+    checkEquals(nth_day(sq, period = c(2, 12), n = 5),
+                structure(c(10992, 11296, 11358), class = "Date"))
+
+    checkEquals(nth_day(sq, period = 1, n = 5),
+                dput(nth_day(sq, period = 1, n = 5)))
+    
 }
