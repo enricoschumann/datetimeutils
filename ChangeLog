@@ -1,3 +1,15 @@
+2018-02-05  Enrico Schumann  <es@enricoschumann.net>
+
+	* DESCRIPTION (Version): 0.2-11
+
+	* R/functions.R (timegrid): rename argument:
+	    excludeWeekends  =>  exclude.weekends
+	[ This is for consistency with other functions,
+          such as PMwR::plot_trading_hours ]
+
+	(nth_day): support period "year" and "week";
+	'n' may be numeric
+
 2018-01-26  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Version): 0.2-10

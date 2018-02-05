@@ -31,7 +31,7 @@ guess_datetime(s)
 
   The rules are followed in the given order; an element
   will be matched only once. If there is a match,
-  \code{strptime} will be tried with the \emph{assumed
+  \code{\link{strptime}} will be tried with the \emph{assumed
     format}.
 
   For elements that do not match any pattern or for
@@ -47,9 +47,9 @@ guess_datetime(s)
 \section{Warning }{
 
   If you know the format of a timestamp, then \bold{do
-  not use this function} (use strptime instead). If you
-  have no idea at all about the format of a timestamp,
-  then \bold{do not use this function}.
+  not use this function} (use \code{\link{strptime}}
+  instead). If you have no idea at all about the format
+  of a timestamp, then \bold{do not use this function}.
 
 }
 

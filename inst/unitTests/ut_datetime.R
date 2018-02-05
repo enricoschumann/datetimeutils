@@ -300,7 +300,18 @@ test.nth_day <- function() {
     checkEquals(nth_day(sq, period = c(2, 12), n = 5),
                 structure(c(10992, 11296, 11358), class = "Date"))
 
-    checkEquals(nth_day(sq, period = 1, n = 5),
-                dput(nth_day(sq, period = 1, n = 5)))
-    
+    checkEquals(nth_day(sq, period = 2, n = 5),
+                structure(c(10992, 11358), class = "Date"))
+
+    checkEquals(nth_day(sq, period = "year", n = 5),
+                structure(c(10961, 11327), class = "Date"))
+
+    checkEquals(nth_day(sq, period = "month", n = 6),
+                structure(c(10962, 10993, 11022, 11053,
+                            11083, 11114, 11144, 11175,
+                            11206, 11236, 11267, 11297,
+                            11328, 11359, 11387, 11418,
+                            11448, 11479, 11509, 11540,
+                            11571, 11601, 11632),
+                          class = "Date"))
 }

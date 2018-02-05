@@ -2,7 +2,8 @@
 
                                         # DATES
 
-prev_bday  <- previous_businessday <- function (x, holidays = NULL, shift = -1) {
+prev_bday  <- previous_businessday <-
+    function (x, holidays = NULL, shift = -1) {
     if (!is.null(holidays))
         .NotYetUsed("holidays", FALSE)
     if (!all(inherits(x, "Date") | inherits(x, "POSIXt")))
@@ -29,7 +30,8 @@ prev_bday  <- previous_businessday <- function (x, holidays = NULL, shift = -1) 
     x
 }
 
-next_bday  <- next_businessday <- function(x, holidays = NULL, shift = 1) {
+next_bday  <- next_businessday <-
+    function(x, holidays = NULL, shift = 1) {
     if (!is.null(holidays))
         .NotYetUsed("holidays", FALSE)
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
@@ -166,7 +168,10 @@ nth_weekday <- function(weekday, x, n = 1L) {
     weekday1 <- tmp$wday            ## when 'mday' is changed
     as.Date(tmp) + (weekday - weekday1) %% 7L + 7L*(n - 1L)
 }
+
+
                                         # TIMES
+
 make_hhmmss <- function(x, label = "time specification (HHMMSS)") {
     x <- as.character(x)
     if (nchar(x) == 1L)
@@ -189,7 +194,7 @@ make_hhmmss <- function(x, label = "time specification (HHMMSS)") {
 }
 
 timegrid <- function(from, to, interval,
-                     excludeWeekends = TRUE,
+                     exclude.weekends = TRUE,
                      holidays   = NULL,
                      fromHHMMSS = "080000",
                      toHHMMSS   = "220000") {
@@ -211,9 +216,12 @@ timegrid <- function(from, to, interval,
     tz <- attr(from, "tzone")
     lt <- as.POSIXlt(grd, tz = if (is.null(tz)) "" else tz)
     tmp <- lt$hour*10000 + lt$min*100 + lt$sec
-    if (excludeWeekends)
+    if (exclude.weekends)
         grd <- grd[lt$wday > 0L & lt$wday < 6L &
                    as.numeric(fromHHMMSS) <= tmp &
+                   as.numeric(toHHMMSS) >= tmp]
+    else
+        grd <- grd[as.numeric(fromHHMMSS) <= tmp &
                    as.numeric(toHHMMSS) >= tmp]
     as.POSIXct(grd)
 }
@@ -325,12 +333,16 @@ nth_day <- function(timestamps,
         warning(sQuote("timestamps"), " was unsorted")
         timestamps <- sort(timestamps)
     }
-        
+
+    if (business.days) {
+        timestamps <-
+            timestamps[is_businessday(timestamps)]
+    }
+
     if (all(is.character(period)))
         period <- tolower(period)        
 
-    jj <- NULL
-    if (period[1] == "month") {
+    if (period[1L] == "month") {
         by <- format(timestamps, "%Y-%m")
     } else if (period[1] == "quarter") {
         by <- paste(year(timestamps),
@@ -338,9 +350,10 @@ nth_day <- function(timestamps,
     } else if (period[1] == "halfyear" || period[1] == "half-year") {
         by <- paste(year(timestamps),
                     as.POSIXlt(timestamps)$mon %/% 6L + 1L)
-        ## mon <- month(timestamps)
-        ## timestamps <- timestamps[mon == 1L | mon == 7L]
-        ## by <- format(timestamps, "%Y-%m")
+    } else if (period[1] == "year") {
+        by <- format(timestamps, "%Y")        
+    } else if (period[1] == "week") {
+        by <- (as.numeric(timestamps) - 4) %/% 7
     } else if (all(is.numeric(period)) && all(period < 13)) {
         by <- format(timestamps, "%Y-%m")
     } else
@@ -362,6 +375,12 @@ nth_day <- function(timestamps,
                              function(x) x[n]))        
         class(ans) <- class(timestamps_)
         ii <- match(ans, timestamps)
+    } else if (is.numeric(n)) { 
+        ans <- unname(tapply(timestamps,
+                             INDEX = by,
+                             function(x) x[n]))        
+        class(ans) <- class(timestamps)
+        ii <- match(ans, timestamps)        
     } else
         stop("unknown ", sQuote("n"))
         

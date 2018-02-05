@@ -7,7 +7,8 @@
   Build an equally-spaced sequence of POSIXct timestamps.
 }
 \usage{
-timegrid(from, to, interval, excludeWeekends = TRUE, holidays = NULL,
+timegrid(from, to, interval,
+         exclude.weekends = TRUE, holidays = NULL,
          fromHHMMSS = "080000", toHHMMSS = "220000")
 }
 \arguments{
@@ -27,7 +28,7 @@ timegrid(from, to, interval, excludeWeekends = TRUE, holidays = NULL,
     separated by white space.
 
   }
-  \item{excludeWeekends}{
+  \item{exclude.weekends}{
     logical; default is \code{TRUE}
   }
   \item{fromHHMMSS}{

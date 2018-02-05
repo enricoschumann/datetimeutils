@@ -1,3 +1,17 @@
+v0.2-11  (2018-02-05)
+
+  o timegrid: argument 'excludeWeekends' was renamed
+    to 'exclude.weekends' (for consistency with
+    other functions, such as PMwR::plot_trading_hours)
+
+  o nth_day: argument 'period' may now also be
+    "week" or "year"; argument 'n' may now also be
+    numeric
+
+v0.2-10  (2018-01-26)
+
+  o nth_day: argument 'period' may  be numeric
+
 v0.2-9  (2018-01-05)
 
   o new functions 'year', 'month' and 'nth_day'
