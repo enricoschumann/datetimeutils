@@ -19,14 +19,14 @@ nth_day(timestamps, period = "month", n,
     timestamps: a vector of Dates
   }
   \item{period}{
-    character or numeric: currently supported are
+    numeric or character: currently supported are
     \code{"week"}, \code{"month"}, \code{"quarter"},
     \code{"halfyear"}, \code{"year"}. If numeric,
     period is interpreted as a month number (January
     being 1). See Examples.
   }
   \item{n}{
-    character or numeric: currently supported
+    numeric or character: currently supported
     are \code{"first"} and \code{"last"}
   }
   \item{start}{
@@ -49,13 +49,15 @@ nth_day(timestamps, period = "month", n,
 }
 \details{
 
+  The function computes sequences of dates that are
+  often used as reference dates, for instance in
+  financial reporting: last day of the month or of the
+  year, or a particular day of the month.
+  
   The function takes a vector of timestamps and returns
-  a subset of these.
-
-  Instead of passing a vector of timestamps,
-  a sequence of calendar days may be
-  constructed by specifying \code{start} and
-  \code{end}.
+  a subset of these timestamps. Alternatively, a
+  sequence of calendar days may be constructed by
+  specifying \code{start} and \code{end}.
   
   The function is experimental and its
   behaviour may change.
@@ -88,6 +90,9 @@ nth_day(timestamps, period = "quarter", n = "last")
 
 nth_day(timestamps, period = "quarter", n = 10)
 ## [1] "2001-01-10" "2001-04-10"
+
+nth_day(timestamps, period = "quarter", n = 1:2)
+## [1] "2001-01-01" "2001-01-02" "2001-04-01" "2001-04-02"
 
 nth_day(timestamps, period = "month", n = "last")
 ## [1] "2001-01-31" "2001-02-28" "2001-03-31" "2001-04-15"

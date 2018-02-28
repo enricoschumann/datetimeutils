@@ -359,11 +359,11 @@ nth_day <- function(timestamps,
     } else
         stop("unknown ", sQuote("period"))
     
-    if (n == "last") {
+    if (n[1L] == "last") {
         lby <- length(by)
         rby <- by[lby:1]
         ii <- lby - match(unique(by), rby) + 1L
-    } else if (n == "first") {
+    } else if (n[1L] == "first") {
         ii <- match(unique(by), by)
     } else if (is.numeric(n) && 
                all(is.numeric(period)) &&
@@ -376,9 +376,9 @@ nth_day <- function(timestamps,
         class(ans) <- class(timestamps_)
         ii <- match(ans, timestamps)
     } else if (is.numeric(n)) { 
-        ans <- unname(tapply(timestamps,
+        ans <- unname(unlist(tapply(timestamps,
                              INDEX = by,
-                             function(x) x[n]))        
+                             function(x) x[n])))
         class(ans) <- class(timestamps)
         ii <- match(ans, timestamps)        
     } else

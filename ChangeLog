@@ -1,3 +1,10 @@
+2018-02-28  Enrico Schumann  <es@enricoschumann.net>
+
+	* DESCRIPTION (Version): 0.2-12
+
+	* R/functions.R (nth_day): support 'n'
+	of length > 1
+
 2018-02-05  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Version): 0.2-11

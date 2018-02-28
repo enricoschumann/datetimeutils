@@ -277,6 +277,7 @@ test.end_of_month <- function() {
 
 
 test.nth_day <- function() {
+
     sq <- seq(as.Date("2000-1-1"), as.Date("2001-11-30"), by = "day")
 
     checkEquals(nth_day(sq, "quarter", n = "first"),
@@ -314,4 +315,36 @@ test.nth_day <- function() {
                             11448, 11479, 11509, 11540,
                             11571, 11601, 11632),
                           class = "Date"))
+
+    checkEquals(nth_day(sq, n = 1:2),
+                structure(c(10957, 10958, 10988, 10989,
+                            11017, 11018, 11048, 11049,
+                            11078, 11079, 11109, 11110,
+                            11139, 11140, 11170, 11171,
+                            11201, 11202, 11231, 11232,
+                            11262, 11263, 11292, 11293,
+                            11323, 11324, 11354, 11355,
+                            11382, 11383, 11413, 11414,
+                            11443, 11444, 11474, 11475,
+                            11504, 11505, 11535, 11536,
+                            11566, 11567, 11596, 11597,
+                            11627, 11628),
+                          class = "Date"))
+
+}
+
+test.year <- function() {
+    checkEquals(year(as.Date("2018-1-1")+1:3),
+                rep(2018, 3))
+    checkEquals(year(as.Date("2018-1-1")+1:3,
+                     as.character = TRUE),
+                rep("2018", 3))    
+}
+
+test.month <- function() {
+    checkEquals(month(as.Date("2017-12-31")+0:1),
+                c(12,1))
+    checkEquals(month(as.Date("2017-12-31")+0:1,
+                     as.character = TRUE),
+                c("12","1"))
 }

@@ -23,7 +23,7 @@
 \SweaveOpts{keep.source = TRUE, eps = TRUE}
 
 <<echo=false>>=
-options(continue = "  ", digits = 3, width = 60, useFancyQuotes = FALSE)
+options(continue = "  ", digits = 3, width = 70, useFancyQuotes = FALSE)
 require("datetimeutils")
 @
 
@@ -60,7 +60,7 @@ convert_tz("2016-05-10 12:00:00", "Europe/Berlin", "America/Chicago")
 <<>>=
 is_weekend(as.Date("2017-1-5"))
 next_businessday(as.Date("2017-1-5"))   ## there is also 'previous_businessday'
-next_businessday(as.Date("2017-1-5"), shift = 2)     ## short-hand: 'next_bday'
+next_businessday(as.Date("2017-1-5"), shift = 2)  ## short-hand: 'next_bday'
 @ 
 
 \noindent \textbf{Guess Timestamp Format}
