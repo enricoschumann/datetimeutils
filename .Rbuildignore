@@ -3,6 +3,7 @@
 .gitignore
 R/dev.R
 TODO
+TODO.org
 manual
 various
 ChangeLog

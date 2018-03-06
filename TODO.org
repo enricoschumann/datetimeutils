@@ -1,0 +1,49 @@
+#+TITLE: datetimeutils: Things to do, ideas, ...
+#+AUTHOR: Enrico Schumann
+#+CATEGORY: PMwR
+
+* general
+
+** more datetime helpers?
+
+   hour(x)
+   yday(x)
+   wday(x)
+   mday(x)
+   week(x)
+   month(x) => implemented
+   quarter(x)
+   year(x)  => implemented
+
+** =is_weekday=?
+
+   is_thursday <- function(x) {
+       unclass(as.Date(x)) %% 7 == 0L
+   }
+   
+   is_monday <- function(x) {
+       unclass(as.Date(x)) %% 7 == 4L
+   }
+   
+
+* =btest=
+
+** support multiplier?
+
+
+* =pricetable=
+
+** add 'drop' argument to return matrix?
+
+
+* =position= [0/1]
+
+** TODO =when= keywords
+
+   endofyear
+   endofquarter
+
+
+* =journal= [0/1]
+
+** TODO all.equal method
