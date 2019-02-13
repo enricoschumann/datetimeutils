@@ -348,3 +348,13 @@ test.month <- function() {
                      as.character = TRUE),
                 c("12","1"))
 }
+
+test.end_of_quarter <- function() {
+    dates <- as.Date("1999-1-1") + 0:5000
+
+    dates2 <- end_of_month(as.Date(paste(
+        year(dates),
+        as.numeric(substr(quarters(dates, TRUE), 2, 2))*3,
+        1), format = "%Y %m %d"))
+    checkEquals(end_of_quarter(dates), dates2)    
+}

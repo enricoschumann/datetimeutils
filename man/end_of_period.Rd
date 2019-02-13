@@ -4,6 +4,7 @@
 \alias{mday<-}
 \alias{mday}
 \alias{end_of_month}
+\alias{end_of_quarter}
 \alias{end_of_year}
 \alias{end_of_previous_year}
 \alias{end_of_previous_month}
@@ -31,6 +32,8 @@ end_of_previous_month(x)
 first_of_year(x)
 end_of_year(x, shift = 0L)
 end_of_previous_year(x)
+
+end_of_quarter(x, shift = 0L)
 
 day_of_month(x)
 day_of_month(x) <- value
@@ -89,7 +92,7 @@ year(x, as.character = FALSE)
   Many useful functions are also in package \pkg{chron}.
 }
 \examples{
-## vectorisation: x *or* shift (but not both)
+## vectorisation: x *or* shift (but not both!)
 end_of_month(as.Date("2013-01-15"), shift = c(-1, 0, 1))
 end_of_month(as.Date("2013-01-15") + 0:100)
 

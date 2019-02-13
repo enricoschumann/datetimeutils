@@ -1,3 +1,7 @@
+2019-02-13  Enrico Schumann  <es@enricoschumann.net>
+
+	* R/functions.R (end_of_quarter): add function
+
 2018-02-28  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Version): 0.2-12

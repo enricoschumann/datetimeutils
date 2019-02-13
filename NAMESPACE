@@ -8,6 +8,7 @@ export(
     day_of_month,
     end_of_month,
     end_of_previous_month,
+    end_of_quarter,
     end_of_year,
     end_of_previous_year,
     first_of_month,
