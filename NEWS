@@ -2,6 +2,9 @@ v0.2-13  (????-??-??; not yet released)
 
   o new function 'end_of_quarter'
 
+  o nth_day: argument 'period' may now also
+    be a month name
+
 v0.2-12  (2018-02-28)
 
   o nth_day: argument 'n' may be of length greater than 1

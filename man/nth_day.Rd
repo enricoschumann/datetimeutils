@@ -16,18 +16,30 @@ nth_day(timestamps, period = "month", n,
 }
 \arguments{
   \item{timestamps}{
-    timestamps: a vector of Dates
+
+    timestamps: a sorted vector of Dates
+
   }
   \item{period}{
-    numeric or character: currently supported are
-    \code{"week"}, \code{"month"}, \code{"quarter"},
-    \code{"halfyear"}, \code{"year"}. If numeric,
-    period is interpreted as a month number (January
-    being 1). See Examples.
+
+    numeric or character: supported are \code{"week"},
+    \code{"month"}, \code{"quarter"},
+    \code{"halfyear"}, \code{"year"}.  If numeric,
+    period is interpreted as a month number, with
+    January being 1.  Also possible are month names,
+    either English as in \code{\link{month.name}} or
+    \code{\link{month.abb}}, or as defined in the
+    current locale (see \code{\link{strftime}} format
+    specification \code{"\%b"} and \code{"\%B"}).
+
   }
   \item{n}{
-    numeric or character: currently supported
-    are \code{"first"} and \code{"last"}
+
+    numeric or character: currently supported are
+    \code{"first"} and \code{"last"}. If numeric, it
+    will be interpreted as the \emph{n}-th day of the
+    period.
+
   }
   \item{start}{
     \code{\link{Date}}
@@ -58,9 +70,6 @@ nth_day(timestamps, period = "month", n,
   a subset of these timestamps. Alternatively, a
   sequence of calendar days may be constructed by
   specifying \code{start} and \code{end}.
-  
-  The function is experimental and its
-  behaviour may change.
 
 }
 \value{
@@ -68,9 +77,6 @@ nth_day(timestamps, period = "month", n,
   A vector of timestamps or, if \code{index} is
   \code{TRUE}, a vector of integers.
 
-  The function is experimental and its
-  behaviour may change.
-  
 }
 \author{
   Enrico Schumann
@@ -102,6 +108,12 @@ nth_day(start = as.Date("2016-06-03"),
         end   = as.Date("2017-08-01"),
         period = c(6, 12), n = 3)
 ## [1] "2016-06-05" "2016-12-03" "2017-06-03"
+
+nth_day(start = as.Date("2016-06-03"),
+        end   = as.Date("2017-08-01"),
+        period = c("Jun", "Dec"), n = c(3, 5))
+## [1] "2016-06-05" "2016-06-07" "2016-12-03" "2016-12-05"
+## [5] "2017-06-03" "2017-06-05"
 
 }
 \keyword{chron}

@@ -339,7 +339,8 @@ nth_day <- function(timestamps,
                           by = "1 day")
         
     } else if (is.unsorted(timestamps)) {
-        warning(sQuote("timestamps"), " was unsorted")
+        if (index)
+            warning(sQuote("timestamps"), " was unsorted")
         timestamps <- sort(timestamps)
     }
 
@@ -351,37 +352,63 @@ nth_day <- function(timestamps,
     if (all(is.character(period)))
         period <- tolower(period)        
 
+    loc.name <- format(structure(c(17897, 17928, 17956, 17987,
+                                   18017, 18048, 18078, 18109,
+                                   18140, 18170, 18201, 18231),
+                                 class = "Date"), "%B")
+    loc.abb <- format(structure(c(17897, 17928, 17956, 17987,
+                                  18017, 18048, 18078, 18109,
+                                  18140, 18170, 18201, 18231),
+                                class = "Date"), "%b")
+    
+    if (all(period %in%
+            (mon <- tolower(c(loc.name, loc.abb))))) {
+        m <- match(period, mon, nomatch = 0L)
+        period[m > 0L] <- rep(1:12, 2)[m][m > 0L]
+        period <- as.numeric(period)    
+    } else if (all(period %in%
+                   (mon <- tolower(c(month.name, month.abb))))) {
+        m <- match(period, tolower(month.abb), nomatch = 0L)
+        period[m > 0L] <- rep(1:12, 2)[m][m > 0L]
+        period <- as.numeric(period)
+    }
+    
     if (period[1L] == "month") {
         by <- format(timestamps, "%Y-%m")
-    } else if (period[1] == "quarter") {
+    } else if (period[1L] == "quarter") {
         by <- paste(year(timestamps),
                     as.POSIXlt(timestamps)$mon %/% 3L + 1L)
-    } else if (period[1] == "halfyear" || period[1] == "half-year") {
+    } else if (period[1L] == "halfyear" || period[1] == "half-year") {
         by <- paste(year(timestamps),
                     as.POSIXlt(timestamps)$mon %/% 6L + 1L)
-    } else if (period[1] == "year") {
+    } else if (period[1L] == "year") {
         by <- format(timestamps, "%Y")        
-    } else if (period[1] == "week") {
+    } else if (period[1L] == "week") {
         by <- (as.numeric(timestamps) - 4) %/% 7
     } else if (all(is.numeric(period)) && all(period < 13)) {
         by <- format(timestamps, "%Y-%m")
     } else
         stop("unknown ", sQuote("period"))
     
-    if (n[1L] == "last") {
+    if (n[1L] == "last" && !all(is.numeric(period))) {
         lby <- length(by)
         rby <- by[lby:1]
         ii <- lby - match(unique(by), rby) + 1L
-    } else if (n[1L] == "first") {
+    } else if (n[1L] == "first" && !all(is.numeric(period))) {
         ii <- match(unique(by), by)
-    } else if (is.numeric(n) && 
-               all(is.numeric(period)) &&
+    } else if (all(is.numeric(period)) &&
                all(period < 13)) {
         jj <- which(month(timestamps) %in% period)
         timestamps_ <- timestamps[jj]
-        ans <- unname(tapply(timestamps_,
+        FUN <- if (n[1L] == "first")
+            function(x) x[1L]
+        else if (n[1L] == "last")
+            function(x) x[length(x)]
+        else
+            function(x) x[n]
+        ans <- unlist(tapply(timestamps_,
                              INDEX = format(timestamps_, "%Y-%m"),
-                             function(x) x[n]))        
+                             FUN = FUN), use.names = FALSE)
         class(ans) <- class(timestamps_)
         ii <- match(ans, timestamps)
     } else if (is.numeric(n)) { 

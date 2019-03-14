@@ -331,6 +331,29 @@ test.nth_day <- function() {
                             11627, 11628),
                           class = "Date"))
 
+
+
+    for (m in month.name)
+        checkEquals(nth_day(sq, period = m, n = "first"),
+                    nth_day(sq, period = which(m == month.name),
+                            n = "first"))
+    for (m in month.name)
+        checkEquals(nth_day(sq, period = m, n = 1),
+                    nth_day(sq, period = which(m == month.name), n = 1))
+
+    for (m in month.name)
+        checkEquals(nth_day(sq, period = m, n = 1:2),
+                    nth_day(sq, period = which(m == month.name), n = 1:2))
+    
+    checkEquals(nth_day(sq, period = c("April", "jan"), n = 2:3),
+                structure(c(10958, 10959, 11049, 11050,
+                            11324, 11325, 11414, 11415),
+                          class = "Date"))
+    checkEquals(nth_day(sq, period = "Dec", n = "first"),
+                as.Date("2000-12-01"))
+    checkEquals(nth_day(sq, period = "Nov", n = "first"),
+                as.Date(c("2000-11-01", "2001-11-01")))
+    
 }
 
 test.year <- function() {

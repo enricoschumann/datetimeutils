@@ -1,3 +1,8 @@
+2019-03-14  Enrico Schumann  <es@enricoschumann.net>
+
+	* R/functions.R (nth_day): support character
+	month names
+
 2019-02-13  Enrico Schumann  <es@enricoschumann.net>
 
 	* R/functions.R (end_of_quarter): add function
