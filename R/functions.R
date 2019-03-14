@@ -361,14 +361,9 @@ nth_day <- function(timestamps,
                                   18140, 18170, 18201, 18231),
                                 class = "Date"), "%b")
     
-    if (all(period %in%
-            (mon <- tolower(c(loc.name, loc.abb))))) {
+    if (all(period %in% (mon <- tolower(c(loc.name, loc.abb)))) ||
+        all(period %in% (mon <- tolower(c(month.name, month.abb))))) {
         m <- match(period, mon, nomatch = 0L)
-        period[m > 0L] <- rep(1:12, 2)[m][m > 0L]
-        period <- as.numeric(period)    
-    } else if (all(period %in%
-                   (mon <- tolower(c(month.name, month.abb))))) {
-        m <- match(period, tolower(month.abb), nomatch = 0L)
         period[m > 0L] <- rep(1:12, 2)[m][m > 0L]
         period <- as.numeric(period)
     }
