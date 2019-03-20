@@ -353,7 +353,19 @@ test.nth_day <- function() {
                 as.Date("2000-12-01"))
     checkEquals(nth_day(sq, period = "Nov", n = "first"),
                 as.Date(c("2000-11-01", "2001-11-01")))
-    
+
+    checkEquals(nth_day(n = 2, start = 2017, end = 2017),
+                seq(as.Date("2017-1-2"), as.Date("2017-12-2"),
+                    by = "1 month"))
+
+    checkEquals(nth_day(2017, n = 2),
+                seq(as.Date("2017-1-2"), as.Date("2017-12-2"),
+                    by = "1 month"))
+
+    checkEquals(nth_day(2017, period = "quarter", n = 2),
+                seq(as.Date("2017-1-2"), as.Date("2017-12-2"),
+                    by = "1 quarter"))
+
 }
 
 test.year <- function() {

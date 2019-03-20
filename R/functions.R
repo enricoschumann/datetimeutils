@@ -334,15 +334,29 @@ nth_day <- function(timestamps,
         if (index)
             stop(sQuote("index"), " is TRUE but no ",
                  sQuote("timestamps"), " supplied")
+        if (grepl("[0-9][0-9][0-9][0-9]", as.character(start)))
+            start <- as.Date(paste0(start, "-01-01"))
+        if (grepl("[0-9][0-9][0-9][0-9]", as.character(end)))
+            end   <- as.Date(paste0(end,   "-12-31"))
+        
         timestamps <- seq(from = start,
                           to = end,
                           by = "1 day")
+        
+    } else if (all(grepl("[0-9][0-9][0-9][0-9]", as.character(timestamps)))) {
+        timestamps <- sort(unique(unlist(lapply(
+            as.list(timestamps),
+            function(x) {
+            seq(from = as.Date(paste0(x, "-1-1")),
+                to = as.Date(paste0(x, "-12-31")),
+                by = "1 day")}))))
+        class(timestamps) <- "Date"
         
     } else if (is.unsorted(timestamps)) {
         if (index)
             warning(sQuote("timestamps"), " was unsorted")
         timestamps <- sort(timestamps)
-    }
+    } 
 
     if (business.days) {
         timestamps <-

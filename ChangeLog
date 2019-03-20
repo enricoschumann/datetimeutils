@@ -1,3 +1,10 @@
+2019-03-20  Enrico Schumann  <es@enricoschumann.net>
+
+	* R/functions.R (nth_day): 'timestamps',
+	'start' and 'end' may be simple years. For
+	start/end, they will be interpreted as
+	1 Jan/31 Dec of that year
+
 2019-03-14  Enrico Schumann  <es@enricoschumann.net>
 
 	* R/functions.R (nth_day): support character
