@@ -1,3 +1,7 @@
+2019-03-21  Enrico Schumann  <es@enricoschumann.net>
+
+	* DESCRIPTION (Version): 0.3-0
+
 2019-03-20  Enrico Schumann  <es@enricoschumann.net>
 
 	* R/functions.R (nth_day): 'timestamps',

@@ -1,9 +1,12 @@
-v0.2-13  (????-??-??; not yet released)
+v0.3-0  (2019-03-21)
 
   o new function 'end_of_quarter'
 
-  o nth_day: argument 'period' may now also
-    be a month name
+  o nth_day: argument 'period' may now also be a month
+    name. Arguments 'timestamps', 'start' and 'end' may
+    be simple years, such as "2000". For start/end,
+    they will be interpreted as 1 Jan/31 Dec of that
+    year.
 
 v0.2-12  (2018-02-28)
 
