@@ -149,7 +149,7 @@ day_of_month <- function(x) {
         as.Date(tmp)
     else if (cl == "POSIXct")
         as.POSIXct(tmp)
-    else 
+    else
         tmp
 }
 
@@ -215,7 +215,7 @@ timegrid <- function(from, to, interval,
              " must inherit from POSIXt")
     fromHHMMSS <- make_hhmmss(fromHHMMSS)
     toHHMMSS   <- make_hhmmss(toHHMMSS)
-    
+
     grd <- seq(from, to, by = interval)
     if (!is.null(holidays)) {
         if (!inherits(holidays, "Date"))
@@ -263,7 +263,7 @@ ssm <- function(time, tz = "") {
     if (tz == "UTC" || tz == "GMT")
         as.numeric(time) %% 86400
     else {
-        pt <- as.POSIXlt(time, tz)        
+        pt <- as.POSIXlt(time, tz)
         3600 * pt$hour + 60 * pt$min + pt$sec
     }
 }
@@ -274,12 +274,12 @@ convert_date <- function(x, type, fraction = FALSE, tz = "") {
         as.Date(x, origin = "1899-12-30")
     } else if (type == "excel") {
         tmp <- as.POSIXct(x * 86400, origin = "1899-12-30", tz = "UTC")
-        as.POSIXct(strptime(format(tmp), format = "%Y-%m-%d %H:%M:%S", tz = tz))        
+        as.POSIXct(strptime(format(tmp), format = "%Y-%m-%d %H:%M:%S", tz = tz))
     } else if (type == "matlab" && !fraction) {
         as.Date(x, origin = "1970-01-01") - 719529
     } else if (type == "matlab" && fraction) {
         tmp <- as.POSIXct((x - 719529) * 86400, origin = "1970-01-01")
-        as.POSIXct(strptime(format(tmp), format = "%Y-%m-%d %H:%M:%S", tz = tz))        
+        as.POSIXct(strptime(format(tmp), format = "%Y-%m-%d %H:%M:%S", tz = tz))
     } else
         stop("unknown type")
 }
@@ -306,14 +306,14 @@ convert_tz <- function(datetime, from = "", to = "") {
 }
 
 ## timestamps <- seq(as.Date("2015-1-1"), as.Date("2015-12-15"), by = "1 day")
-## ultimo, firstofmonth, 
+## ultimo, firstofmonth,
 ref_timestamp <- function(what, when = Sys.Date(), timestamps, index = FALSE) {
     what <- tolower(what)
     if (!is.null(when) && what == "mtd") {
         ii <- suppressWarnings(max(which(as.Date(timestamps) <=
                                          end_of_previous_month(as.Date(when)))))
         ii[ii == -Inf] <- 0
-        
+
     } else if (!is.null(when) && what == "ytd") {
         ii <- suppressWarnings(max(which(as.Date(timestamps) <=
                                          end_of_previous_year(as.Date(when)))))
@@ -325,7 +325,7 @@ ref_timestamp <- function(what, when = Sys.Date(), timestamps, index = FALSE) {
 
 nth_day <- function(timestamps,
                     period = "month", n,
-                    start, end, 
+                    start, end,
                     business.days = FALSE,
                     missing = "previous",
                     index = FALSE) {
@@ -334,29 +334,30 @@ nth_day <- function(timestamps,
         if (index)
             stop(sQuote("index"), " is TRUE but no ",
                  sQuote("timestamps"), " supplied")
-        if (grepl("[0-9][0-9][0-9][0-9]", as.character(start)))
+        if (grepl("^[0-9][0-9][0-9][0-9]$", trimws(as.character(start))))
             start <- as.Date(paste0(start, "-01-01"))
-        if (grepl("[0-9][0-9][0-9][0-9]", as.character(end)))
+        if (grepl("^[0-9][0-9][0-9][0-9]$", trimws(as.character(end))))
             end   <- as.Date(paste0(end,   "-12-31"))
-        
+
         timestamps <- seq(from = start,
                           to = end,
                           by = "1 day")
-        
-    } else if (all(grepl("[0-9][0-9][0-9][0-9]", as.character(timestamps)))) {
+
+    } else if (all(grepl("^[0-9][0-9][0-9][0-9]$",
+                         trimws(as.character(timestamps))))) {
         timestamps <- sort(unique(unlist(lapply(
             as.list(timestamps),
             function(x) {
-            seq(from = as.Date(paste0(x, "-1-1")),
-                to = as.Date(paste0(x, "-12-31")),
+            seq(from = as.Date(paste0(x, "-01-01")),
+                to =   as.Date(paste0(x, "-12-31")),
                 by = "1 day")}))))
         class(timestamps) <- "Date"
-        
+
     } else if (is.unsorted(timestamps)) {
         if (index)
             warning(sQuote("timestamps"), " was unsorted")
         timestamps <- sort(timestamps)
-    } 
+    }
 
     if (business.days) {
         timestamps <-
@@ -364,7 +365,7 @@ nth_day <- function(timestamps,
     }
 
     if (all(is.character(period)))
-        period <- tolower(period)        
+        period <- tolower(period)
 
     loc.name <- format(structure(c(17897, 17928, 17956, 17987,
                                    18017, 18048, 18078, 18109,
@@ -374,14 +375,14 @@ nth_day <- function(timestamps,
                                   18017, 18048, 18078, 18109,
                                   18140, 18170, 18201, 18231),
                                 class = "Date"), "%b")
-    
+
     if (all(period %in% (mon <- tolower(c(loc.name, loc.abb)))) ||
         all(period %in% (mon <- tolower(c(month.name, month.abb))))) {
         m <- match(period, mon, nomatch = 0L)
         period[m > 0L] <- rep(1:12, 2)[m][m > 0L]
         period <- as.numeric(period)
     }
-    
+
     if (period[1L] == "month") {
         by <- format(timestamps, "%Y-%m")
     } else if (period[1L] == "quarter") {
@@ -391,14 +392,14 @@ nth_day <- function(timestamps,
         by <- paste(year(timestamps),
                     as.POSIXlt(timestamps)$mon %/% 6L + 1L)
     } else if (period[1L] == "year") {
-        by <- format(timestamps, "%Y")        
+        by <- format(timestamps, "%Y")
     } else if (period[1L] == "week") {
         by <- (as.numeric(timestamps) - 4) %/% 7
     } else if (all(is.numeric(period)) && all(period < 13)) {
         by <- format(timestamps, "%Y-%m")
     } else
         stop("unknown ", sQuote("period"))
-    
+
     if (n[1L] == "last" && !all(is.numeric(period))) {
         lby <- length(by)
         rby <- by[lby:1]
@@ -420,15 +421,15 @@ nth_day <- function(timestamps,
                              FUN = FUN), use.names = FALSE)
         class(ans) <- class(timestamps_)
         ii <- match(ans, timestamps)
-    } else if (is.numeric(n)) { 
+    } else if (is.numeric(n)) {
         ans <- unname(unlist(tapply(timestamps,
                              INDEX = by,
                              function(x) x[n])))
         class(ans) <- class(timestamps)
-        ii <- match(ans, timestamps)        
+        ii <- match(ans, timestamps)
     } else
         stop("unknown ", sQuote("n"))
-        
+
     if (index) {
         ii
     } else

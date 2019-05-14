@@ -1,3 +1,11 @@
+2019-05-14  Enrico Schumann  <es@enricoschumann.net>
+
+	* DESCRIPTION (Version): 0.3-1
+
+	* R/functions.R (nth_day): fix regexp that
+	matches years (which also greatly improves
+	performance)
+
 2019-03-21  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Version): 0.3-0
