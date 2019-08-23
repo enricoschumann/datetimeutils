@@ -2,7 +2,7 @@ Package: datetimeutils
 Type: Package
 Title: Utilities for Dates and Times
 Version: 0.3-1
-Date: 2019-05-14
+Date: 2019-08-23
 Maintainer: Enrico Schumann <es@enricoschumann.net>
 Authors@R: person("Enrico", "Schumann",
                   role  = c("aut", "cre"),
@@ -20,4 +20,5 @@ Description: Utilities for handling dates and times, such
    use of R's native numeric representations of timestamps
    where possible.
 License: GPL-3
-URL: http://enricoschumann.net/R/packages/datetimeutils/
+URL: http://enricoschumann.net/R/packages/datetimeutils/,
+     https://github.com/enricoschumann/datetimeutils
