@@ -1,9 +1,11 @@
 .es_keywords
 .git
 .gitignore
+ChangeLog
 R/dev.R
+Scripts
 TODO
 TODO.org
+data/tznames.txt
 manual
 various
-ChangeLog

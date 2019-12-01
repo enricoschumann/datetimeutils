@@ -1,3 +1,10 @@
+2019-12-01  Enrico Schumann  <es@enricoschumann.net>
+
+	* DESCRIPTION (Version): 0.3-2
+
+	* data/tznames: add dataframe 'tznames'; see
+	?tznames and the file data/tznames.txt for details
+
 2019-05-14  Enrico Schumann  <es@enricoschumann.net>
 
 	* DESCRIPTION (Version): 0.3-1
