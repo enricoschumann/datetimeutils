@@ -481,3 +481,10 @@ month <- function(x, as.character = FALSE) {
     else
         as.POSIXlt(x)$mon + 1
 }
+
+.weekday <- function(dates)
+    unclass(dates + 4) %% 7
+
+.next_weekday <- function(wday, start, count = 1, interval = 1)
+    start + wday - unclass(start + 4) %% 7 +
+        interval*7L*(seq_len(count) - 1L)
