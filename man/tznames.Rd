@@ -5,24 +5,27 @@
   Timezone Names
 }
 \description{
-  A mapping of Olson to Windows timezone names.
+
+  A mapping between \code{tz} database (a.k.a. Olson database)
+  and Windows timezone names.
+
 }
 \usage{data("tznames")}
 \format{
-  A data frame with 596 observations on the following 2 variables.
+  A data frame of the following 2 variables:
   \describe{
 
     \item{\code{Windows}}{a character vector: the timezone names used
       under Windows and its applications (e.g. in Outlook calendars)}
 
-    \item{\code{Olson}}{a character vector the names returned by
+    \item{\code{Olson}}{a character vector of the names returned by
       \code{\link{OlsonNames}}}
 
  }
 }
 \details{
 
-  The data are auto-generated from file '\code{windowsZones.xml}' in the
+  The data are auto-generated from file \code{windowsZones.xml} in the
   Unicode Common Locale Data Repository
   (\url{http://cldr.unicode.org/}).  See
   \url{https://www.unicode.org/copyright.html} and
@@ -30,9 +33,6 @@
 
   There is no 1-to-1 mapping between names: several Olson names
   typically map to a single  Windows name.
-
-  Column \code{Olson} contains the names returned by
-  \code{\link{OlsonNames}}.
 
 }
 \source{
