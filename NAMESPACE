@@ -1,5 +1,3 @@
-## exportPattern("^[[:alpha:]]+")
-
 export(
     "day_of_month<-",
     "mday<-",
@@ -29,5 +27,8 @@ export(
     rfc822t,
     roundPOSIXt,
     timegrid,
-    year
+    year,
+    ## DATA
+    month.name.de,
+    month.abb.de.din1355.1
     )
