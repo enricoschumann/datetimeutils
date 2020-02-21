@@ -1,3 +1,10 @@
+2020-02-21  Enrico Schumann  <es@enricoschumann.net>
+
+        * R/functions.R (guess_datetime): support also
+        pattern "YYYYMMDD" (8 digits, starting with a 1 or 2)
+        (guess_datetime): new arguments 'date.only',
+        'within' and 'tz'
+
 2019-12-09  Enrico Schumann  <es@enricoschumann.net>
 
         * R/data.R: add vectors 'month.name.de' and

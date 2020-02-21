@@ -2,7 +2,7 @@ Package: datetimeutils
 Type: Package
 Title: Utilities for Dates and Times
 Version: 0.3-2
-Date: 2019-12-27
+Date: 2020-02-21
 Maintainer: Enrico Schumann <es@enricoschumann.net>
 Authors@R: c(person("Enrico", "Schumann",
                     role  = c("aut", "cre"),
