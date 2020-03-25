@@ -1,14 +1,15 @@
 Package: datetimeutils
 Type: Package
 Title: Utilities for Dates and Times
-Version: 0.3-2
-Date: 2020-02-21
+Version: 0.4-0
+Date: 2020-03-25
 Maintainer: Enrico Schumann <es@enricoschumann.net>
 Authors@R: c(person("Enrico", "Schumann",
                     role  = c("aut", "cre"),
                     email = "es@enricoschumann.net",
                     comment = c(ORCID = "0000-0001-7601-6576")),
-             person("Unicode, Inc.", role = c("dtc", "cph")))
+             person("Unicode, Inc.", role = c("dtc", "cph"),
+                    comment = "source of timezone names in 'tznames'"))
 Description: Utilities for handling dates and times, such
    as selecting particular days of the week or month,
    formatting timestamps as required by RSS feeds, or

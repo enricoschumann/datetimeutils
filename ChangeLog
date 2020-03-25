@@ -1,3 +1,7 @@
+2020-03-25  Enrico Schumann  <es@enricoschumann.net>
+
+        * DESCRIPTION (Version): 0.4-0
+
 2020-02-21  Enrico Schumann  <es@enricoschumann.net>
 
         * R/functions.R (guess_datetime): support also

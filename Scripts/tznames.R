@@ -26,4 +26,10 @@ cat("## -*- mode: org; -*-
 
 ", file = filename, append = FALSE, sep = "")
 
+## licence <- readLines("https://www.unicode.org/license.html")
+## i <- grep("</?pre>", licence)
+## licence <- licence[seq(i[1] + 1, i[2] - 1)]
+
+## cat(licence, file = filename, append = TRUE, sep = "\n")
+
 cat(toOrg(tznames), file = filename, append = TRUE, sep = "\n")

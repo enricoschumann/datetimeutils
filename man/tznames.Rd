@@ -23,6 +23,11 @@
 
  }
 }
+\source{
+
+  Unicode Common Locale Data Repository (CLDR) \url{http://cldr.unicode.org/}
+
+}
 \details{
 
   The data are auto-generated from file \code{windowsZones.xml} in the
@@ -35,18 +40,16 @@
   typically map to a single  Windows name.
 
 }
-\source{
-
-  Unicode Common Locale Data Repository (CLDR) \url{http://cldr.unicode.org/}
-
-}
 \references{
 
   See \url{https://www.iana.org/time-zones}
   and \url{http://web.cs.ucla.edu/~eggert/tz/tz-link.htm} for more
   information about the \code{tz} database.
 
-  See also \code{\link{OlsonNames}}
+  See also \code{\link{OlsonNames}}.
+
+  A plain-text table is at
+  \url{https://github.com/enricoschumann/datetimeutils/blob/master/data/tznames.txt}
 
 }
 \examples{

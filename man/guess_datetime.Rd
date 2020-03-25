@@ -7,12 +7,22 @@
   Tries to convert a character vector to POSIXct.
 }
 \usage{
-guess_datetime(s)
+guess_datetime(s, date.only = FALSE, within = FALSE, tz = "")
 }
 \arguments{
-  \item{s}{
-    character
-  }
+  \item{s}{character}
+
+  \item{date.only}{logical: try to guess dates only (if
+    \code{TRUE}) or times as well (if \code{FALSE})}
+
+  \item{within}{logical: ignore surrounding text? Note
+  that trailing text is always ignored, see
+  \code{\link{as.Date}}.}
+
+  \item{tz}{character: timezone to assume for
+  times. Default is the current timezone. See argument
+  \code{tz} in \code{\link{as.POSIXct}}}
+
 }
 \details{
 
@@ -26,17 +36,18 @@ guess_datetime(s)
     \emph{original pattern}     \tab \emph{assumed format}          \cr
     \code{dddd-dd-dd dd:dd:dd}  \tab \code{\%Y-\%m-\%d \%H:\%M:\%S} \cr
     \code{dd/dd/dddd dd:dd:dd}  \tab \code{\%m/\%d/\%Y \%H:\%M:\%S} \cr
-    \code{dd.dd.dddd dd:dd:dd}  \tab \code{\%d.\%m.\%Y \%H:\%M:\%S} 
+    \code{dd.dd.dddd dd:dd:dd}  \tab \code{\%d.\%m.\%Y \%H:\%M:\%S}
   }
 
   The rules are followed in the given order; an element
   will be matched only once. If there is a match,
-  \code{\link{strptime}} will be tried with the \emph{assumed
-    format}.
+  \code{\link{strptime}} will be tried with the
+  \emph{assumed format} (when date.only is \code{TRUE},
+  \code{\link{as.Date}} will be tried).
 
   For elements that do not match any pattern or for
   which \code{\link{strptime}} fails, \code{\link{NA}} is returned.
-  
+
 }
 \value{
   \code{\link{POSIXct}}
@@ -58,7 +69,7 @@ guess_datetime(s)
   \code{\link{strptime}}; see also the function
   \code{\link[anytime]{anytime}} in the package of the
   same name.
-  
+
 }
 \examples{
 s <- c("  1999-08-19     10:00:31   ",
@@ -76,7 +87,27 @@ rules <- as.data.frame(matrix(datetimeutils:::.dt_patterns,
                        stringsAsFactors = FALSE)
 names(rules) <- c("pattern", "assumed_format")
 rules
-
 }
+
+
+## ----------------------------------
+
+## a function for finding old files by looking at the
+## dates in filenames (e.g. in a backup directory)
+old_files <- function(min.age = 365,   ## in days
+                      path = ".",
+                      recursive = FALSE,
+                      full.names = FALSE) {
+
+    files <- dir(path, recursive = recursive, full.names = full.names)
+    dates <- guess_datetime(files, date.only = TRUE, within = TRUE)
+
+    age <- as.numeric(Sys.Date() - dates)
+    old <- age >= min.age
+
+    files[ !is.na(old) & old ]
+}
+
+
 }
 \keyword{chron}
