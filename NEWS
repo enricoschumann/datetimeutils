@@ -1,3 +1,10 @@
+v0.4-1  (????-??-??; not yet released)
+
+  o new functions 'hour' 'minute', and 'second', which
+    work just as 'year', etc.
+
+  o ....
+
 v0.4-0  (2020-03-25)
 
   o guess_datetime: the function now supports the date

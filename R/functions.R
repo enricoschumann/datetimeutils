@@ -509,6 +509,27 @@ month <- function(x, as.character = FALSE) {
         as.POSIXlt(x)$mon + 1
 }
 
+hour <- function(x, as.character = FALSE) {
+    if (as.character)
+        as.character(as.POSIXlt(Sys.time())$hour)
+    else
+        as.POSIXlt(Sys.time())$hour
+}
+
+minute <- function(x, as.character = FALSE) {
+    if (as.character)
+        as.character(as.POSIXlt(Sys.time())$min)
+    else
+        as.POSIXlt(Sys.time())$min
+}
+
+second <- function(x, as.character = FALSE) {
+    if (as.character)
+        as.character(as.POSIXlt(Sys.time())$sec)
+    else
+        as.POSIXlt(Sys.time())$sec
+}
+
 .weekday <- function(dates)
     unclass(dates + 4) %% 7
 
