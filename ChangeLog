@@ -1,3 +1,7 @@
+2021-02-11  Enrico Schumann  <es@enricoschumann.net>
+
+        * DESCRIPTION (Suggests): add 'tinytest'
+
 2020-09-03  Enrico Schumann  <es@enricoschumann.net>
 
         * R/functions.R (hour, minute, second): add

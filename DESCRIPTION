@@ -21,6 +21,7 @@ Description: Utilities for handling dates and times, such
    efficient implementations, through vectorisation and the
    use of R's native numeric representations of timestamps
    where possible.
+Suggests: tinytest
 License: GPL-3
 URL: http://enricoschumann.net/R/packages/datetimeutils/,
      https://github.com/enricoschumann/datetimeutils
