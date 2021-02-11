@@ -1,4 +1,4 @@
-v0.4-1  (????-??-??; not yet released)
+v0.4-1  (2021-??-??; not yet released)
 
   o new functions 'hour' 'minute', and 'second', which
     work just as 'year', etc.

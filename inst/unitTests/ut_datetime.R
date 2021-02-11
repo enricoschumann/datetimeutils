@@ -189,6 +189,8 @@ test.guess_datetime <- function() {
     checkTrue(all(as.character(guess_datetime(s)) ==
                   "1999-08-19 10:00:00"))
 
+    checkTrue(guess_datetime("date 12.02.2021",
+                   date.only = TRUE, within = TRUE))
 }
 
 test.end_of_year <- function() {

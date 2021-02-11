@@ -2,6 +2,11 @@
 
         * DESCRIPTION (Suggests): add 'tinytest'
 
+        * R/functions.R (guess_datetime): use more
+        explicit quantifiers
+        (guess_datetime): fix use of 'tz' argument,
+        which had been ignored
+
 2020-09-03  Enrico Schumann  <es@enricoschumann.net>
 
         * R/functions.R (hour, minute, second): add
