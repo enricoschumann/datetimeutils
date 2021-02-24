@@ -5,7 +5,7 @@
 \usepackage{libertine}
 \usepackage[scaled=0.8]{DejaVuSansMono}
 \usepackage[T1]{fontenc}
-\renewcommand*\familydefault{\sfdefault} 
+\renewcommand*\familydefault{\sfdefault}
 \usepackage{amsmath,amstext}
 \usepackage{hyperref}
 \usepackage{natbib}
@@ -45,14 +45,14 @@ require("datetimeutils")
 <<>>=
 convert_date(40000, "excel")
 convert_date(725935, "matlab")
-@ 
+@
 
 \noindent\textbf{\texttt{convert\_tz}}\smallskip
 
 \noindent Convert a timestamp from one timezone to another.
 <<>>=
 convert_tz("2016-05-10 12:00:00", "Europe/Berlin", "America/Chicago")
-@ 
+@
 
 \noindent \textbf{Business days}\smallskip
 
@@ -61,16 +61,16 @@ convert_tz("2016-05-10 12:00:00", "Europe/Berlin", "America/Chicago")
 is_weekend(as.Date("2017-1-5"))
 next_businessday(as.Date("2017-1-5"))   ## there is also 'previous_businessday'
 next_businessday(as.Date("2017-1-5"), shift = 2)  ## short-hand: 'next_bday'
-@ 
+@
 
 \noindent \textbf{Guess Timestamp Format}
 
 <<>>=
-s <- c(" 1999-08-19 10:00",  
+s <- c(" 1999-08-19 10:00",
        "19.8.1999 10:00",    ## Central-European, e.g. Germany
        "8/19/99 10:00:00")   ## US
 guess_datetime(s)
-@ 
+@
 
 
 \noindent \textbf{Days of the week (or some other calendar period)}
@@ -84,9 +84,9 @@ nth_day(dates, period = "quarter", n = "first")
 nth_day(dates, period = c("Jan", "April"), n = "first")
 nth_day(dates, period = c("Jan", "April"), n = "last")
 nth_day(dates, period = c("Jan", "April"), n = c(2, 5))
-@ 
+@
 \appendix
 <<results=tex>>=
 toLatex(sessionInfo())
-@ 
+@
 \end{document}

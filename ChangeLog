@@ -1,5 +1,8 @@
 2021-02-24  Enrico Schumann  <es@enricoschumann.net>
 
+	* R/functions.R (guess_datetime): new argument
+	'try.patterns'
+
         * data/tznames.txt: update timezone names;
         remove duplicates
 

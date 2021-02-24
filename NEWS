@@ -2,6 +2,9 @@ v0.5-0  (2021-??-??; not yet released)
 
   o fixed: argument 'tz' had been ignored by 'guess_datetime'
 
+  o 'guess_datetime' gets an argument 'try.patterns' that
+    lets the user specify additionals patterns
+    
   o new functions 'hour' 'minute', and 'second', which
     work just as 'year', etc.  
 

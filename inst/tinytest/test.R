@@ -199,6 +199,19 @@ expect_equal(guess_datetime("date 12.02.2021.",
                             date.only = TRUE, within = TRUE),
              as.Date("2021-02-12"))
 
+### with additional patterns
+
+s <- c("19-08-99")
+
+expect_true(is.na(guess_datetime(s, date.only = TRUE)))
+
+expect_equal(guess_datetime(
+    s,
+    try.patterns = c("[0-9]+-[0-9]+-[0-9]+", "%d-%m-%y"),
+    date.only = TRUE),
+    as.Date(s, "%d-%m-%y"))
+
+
 
 ## ---------------------
 
@@ -403,3 +416,6 @@ dates2 <- end_of_month(as.Date(paste(
     1), format = "%Y %m %d"))
 expect_equal(end_of_quarter(dates), dates2)
 
+
+
+## --------- last_weekday ---------

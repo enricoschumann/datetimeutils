@@ -461,8 +461,8 @@ nth_day <- function(timestamps,
 )
 
 .d_patterns <- c(
-    "[1-2][0-9][0-9][0-9]-[0-9]+-[0-9]+",                   "%Y-%m-%d",
-    "[0-9][0-9]+-[0-9]+-[0-9]+",                            "%Y-%m-%d",
+    "[1-2][0-9][0-9][0-9]-[0-9][0-9]?-[0-9][0-9]?",         "%Y-%m-%d",
+    "[0-9][0-9]?-[0-9][0-9]?-[0-9][0-9]?",                  "%Y-%m-%d",
     "[1-2][0-9][0-9][0-9][0-9][0-9][0-9][0-9]",             "%Y%m%d",
     "[01]?[0-9]/[0-9]+/[1-2][0-9][0-9][0-9]",               "%m/%d/%Y",
     "[01]?[0-9]/[0-9]+/[0-9][0-9]",                         "%m/%d/%y",
@@ -472,13 +472,17 @@ nth_day <- function(timestamps,
     "[0-9][0-9]{1,2}[.][0-9]{1,2}[.][1-2][0-9]",            "%d.%m.%y"
 )
 
-guess_datetime <- function(s, date.only = FALSE, within = FALSE, tz = "") {
+guess_datetime <- function(s, date.only = FALSE, within = FALSE, tz = "",
+                           try.patterns = NULL) {
 
     x <- as.character(s)
     patterns <- if (date.only)
                     .d_patterns
                 else
                     .dt_patterns
+
+    if (!is.null(try.patterns))
+        patterns <- c(try.patterns, patterns)
 
     ans <- if (date.only)
                .Date(rep(NA_real_, length(x)))

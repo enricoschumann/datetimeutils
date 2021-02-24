@@ -7,7 +7,8 @@
   Tries to convert a character vector to POSIXct.
 }
 \usage{
-guess_datetime(s, date.only = FALSE, within = FALSE, tz = "")
+guess_datetime(s, date.only = FALSE, within = FALSE, tz = "",
+               try.patterns = NULL)
 }
 \arguments{
   \item{s}{character}
@@ -16,13 +17,15 @@ guess_datetime(s, date.only = FALSE, within = FALSE, tz = "")
     \code{TRUE}) or times as well (if \code{FALSE})}
 
   \item{within}{logical: ignore surrounding text? Note
-  that trailing text is always ignored, see
-  \code{\link{as.Date}}.}
+    that trailing text is always ignored, see
+    \code{\link{as.Date}}.}
 
   \item{tz}{character: timezone to assume for
-  times. Default is the current timezone. See argument
-  \code{tz} in \code{\link{as.POSIXct}}}
+    times. Default is the current timezone. See argument
+    \code{tz} in \code{\link{as.POSIXct}}}
 
+  \item{try.patterns}{either \code{\link{NULL}} or a
+    character vector. See Details and Examples.}
 }
 \details{
 
@@ -44,9 +47,15 @@ guess_datetime(s, date.only = FALSE, within = FALSE, tz = "")
   \code{\link{strptime}} will be tried with the
   \emph{assumed format} (when date.only is \code{TRUE},
   \code{\link{as.Date}} will be tried).
-
   For elements that do not match any pattern or for
   which \code{\link{strptime}} fails, \code{\link{NA}} is returned.
+
+  Additional patterns can be specified as
+  \code{try.patterns}.  This must be a character vector
+  with an even number of elements: the first of each
+  pair of elements is used as the pattern in a regular
+  expression; the second as the format string passed to
+  \code{\link{strptime}}. See Examples.
 
 }
 \value{
@@ -55,7 +64,7 @@ guess_datetime(s, date.only = FALSE, within = FALSE, tz = "")
 \author{
   Enrico Schumann
 }
-\section{Warning }{
+\section{Warning}{
 
   If you know the format of a timestamp, then \bold{do
   not use this function} (use \code{\link{strptime}}
@@ -63,7 +72,6 @@ guess_datetime(s, date.only = FALSE, within = FALSE, tz = "")
   of a timestamp, then \bold{do not use this function}.
 
 }
-
 \seealso{
 
   \code{\link{strptime}}; see also the function
@@ -81,7 +89,7 @@ s <- c("  1999-08-19     10:00:31   ",
 
 guess_datetime(s)
 
-\dontrun{## the actual rules
+\donttest{## the actual rules
 rules <- as.data.frame(matrix(datetimeutils:::.dt_patterns,
                               byrow = TRUE, ncol = 2),
                        stringsAsFactors = FALSE)
@@ -109,5 +117,16 @@ old_files <- function(min.age = 365,   ## in days
 }
 
 
+## ----------------------------------
+
+## specifying additional formats
+
+s <- c("19-08-99",
+       "29-2-00")
+guess_datetime(s, date.only = TRUE)
+## NA NA
+guess_datetime(s, date.only = TRUE,
+               try.patterns = c("[0-9]+-[0-9]+-[0-9]+", "\%d-\%m-\%y"))
+## "1999-08-19" "2000-02-29"
 }
 \keyword{chron}
