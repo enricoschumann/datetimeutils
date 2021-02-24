@@ -1,10 +1,15 @@
-v0.4-1  (2021-??-??; not yet released)
+v0.5-0  (2021-??-??; not yet released)
+
+  o fixed: argument 'tz' had been ignored by 'guess_datetime'
 
   o new functions 'hour' 'minute', and 'second', which
-    work just as 'year', etc.
+    work just as 'year', etc.  
 
   o convert_date: support for PSPP/SPSS dates and times;
     based on a patch by J\"org Beyer
+
+  o 'tznames' has been updated and no longer contains
+    duplicates
 
 v0.4-0  (2020-03-25)
 

@@ -41,13 +41,11 @@
 | UTC-08                          | Etc/GMT+8                      |
 | Pacific Standard Time           | America/Los_Angeles            |
 | Pacific Standard Time           | America/Vancouver              |
-| Pacific Standard Time           | America/Dawson                 |
-| Pacific Standard Time           | America/Whitehorse             |
 | Pacific Standard Time           | America/Los_Angeles            |
 | Pacific Standard Time           | PST8PDT                        |
 | US Mountain Standard Time       | America/Phoenix                |
-| US Mountain Standard Time       | America/Dawson_Creek           |
 | US Mountain Standard Time       | America/Creston                |
+| US Mountain Standard Time       | America/Dawson_Creek           |
 | US Mountain Standard Time       | America/Fort_Nelson            |
 | US Mountain Standard Time       | America/Hermosillo             |
 | US Mountain Standard Time       | America/Phoenix                |
@@ -64,6 +62,9 @@
 | Mountain Standard Time          | America/Denver                 |
 | Mountain Standard Time          | America/Boise                  |
 | Mountain Standard Time          | MST7MDT                        |
+| Yukon Standard Time             | America/Whitehorse             |
+| Yukon Standard Time             | America/Whitehorse             |
+| Yukon Standard Time             | America/Dawson                 |
 | Central America Standard Time   | America/Guatemala              |
 | Central America Standard Time   | America/Belize                 |
 | Central America Standard Time   | America/Costa_Rica             |
@@ -345,6 +346,7 @@
 | South Africa Standard Time      | Africa/Blantyre                |
 | South Africa Standard Time      | Africa/Maputo                  |
 | South Africa Standard Time      | Africa/Kigali                  |
+| South Africa Standard Time      | Africa/Juba                    |
 | South Africa Standard Time      | Africa/Mbabane                 |
 | South Africa Standard Time      | Africa/Johannesburg            |
 | South Africa Standard Time      | Africa/Lusaka                  |
@@ -395,7 +397,6 @@
 | E. Africa Standard Time         | Indian/Comoro                  |
 | E. Africa Standard Time         | Indian/Antananarivo            |
 | E. Africa Standard Time         | Africa/Mogadishu               |
-| E. Africa Standard Time         | Africa/Juba                    |
 | E. Africa Standard Time         | Africa/Dar_es_Salaam           |
 | E. Africa Standard Time         | Africa/Kampala                 |
 | E. Africa Standard Time         | Indian/Mayotte                 |
@@ -496,7 +497,6 @@
 | North Asia East Standard Time   | Asia/Irkutsk                   |
 | North Asia East Standard Time   | Asia/Irkutsk                   |
 | Singapore Standard Time         | Asia/Singapore                 |
-| Singapore Standard Time         | Antarctica/Casey               |
 | Singapore Standard Time         | Asia/Brunei                    |
 | Singapore Standard Time         | Asia/Makassar                  |
 | Singapore Standard Time         | Asia/Kuala_Lumpur              |
@@ -549,6 +549,7 @@
 | Tasmania Standard Time          | Australia/Hobart               |
 | Tasmania Standard Time          | Australia/Hobart               |
 | Tasmania Standard Time          | Australia/Currie               |
+| Tasmania Standard Time          | Antarctica/Macquarie           |
 | Vladivostok Standard Time       | Asia/Vladivostok               |
 | Vladivostok Standard Time       | Asia/Vladivostok               |
 | Vladivostok Standard Time       | Asia/Ust-Nera                  |
@@ -565,7 +566,7 @@
 | Sakhalin Standard Time          | Asia/Sakhalin                  |
 | Sakhalin Standard Time          | Asia/Sakhalin                  |
 | Central Pacific Standard Time   | Pacific/Guadalcanal            |
-| Central Pacific Standard Time   | Antarctica/Macquarie           |
+| Central Pacific Standard Time   | Antarctica/Casey               |
 | Central Pacific Standard Time   | Pacific/Ponape                 |
 | Central Pacific Standard Time   | Pacific/Kosrae                 |
 | Central Pacific Standard Time   | Pacific/Noumea                 |

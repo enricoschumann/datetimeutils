@@ -1,3 +1,8 @@
+2021-02-24  Enrico Schumann  <es@enricoschumann.net>
+
+        * data/tznames.txt: update timezone names;
+        remove duplicates
+
 2021-02-11  Enrico Schumann  <es@enricoschumann.net>
 
         * DESCRIPTION (Suggests): add 'tinytest'

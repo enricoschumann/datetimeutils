@@ -10,6 +10,7 @@ from <- rep(from, times = lengths(to))
 tznames <- data.frame(Windows = trimws(unlist(from)),
                       Olson = trimws(unlist(to)),
                       stringsAsFactors = FALSE)
+tznames[!duplicated(do.call(paste, tznames)), ]
 
 save(tznames,
      file = "~/Packages/datetimeutils/data/tznames.RData",
