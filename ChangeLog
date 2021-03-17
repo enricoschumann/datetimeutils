@@ -1,7 +1,12 @@
+2021-03-17  Enrico Schumann  <es@enricoschumann.net>
+
+        * man/guess_datetime.Rd: remove reference
+        to 'anytime' to avoid check-note
+
 2021-02-24  Enrico Schumann  <es@enricoschumann.net>
 
-	* R/functions.R (guess_datetime): new argument
-	'try.patterns'
+        * R/functions.R (guess_datetime): new argument
+        'try.patterns'
 
         * data/tznames.txt: update timezone names;
         remove duplicates

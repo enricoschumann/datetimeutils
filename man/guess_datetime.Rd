@@ -74,9 +74,7 @@ guess_datetime(s, date.only = FALSE, within = FALSE, tz = "",
 }
 \seealso{
 
-  \code{\link{strptime}}; see also the function
-  \code{\link[anytime]{anytime}} in the package of the
-  same name.
+  \code{\link{strptime}}
 
 }
 \examples{
