@@ -23,7 +23,7 @@ rfc822t(x, include.dow = TRUE)
   prepending an abbreviated day-of-week. The function ignores the
   current locale: day-of-week and month names are in English. The
   format is required for timestamps in RSS feeds.
-  
+
 }
 \value{
   a character vector
@@ -34,7 +34,7 @@ rfc822t(x, include.dow = TRUE)
 \references{
   \url{https://www.ietf.org/rfc/rfc0822.txt}
 
-  \url{http://www.rssboard.org/rss-specification}
+  \url{https://www.rssboard.org/rss-specification}
 }
 \seealso{
   \code{\link{strftime}}, \code{\link{date}}

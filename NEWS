@@ -1,12 +1,12 @@
-v0.5-0  (2021-04-01; not yet released)
+v0.5-0  (2021-04-01)
 
   o fixed: argument 'tz' had been ignored by 'guess_datetime'
 
   o 'guess_datetime' gets an argument 'try.patterns' that
     lets the user specify additionals patterns
-    
+
   o new functions 'hour' 'minute', and 'second', which
-    work just as 'year', etc.  
+    work just as 'year' etc.
 
   o convert_date: support for PSPP/SPSS dates and times;
     based on a patch by J\"org Beyer
