@@ -1,3 +1,10 @@
+v0.5-1  (202?-??-??; not yet released)
+
+  o patterns for days in 'guess_datetime' are relaxed:
+    in some cases a single digit will be recognised
+
+  o ....
+
 v0.5-0  (2021-04-01)
 
   o fixed: argument 'tz' had been ignored by 'guess_datetime'

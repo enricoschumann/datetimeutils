@@ -1,3 +1,17 @@
+2021-05-04  Enrico Schumann  <es@enricoschumann.net>
+
+        * R/functions.R (guess_datetime): patterns in
+        some cases required that a day be a two-digit
+        number; now a single digit suffices. Example:
+
+        ## old
+        guess_datetime("3.5.2021", date.only = TRUE)
+        ## [1] NA
+
+        ## new
+        guess_datetime("3.5.2021", date.only = TRUE)
+        ## "2021-05-03"
+
 2021-04-01  Enrico Schumann  <es@enricoschumann.net>
 
         * DESCRIPTION (Version): 0.5-0
