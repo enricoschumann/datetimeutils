@@ -11,6 +11,9 @@
 \alias{first_of_month}
 \alias{first_of_year}
 \alias{is_leapyear}
+\alias{second}
+\alias{minute}
+\alias{hour}
 \alias{month}
 \alias{year}
 \title{
@@ -40,6 +43,9 @@ day_of_month(x) <- value
 mday(x)
 mday(x) <- value
 
+second(x, as.character = FALSE)
+minute(x, as.character = FALSE)
+hour(x, as.character = FALSE)
 month(x, as.character = FALSE)
 year(x, as.character = FALSE)
 
