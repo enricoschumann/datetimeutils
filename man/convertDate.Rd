@@ -14,7 +14,7 @@ convert_date(x, type, fraction = FALSE, tz = "")
     numeric
   }
   \item{type}{
-    character: \code{"excel"}, \code{"matlab"} and
+    character: \code{"excel"}, \code{"excel1904"}, \code{"matlab"} and
     \code{"spss"}/\code{"pspp"} are supported.
   }
   \item{fraction}{
@@ -29,10 +29,13 @@ convert_date(x, type, fraction = FALSE, tz = "")
 \details{
 
   Convert the numeric representation of a date to class
-  \code{\link{Date}}. For Excel, only the Windows format is supported.
-  Note that dates before 1 March 1900 are probably wrong since Excel
+  \code{\link{Date}}.  Note that different versions of Excel use
+  different origins: 1900-01-01 or 1904-01-01. For the latter, set
+  \code{type} to \code{"excel1904"}.
+  For the former, \code{convert_date} uses 1899-12-31 because Excel
   considers 1900 a leap year (which it is not).
-    
+  So dates before 1 March 1900 are probably wrong (off by one day).
+
 }
 \value{
   A vector of class \code{\link{Date}}, or \code{\link{POSIXct}} if

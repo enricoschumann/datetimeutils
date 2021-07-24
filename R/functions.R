@@ -269,12 +269,19 @@ ssm <- function(time, tz = "") {
 
 convert_date <- function(x, type, fraction = FALSE, tz = "") {
     type <- tolower(type)
+    if (type == "excel1904") {
+        type <- "excel"
+        origin <- as.Date("1904-01-01")
+    } else if (type == "excel") {
+        origin <- as.Date("1899-12-30")
+    }
     if (type == "spss")
         type = "pspp"
+
     if (type == "excel" && !fraction){
-        as.Date(x, origin = "1899-12-30")
+        as.Date(x, origin = origin)
     } else if (type == "excel") {
-        tmp <- as.POSIXct(x * 86400, origin = "1899-12-30", tz = "UTC")
+        tmp <- as.POSIXct(x * 86400, origin = origin, tz = "UTC")
         as.POSIXct(strptime(format(tmp), format = "%Y-%m-%d %H:%M:%S", tz = tz))
     } else if (type == "matlab" && !fraction) {
         as.Date(x, origin = "1970-01-01") - 719529

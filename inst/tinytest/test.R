@@ -32,6 +32,41 @@ for (i in 1:5) {
 expect_equal(convert_date(41824, "excel"), as.Date("2014-07-04"))
 expect_equal(convert_date(61, "excel"), as.Date("1900-03-01"))
 
+expect_equal(convert_date(41824.625, "excel", fraction = TRUE),
+             structure(1404478800, class = c("POSIXct", "POSIXt"), tzone = ""))
+expect_equal(convert_date(610.125, "excel", fraction = TRUE),
+             structure(-2156450400, class = c("POSIXct", "POSIXt"), tzone = ""))
+
+expect_equal(convert_date(41824.625, "excel", fraction = TRUE, tz = "GMT"),
+             structure(1404486000, class = c("POSIXct", "POSIXt"), tzone = "GMT"))
+expect_equal(convert_date(610.125, "excel", fraction = TRUE, tz = "GMT"),
+             structure(-2156446800, class = c("POSIXct", "POSIXt"), tzone = "GMT"))
+
+
+## Excel 1904 testcase
+
+## https://stat.ethz.ch/pipermail/r-help/2021-July/471640.html
+## 7/20/21 13:30
+## 7/20/21 13:40
+## 42935.5625
+## 42935.56944
+
+## times <- c(42935.5625,42935.5694444444)
+## as.POSIXct((times*86400),origin="1904-01-01",tz="America/Chicago")
+## [1] "2021-07-20 08:30:00 CDT" "2021-07-20 08:39:59 CDT"
+
+expect_equal(as.character(convert_date(c(42935.5625,42935.5694444444), "excel1904")),
+             c("2021-07-20", "2021-07-20"))
+## convert_date(c(42935.5625,42935.5694444444), "excel1904", fraction = TRUE)
+## convert_date(c(42935.5625,42935.5694444444), "excel1904", fraction = TRUE,
+##              tz = "America/Chicago")
+x <- convert_date(c(42935.5625,42935.5694444444), "excel1904", fraction = TRUE,
+                  tz = "GMT")
+expect_equal(x,
+             structure(c(1626787800, 1626788399),
+                       class = c("POSIXct", "POSIXt"), tzone = "GMT"))
+## convert_tz(x, "GMT", "America/Chicago")
+
 ## ---------------------
 
 tmp <- structure(1435589310.11177,
