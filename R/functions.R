@@ -560,3 +560,26 @@ second <- function(x, as.character = FALSE) {
 .next_weekday <- function(wday, start, count = 1, interval = 1)
     start + wday - unclass(start + 4) %% 7 +
         interval*7L*(seq_len(count) - 1L)
+
+date1904 <- function(filename) {
+    ans <- rep(NA, length(filename))
+    if (!requireNamespace("utils")) {
+        warning("package ", sQuote("utils"), " (for function ",
+                sQuote("unzip"), ") not available")
+        return(ans)
+    }
+    for (f in filename) {
+        d <- file.path(tempdir(), paste0(basename(f), "__unzip"))
+        files <- utils::unzip(f, exdir = d)
+        on.exit(unlink(d, recursive = TRUE), add = TRUE)
+
+        i <- grep("workbook.xml$", files)
+        if (length(i) != 1L)
+            next
+        workbook <- paste(readLines(files[i]), collapse = "")
+        ans[f == filename] <-
+            grepl('date1904\\s*=\\s*["\']1["\']|date1904\\s*=\\s*["\']true["\']',
+                  workbook, perl = TRUE, ignore.case = TRUE)
+    }
+    ans
+}

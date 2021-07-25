@@ -1,3 +1,12 @@
+2021-07-25  Enrico Schumann  <es@enricoschumann.net>
+
+	* R/functions.R (date1904): add function
+
+2021-07-24  Enrico Schumann  <es@enricoschumann.net>
+
+	* R/functions.R (convert_date): add type
+	"excel1904", for Excel files with origin 1904-01-01
+
 2021-05-27  Enrico Schumann  <es@enricoschumann.net>
 
         * NAMESPACE: export 'hour', 'minute' and 'second'

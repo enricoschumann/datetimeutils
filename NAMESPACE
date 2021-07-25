@@ -3,6 +3,7 @@ export(
     "mday<-",
     convert_date,
     convert_tz,
+    date1904,
     day_of_month,
     end_of_month,
     end_of_previous_month,
