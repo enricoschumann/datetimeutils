@@ -536,3 +536,11 @@ expect_equal(end_of_quarter(dates), dates2)
 
 
 ## --------- last_weekday ---------
+
+
+
+## --------- is_businessday ---------
+
+expect_true(is_businessday(as.Date("2022-08-01")))
+expect_false(is_businessday(as.Date("2022-08-01"),
+                            holidays = "2022-08-01"))

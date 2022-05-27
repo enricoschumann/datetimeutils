@@ -4,6 +4,8 @@
 	argument 'holidays' is now supported
 	(next_bday, next_businessday):
 	argument 'holidays' is now supported
+	(is_businessday):
+	argument 'holidays' is now supported
 
 2021-07-25  Enrico Schumann  <es@enricoschumann.net>
 

@@ -80,9 +80,7 @@ is_leapyear <- function(x)
     x %% 4 == 0 & (x %% 100 != 0 | x %% 400 == 0)
 
 is_businessday <- function(x, holidays = NULL) {
-    if (!is.null(holidays))
-        .NotYetUsed("holidays", FALSE)
-    !is_weekend(x)
+    !is_weekend(x) & !(x %in% as.Date(holidays))
 }
 
 first_of_month <- function (x) {
