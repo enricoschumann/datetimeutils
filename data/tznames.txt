@@ -234,10 +234,9 @@
 | Cape Verde Standard Time        | Atlantic/Cape_Verde            |
 | Cape Verde Standard Time        | Atlantic/Cape_Verde            |
 | Cape Verde Standard Time        | Etc/GMT+1                      |
-| UTC                             | Etc/GMT                        |
-| UTC                             | America/Danmarkshavn           |
-| UTC                             | Etc/GMT                        |
 | UTC                             | Etc/UTC                        |
+| UTC                             | Etc/UTC                        |
+| UTC                             | Etc/GMT                        |
 | GMT Standard Time               | Europe/London                  |
 | GMT Standard Time               | Atlantic/Canary                |
 | GMT Standard Time               | Atlantic/Faeroe                |
@@ -252,6 +251,7 @@
 | Greenwich Standard Time         | Africa/Ouagadougou             |
 | Greenwich Standard Time         | Africa/Abidjan                 |
 | Greenwich Standard Time         | Africa/Accra                   |
+| Greenwich Standard Time         | America/Danmarkshavn           |
 | Greenwich Standard Time         | Africa/Banjul                  |
 | Greenwich Standard Time         | Africa/Conakry                 |
 | Greenwich Standard Time         | Africa/Bissau                  |
@@ -346,7 +346,6 @@
 | South Africa Standard Time      | Africa/Blantyre                |
 | South Africa Standard Time      | Africa/Maputo                  |
 | South Africa Standard Time      | Africa/Kigali                  |
-| South Africa Standard Time      | Africa/Juba                    |
 | South Africa Standard Time      | Africa/Mbabane                 |
 | South Africa Standard Time      | Africa/Johannesburg            |
 | South Africa Standard Time      | Africa/Lusaka                  |
@@ -364,6 +363,8 @@
 | FLE Standard Time               | Europe/Zaporozhye              |
 | Israel Standard Time            | Asia/Jerusalem                 |
 | Israel Standard Time            | Asia/Jerusalem                 |
+| South Sudan Standard Time       | Africa/Juba                    |
+| South Sudan Standard Time       | Africa/Juba                    |
 | Kaliningrad Standard Time       | Europe/Kaliningrad             |
 | Kaliningrad Standard Time       | Europe/Kaliningrad             |
 | Sudan Standard Time             | Africa/Khartoum                |

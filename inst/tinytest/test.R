@@ -138,6 +138,88 @@ expect_true(all(
 expect_true(all(
     prev_bday(prev_bday(prev_bday(dates))) == prev_bday(dates, shift = -3)))
 
+## ---------------------
+
+dates <- seq(as.Date("2022-07-28"), as.Date("2022-08-5"), by = "1 day")
+data.frame(date = dates,
+           weekday = weekdays(dates),
+           next.bd = next_businessday(dates, holidays = "2022-08-01"))
+##         date   weekday    next.bd
+## 1 2022-07-28  Thursday 2022-07-29
+## 2 2022-07-29    Friday 2022-08-02
+## 3 2022-07-30  Saturday 2022-08-02
+## 4 2022-07-31    Sunday 2022-08-02
+## 5 2022-08-01    Monday 2022-08-02
+## 6 2022-08-02   Tuesday 2022-08-03
+## 7 2022-08-03 Wednesday 2022-08-04
+## 8 2022-08-04  Thursday 2022-08-05
+## 9 2022-08-05    Friday 2022-08-08
+expect_equal(next_businessday(dates, holidays = "2022-08-01"),
+             structure(c(19202, 19206, 19206, 19206, 19206, 19207, 19208,
+                         19209, 19212), class = "Date"))
+
+## ---------------------
+
+data.frame(date = dates,
+           weekday = weekdays(dates),
+           next.bd = next_businessday(dates,
+                                      holidays = as.Date("2022-08-01") + 0:1))
+##         date   weekday    next.bd
+## 1 2022-07-28  Thursday 2022-07-29
+## 2 2022-07-29    Friday 2022-08-03
+## 3 2022-07-30  Saturday 2022-08-03
+## 4 2022-07-31    Sunday 2022-08-03
+## 5 2022-08-01    Monday 2022-08-03
+## 6 2022-08-02   Tuesday 2022-08-03
+## 7 2022-08-03 Wednesday 2022-08-04
+## 8 2022-08-04  Thursday 2022-08-05
+## 9 2022-08-05    Friday 2022-08-08
+expect_equal(next_businessday(dates, holidays = as.Date("2022-08-01") + 0:1),
+             structure(c(19202, 19207, 19207, 19207, 19207, 19207, 19208,
+                         19209, 19212), class = "Date"))
+
+## ---------------------
+
+dates <- seq(as.Date("2022-07-28"), as.Date("2022-08-5"), by = "1 day")
+data.frame(date = dates,
+           weekday = weekdays(dates),
+           prev.bd = previous_businessday(dates,
+                                          holidays = as.Date("2022-08-01") + 0:1))
+##         date   weekday    prev.bd
+## 1 2022-07-28  Thursday 2022-07-27
+## 2 2022-07-29    Friday 2022-07-28
+## 3 2022-07-30  Saturday 2022-07-29
+## 4 2022-07-31    Sunday 2022-07-29
+## 5 2022-08-01    Monday 2022-07-29
+## 6 2022-08-02   Tuesday 2022-07-29
+## 7 2022-08-03 Wednesday 2022-08-02
+## 8 2022-08-04  Thursday 2022-08-03
+## 9 2022-08-05    Friday 2022-08-04
+expect_equal(previous_businessday(dates, holidays = as.Date("2022-08-01") + 0:1),
+             structure(c(19200, 19201, 19202, 19202, 19202, 19202, 19202,
+                         19207, 19208), class = "Date"))
+
+## ---------------------
+
+dates <- seq(as.Date("2022-07-28"), as.Date("2022-08-5"), by = "1 day")
+data.frame(date = dates,
+           weekday = weekdays(dates),
+           prev.bd = previous_businessday(dates, holidays = "2022-08-01"))
+##         date   weekday    prev.bd
+## 1 2022-07-28  Thursday 2022-07-27
+## 2 2022-07-29    Friday 2022-07-28
+## 3 2022-07-30  Saturday 2022-07-29
+## 4 2022-07-31    Sunday 2022-07-29
+## 5 2022-08-01    Monday 2022-07-29
+## 6 2022-08-02   Tuesday 2022-07-29
+## 7 2022-08-03 Wednesday 2022-08-02
+## 8 2022-08-04  Thursday 2022-08-03
+## 9 2022-08-05    Friday 2022-08-04
+expect_equal(previous_businessday(dates, holidays = "2022-08-01"),
+             structure(c(19200, 19201, 19202, 19202, 19202, 19202, 19206,
+                         19207, 19208), class = "Date"))
+
+
 
 ## ---------------------
 

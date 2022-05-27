@@ -4,8 +4,6 @@
 
 prev_bday  <- previous_businessday <-
     function (x, holidays = NULL, shift = -1) {
-    if (!is.null(holidays))
-        .NotYetUsed("holidays", FALSE)
     if (!all(inherits(x, "Date") | inherits(x, "POSIXt")))
         stop("input must inherit from classes ",
              sQuote("Date"), " or ", sQuote("POSIXt"))
@@ -27,13 +25,19 @@ prev_bday  <- previous_businessday <-
             x[tmpi] <- x[tmpi] - 2L
         }
     }
+    if (!is.null(holidays)) {
+        holidays <- as.Date(holidays)
+        is.h <- x %in% holidays
+        x[is.h] <- previous_businessday(x[is.h])
+        while (any(is.h1 <- x[is.h] %in% holidays)) {
+            x[is.h][is.h1] <- previous_businessday(x[is.h][is.h1])
+        }
+    }
     x
 }
 
 next_bday  <- next_businessday <-
     function(x, holidays = NULL, shift = 1) {
-    if (!is.null(holidays))
-        .NotYetUsed("holidays", FALSE)
     if (!all(inherits(x,"Date") | inherits(x,"POSIXt")))
         stop("input must inherit from class Date or POSIXt")
     x <- as.Date(x)
@@ -51,7 +55,15 @@ next_bday  <- next_businessday <-
             tmpi <- tmp$wday == 6L
             x[tmpi] <- x[tmpi] + 2L
             tmpi <- tmp$wday == 0L
-        x[tmpi] <- x[tmpi] + 1L
+            x[tmpi] <- x[tmpi] + 1L
+        }
+    }
+    if (!is.null(holidays)) {
+        holidays <- as.Date(holidays)
+        is.h <- x %in% holidays
+        x[is.h] <- next_businessday(x[is.h])
+        while (any(is.h1 <- x[is.h] %in% holidays)) {
+            x[is.h][is.h1] <- next_businessday(x[is.h][is.h1])
         }
     }
     x
@@ -582,4 +594,31 @@ date1904 <- function(filename) {
                   workbook, perl = TRUE, ignore.case = TRUE)
     }
     ans
+}
+
+
+
+                                        # cron
+cron_expand <- function(cron,
+                        start = Sys.time(),
+                        end, dialect = NA) {
+
+                                        # To define the time you can provide concrete values for
+                                        # minute (m), hour (h), day of month (dom), month (mon),
+                                        # and day of week (dow) or use '*' in these fields (for 'any').
+                                        #
+                                        # Notice that tasks will be started based on the cron's system
+                                        # daemon's notion of time and timezones.
+                                        #
+                                        # For example, you can run a backup of all your user accounts
+                                        # at 5 a.m every week with:
+                                        # 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+                                        #
+                                        # For more information see the manual pages of crontab(5) and cron(8)
+                                        #
+                                        # m h  dom mon dow   command
+    cron <- c("0 5 * * 1 tar -zcf /var/backups/home.tgz /home/",
+              "0 6 * * 1 tar -zcf /var/backups/home.tgz /home/")
+    cron <- strsplit(cron, " +")
+
 }

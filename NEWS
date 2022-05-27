@@ -1,4 +1,4 @@
-v0.5-1  (2022-??-??; not yet released)
+v0.6-0  (2022-??-??; not yet released)
 
   o fixed: functions 'hour' 'minute', and 'second',
     which had been added in v0.5-0, are now exported
@@ -6,10 +6,16 @@ v0.5-1  (2022-??-??; not yet released)
   o patterns for days in 'guess_datetime' are relaxed:
     in some cases a single digit will be recognised
 
+  o both 'previous_businessday' and 'next_businessday'
+    now take into account a vector of 'holidays' when
+    computing dates
+
   o 'convert_date' gains a new type "excel1904" for
     Excel files that use origin 1904-01-01. A new
     function 'date1904' determines if an xlsx-file uses
     origin 1904.
+
+  o tz data have been updated
 
   o ....
 

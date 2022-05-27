@@ -11,11 +11,11 @@
   Business Days
 }
 \description{
-  
+
   Check whether a timestamp of class \code{\link{Date}} or
   \code{\link{POSIXt}} is a business day; compute past or future
   business days.
-  
+
 }
 \usage{
 is_businessday(x, holidays = NULL)
@@ -32,12 +32,12 @@ next_bday(x, holidays = NULL, shift = 1)
     a vector of class \code{Date} or \code{POSIXct}
   }
   \item{holidays}{
-    
+
     A vector of class \code{\link{Date}}, or a character vector in a
     format that is understood by \code{\link{as.Date}}, or anything that
     can be coerced to class \code{Date} by \code{\link{as.Date}} (e.g.
-    \code{\link{POSIXt}}). \bold{Not supported yet.}
-    
+    \code{\link{POSIXt}}).
+
   }
   \item{shift}{
     integer
@@ -57,7 +57,7 @@ next_bday(x, holidays = NULL, shift = 1)
 
 }
 \value{
-  
+
   Logical.
 
 }
