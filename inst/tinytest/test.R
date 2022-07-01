@@ -329,6 +329,13 @@ expect_equal(guess_datetime(
     as.Date(s, "%d-%m-%y"))
 
 
+expect_equal(guess_datetime(
+    "88889911/20211010",
+    date.only = TRUE,
+    within = TRUE),
+    as.Date("2021-10-10"))
+
+
 
 ## ---------------------
 

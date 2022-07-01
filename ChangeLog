@@ -1,20 +1,25 @@
+2022-07-01  Enrico Schumann  <es@enricoschumann.net>
+
+        * R/functions.R (guess_datetime): improve pattern
+        for YYYYMMDD
+
 2022-05-27  Enrico Schumann  <es@enricoschumann.net>
 
-	* R/functions.R (prev_bday, previous_businessday):
-	argument 'holidays' is now supported
-	(next_bday, next_businessday):
-	argument 'holidays' is now supported
-	(is_businessday):
-	argument 'holidays' is now supported
+        * R/functions.R (prev_bday, previous_businessday):
+        argument 'holidays' is now supported
+        (next_bday, next_businessday):
+        argument 'holidays' is now supported
+        (is_businessday):
+        argument 'holidays' is now supported
 
 2021-07-25  Enrico Schumann  <es@enricoschumann.net>
 
-	* R/functions.R (date1904): add function
+        * R/functions.R (date1904): add function
 
 2021-07-24  Enrico Schumann  <es@enricoschumann.net>
 
-	* R/functions.R (convert_date): add type
-	"excel1904", for Excel files with origin 1904-01-01
+        * R/functions.R (convert_date): add type
+        "excel1904", for Excel files with origin 1904-01-01
 
 2021-05-27  Enrico Schumann  <es@enricoschumann.net>
 
