@@ -10,7 +10,7 @@ from <- rep(from, times = lengths(to))
 tznames <- data.frame(Windows = trimws(unlist(from)),
                       Olson = trimws(unlist(to)),
                       stringsAsFactors = FALSE)
-tznames[!duplicated(do.call(paste, tznames)), ]
+tznames <- tznames[!duplicated(do.call(paste, tznames)), ]
 
 save(tznames,
      file = "~/Packages/datetimeutils/data/tznames.RData",
@@ -33,4 +33,5 @@ cat("## -*- mode: org; -*-
 
 ## cat(licence, file = filename, append = TRUE, sep = "\n")
 
-cat(toOrg(tznames), file = filename, append = TRUE, sep = "\n")
+cat(toOrg(tznames, row.names = FALSE),
+    file = filename, append = TRUE, sep = "\n")
