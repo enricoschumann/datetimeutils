@@ -39,14 +39,13 @@
 | US Mountain Standard Time       | America/Fort_Nelson            |
 | US Mountain Standard Time       | America/Hermosillo             |
 | US Mountain Standard Time       | Etc/GMT+7                      |
-| Mountain Standard Time (Mexico) | America/Chihuahua              |
 | Mountain Standard Time (Mexico) | America/Mazatlan               |
 | Mountain Standard Time          | America/Denver                 |
 | Mountain Standard Time          | America/Edmonton               |
 | Mountain Standard Time          | America/Cambridge_Bay          |
 | Mountain Standard Time          | America/Inuvik                 |
 | Mountain Standard Time          | America/Yellowknife            |
-| Mountain Standard Time          | America/Ojinaga                |
+| Mountain Standard Time          | America/Ciudad_Juarez          |
 | Mountain Standard Time          | America/Boise                  |
 | Mountain Standard Time          | MST7MDT                        |
 | Yukon Standard Time             | America/Whitehorse             |
@@ -65,6 +64,7 @@
 | Central Standard Time           | America/Rankin_Inlet           |
 | Central Standard Time           | America/Resolute               |
 | Central Standard Time           | America/Matamoros              |
+| Central Standard Time           | America/Ojinaga                |
 | Central Standard Time           | America/Indiana/Knox           |
 | Central Standard Time           | America/Indiana/Tell_City      |
 | Central Standard Time           | America/Menominee              |
@@ -77,6 +77,7 @@
 | Central Standard Time (Mexico)  | America/Bahia_Banderas         |
 | Central Standard Time (Mexico)  | America/Merida                 |
 | Central Standard Time (Mexico)  | America/Monterrey              |
+| Central Standard Time (Mexico)  | America/Chihuahua              |
 | Canada Central Standard Time    | America/Regina                 |
 | Canada Central Standard Time    | America/Swift_Current          |
 | SA Pacific Standard Time        | America/Bogota                 |

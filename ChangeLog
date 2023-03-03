@@ -1,6 +1,10 @@
+2023-03-03  Enrico Schumann  <es@enricoschumann.net>
+
+        * data/tznames.txt: update timezone names
+
 2023-01-09  Enrico Schumann  <es@enricoschumann.net>
 
-	* Scripts/tznames.R: remove duplicates
+        * Scripts/tznames.R: remove duplicates
 
 2022-07-01  Enrico Schumann  <es@enricoschumann.net>
 
