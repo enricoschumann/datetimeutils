@@ -25,14 +25,14 @@
 }
 \source{
 
-  Unicode Common Locale Data Repository (CLDR) \url{http://cldr.unicode.org/}
+  Unicode Common Locale Data Repository (CLDR) \url{https://cldr.unicode.org/}
 
 }
 \details{
 
   The data are auto-generated from file \code{windowsZones.xml} in the
   Unicode Common Locale Data Repository
-  (\url{http://cldr.unicode.org/}).  See
+  (\url{https://cldr.unicode.org/}).  See
   \url{https://www.unicode.org/copyright.html} and
   \url{https://www.unicode.org/license.html} for the terms of use.
 

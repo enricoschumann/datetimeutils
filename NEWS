@@ -1,4 +1,4 @@
-v0.6-0  (2023-04-01; not yet released)
+v0.6-0  (2023-04-01)
 
   o fixed: functions 'hour' 'minute', and 'second', which
     had been added in v0.5-0, are now exported
@@ -15,8 +15,6 @@ v0.6-0  (2023-04-01; not yet released)
     'date1904' determines if an xlsx-file uses origin 1904.
 
   o tz data have been updated
-
-  o ....
 
 v0.5-0  (2021-04-01)
 

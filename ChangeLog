@@ -1,3 +1,7 @@
+2023-04-01  Enrico Schumann  <es@enricoschumann.net>
+
+        * DESCRIPTION (Version): 0.6-0
+
 2023-03-03  Enrico Schumann  <es@enricoschumann.net>
 
         * data/tznames.txt: update timezone names
