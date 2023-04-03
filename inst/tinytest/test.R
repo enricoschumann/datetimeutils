@@ -32,10 +32,13 @@ for (i in 1:5) {
 expect_equal(convert_date(41824, "excel"), as.Date("2014-07-04"))
 expect_equal(convert_date(61, "excel"), as.Date("1900-03-01"))
 
-expect_equal(convert_date(41824.625, "excel", fraction = TRUE),
-             structure(1404478800, class = c("POSIXct", "POSIXt"), tzone = ""))
-expect_equal(convert_date(610.125, "excel", fraction = TRUE),
-             structure(-2156450400, class = c("POSIXct", "POSIXt"), tzone = ""))
+## Excel is timezone agnostic, so convert to current
+tfun <- function(x)
+    strftime(x, "%Y-%m-%d %H%M%S")
+expect_equal(tfun(convert_date(41824.625, "excel", fraction = TRUE)),
+             tfun(as.POSIXct("2014-07-04 15:00:00", tz = "")))
+expect_equal(tfun(convert_date(610.125, "excel", fraction = TRUE)),
+             tfun(as.POSIXct("1901-09-01 03:00:00", tz = "")))
 
 expect_equal(convert_date(41824.625, "excel", fraction = TRUE, tz = "GMT"),
              structure(1404486000, class = c("POSIXct", "POSIXt"), tzone = "GMT"))
@@ -55,7 +58,8 @@ expect_equal(convert_date(610.125, "excel", fraction = TRUE, tz = "GMT"),
 ## as.POSIXct((times*86400),origin="1904-01-01",tz="America/Chicago")
 ## [1] "2021-07-20 08:30:00 CDT" "2021-07-20 08:39:59 CDT"
 
-expect_equal(as.character(convert_date(c(42935.5625,42935.5694444444), "excel1904")),
+expect_equal(as.character(convert_date(c(42935.5625,42935.5694444444),
+                                       "excel1904")),
              c("2021-07-20", "2021-07-20"))
 ## convert_date(c(42935.5625,42935.5694444444), "excel1904", fraction = TRUE)
 ## convert_date(c(42935.5625,42935.5694444444), "excel1904", fraction = TRUE,
