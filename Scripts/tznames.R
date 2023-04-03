@@ -13,11 +13,11 @@ tznames <- data.frame(Windows = trimws(unlist(from)),
 tznames <- tznames[!duplicated(do.call(paste, tznames)), ]
 
 save(tznames,
-     file = "~/Packages/datetimeutils/data/tznames.RData",
+     file = "datetimeutils/data/tznames.RData",
      version = 2)
 
 library("orgutils")
-filename <- "~/Packages/datetimeutils/data/tznames.txt"
+filename <- "datetimeutils/data/tznames.txt"
 
 cat("## -*- mode: org; -*-
 
