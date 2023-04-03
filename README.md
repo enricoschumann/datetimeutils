@@ -26,15 +26,25 @@ http://enricoschumann.net. In an R session, just type:
 For the latest development version, check out the Git repository and
 build it. In a shell (e.g. sh or bash):
 
-    ## first time: cd to directory and ...
+    ## FIRST-TIME INSTALLATION
+    #### cd to parent directory and ...
     $ git clone https://github.com/enricoschumann/datetimeutils.git
 
-    ## later: cd to directory and ...
-    $ git pull
-
-    ## build and install the package
+    #### build and install the package
+    $ Rscript datetimeutils/Scripts/tznames.R 
     $ R CMD build datetimeutils
     $ R CMD INSTALL datetimeutils_0.1-0.tar.gz  ## adjust version number
 
-    ## optionally check
+    #### optionally check
     $ R CMD check datetimeutils_0.1-0.tar.gz    ## adjust version number
+
+
+
+    ## UPDATING
+    #### later: cd to parent directory and ...
+    $ cd datetimeutils
+	$ git pull
+	$ cd ..
+	$ Rscript datetimeutils/Scripts/tznames.R 
+    $ R CMD build datetimeutils
+    $ R CMD INSTALL datetimeutils_0.1-0.tar.gz  ## adjust version number
