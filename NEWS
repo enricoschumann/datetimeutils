@@ -1,3 +1,8 @@
+v0.6-1  (2023-04-03; not yet released)
+
+  o no user-visible changes (fixed some timezone issues
+    in tests)
+
 v0.6-0  (2023-04-01)
 
   o fixed: functions 'hour' 'minute', and 'second', which

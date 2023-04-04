@@ -1,5 +1,7 @@
 2023-04-03  Enrico Schumann  <es@enricoschumann.net>
 
+        * DESCRIPTION (Version): 0.6-1
+
         * inst/tinytest/test.R (tfun): compare results from
         datetime conversion via text-representation (i.e.
         YYYYMMDD ...)
