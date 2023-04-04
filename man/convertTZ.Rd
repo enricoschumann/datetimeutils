@@ -27,7 +27,7 @@ convert_tz(datetime, from = "", to)
 
   Be careful: if the specified timezone does not exist on your
   system, the function will \bold{not} return an error.
-  
+
 }
 \value{
   \code{\link{POSIXct}}

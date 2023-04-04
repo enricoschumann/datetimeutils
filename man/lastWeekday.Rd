@@ -5,10 +5,10 @@
   Functions for Computing Days of the Week
 }
 \description{
-  
+
   Functions for computing a specifed day-of-week, such as \sQuote{the
   last Friday of October 2015}.
-  
+
 }
 \usage{
 last_weekday(weekday, x, shift = 0L,
@@ -32,7 +32,7 @@ nth_weekday(weekday, x, n = 1L)
     a \code{\link{Date}}. See also \code{inclusive}.
   }
   \item{inclusive}{
-    logical. Is \code{before} meant is \sQuote{before but including}? 
+    logical. Is \code{before} meant is \sQuote{before but including}?
   }
   \item{n}{
     an integer
@@ -53,7 +53,7 @@ nth_weekday(weekday, x, n = 1L)
 
 }
 \value{
-  
+
   \code{Date}
 
 }
@@ -73,7 +73,7 @@ nth_weekday(weekday, x, n = 1L)
 }
 \examples{
 ## GOAL:     find the third Friday in March 2013
-## SOLUTION: find the last Friday in February 2013 and 
+## SOLUTION: find the last Friday in February 2013 and
 ##           shift forward by 3 weeks
 last_weekday(5, as.Date("2013-02-01"), shift = 3)
 

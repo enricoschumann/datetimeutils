@@ -21,7 +21,7 @@ timegrid(from, to, interval,
     a vector of length one that inherits from class \code{\link{POSIXt}}
   }
   \item{interval}{
-    
+
     A character string like \dQuote{\code{num} \code{units}}, in which
     \code{num} is a number, and \code{units} is \code{sec}, \code{min},
     \code{hour} or \code{day}. \code{num} and \code{units} must be
@@ -32,7 +32,7 @@ timegrid(from, to, interval,
     logical; default is \code{TRUE}
   }
   \item{fromHHMMSS}{
-    
+
     A character vector of length one like
     \dQuote{\code{HHMMSS}}. Times-of-day earlier than \code{HHMMSS} are
     excluded from the grid. The applicable timezone will be taken from the
@@ -59,7 +59,7 @@ timegrid(from, to, interval,
 \details{
 
   \code{timegrid} creates an equally-spaced grid of class \code{POSIXct}.
-  
+
 }
 \value{
   a vector of class \code{\link{POSIXct}} (or a character vector of

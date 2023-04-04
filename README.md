@@ -31,7 +31,7 @@ build it. In a shell (e.g. sh or bash):
     $ git clone https://github.com/enricoschumann/datetimeutils.git
 
     #### build and install the package
-    $ Rscript datetimeutils/Scripts/tznames.R 
+    $ Rscript datetimeutils/Scripts/tznames.R
     $ R CMD build datetimeutils
     $ R CMD INSTALL datetimeutils_0.1-0.tar.gz  ## adjust version number
 
@@ -45,6 +45,6 @@ build it. In a shell (e.g. sh or bash):
     $ cd datetimeutils
 	$ git pull
 	$ cd ..
-	$ Rscript datetimeutils/Scripts/tznames.R 
+	$ Rscript datetimeutils/Scripts/tznames.R
     $ R CMD build datetimeutils
     $ R CMD INSTALL datetimeutils_0.1-0.tar.gz  ## adjust version number

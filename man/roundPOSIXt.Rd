@@ -11,17 +11,17 @@ roundPOSIXt(t, interval, up = FALSE)
 }
 \arguments{
   \item{t}{
-    
+
     a vector that inherits from class \code{\link{POSIXt}}
-    
+
   }
   \item{interval}{
-    
+
     A character string of the form \dQuote{\code{num} \code{units}}, in which
     \code{num} is a number, and \code{units} is \code{sec}, \code{min},
     \code{hour} or \code{day}. \code{num} and \code{units} must be
     separated by white space.
-    
+
   }
   \item{up}{
     logical: round down (the default) or up?

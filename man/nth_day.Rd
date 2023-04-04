@@ -11,8 +11,8 @@
 }
 \usage{
 nth_day(timestamps, period = "month", n,
-        start, end, business.days = FALSE, 
-        missing = "previous", index = FALSE) 
+        start, end, business.days = FALSE,
+        missing = "previous", index = FALSE)
 }
 \arguments{
   \item{timestamps}{
@@ -56,7 +56,7 @@ nth_day(timestamps, period = "month", n,
   \item{index}{
     logical. If \code{TRUE}, the indices (instead of
     actual timestamps) are returned.
-    
+
   }
 }
 \details{
@@ -65,7 +65,7 @@ nth_day(timestamps, period = "month", n,
   often used as reference dates, for instance in
   financial reporting: last day of the month or of the
   year, or a particular day of the month.
-  
+
   The function takes a vector of timestamps and returns
   a subset of these timestamps. Alternatively, a
   sequence of calendar days may be constructed by
@@ -73,7 +73,7 @@ nth_day(timestamps, period = "month", n,
 
 }
 \value{
-  
+
   A vector of timestamps or, if \code{index} is
   \code{TRUE}, a vector of integers.
 
@@ -84,7 +84,7 @@ nth_day(timestamps, period = "month", n,
 \seealso{
 
   \code{\link{nth_weekday}}
-  
+
 }
 \examples{
 timestamps <- seq(from = as.Date("2001-01-01"),

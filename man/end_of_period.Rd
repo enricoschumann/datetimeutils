@@ -20,7 +20,7 @@
   Handling and Manipulating Dates and Times
 }
 \description{
-  
+
   Functions for manipulating vectors that inherit from class
   \code{POSIXt} or \code{Date}.
 
@@ -74,12 +74,12 @@ year(x, as.character = FALSE)
   equivalent to \code{end_of_previous_month(x)}. \code{end_of_year}
   works in the same way, but for calendar years.
 
-  
+
   \code{mday} is a wrapper for \code{day_of_month}.
-  
+
 }
 \value{
-  
+
   Vectors of class \code{Date} or \code{POSIXct}; or \code{logical}
 
 }
