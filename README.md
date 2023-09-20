@@ -33,10 +33,10 @@ build it. In a shell (e.g. sh or bash):
     #### build and install the package
     $ Rscript datetimeutils/Scripts/tznames.R
     $ R CMD build datetimeutils
-    $ R CMD INSTALL datetimeutils_0.1-0.tar.gz  ## adjust version number
+    $ R CMD INSTALL datetimeutils_0.6-2.tar.gz  ## adjust version number
 
     #### optionally check
-    $ R CMD check datetimeutils_0.1-0.tar.gz    ## adjust version number
+    $ R CMD check datetimeutils_0.6-2.tar.gz    ## adjust version number
 
 
 
@@ -47,4 +47,4 @@ build it. In a shell (e.g. sh or bash):
 	$ cd ..
 	$ Rscript datetimeutils/Scripts/tznames.R
     $ R CMD build datetimeutils
-    $ R CMD INSTALL datetimeutils_0.1-0.tar.gz  ## adjust version number
+    $ R CMD INSTALL datetimeutils_0.6-2.tar.gz  ## adjust version number

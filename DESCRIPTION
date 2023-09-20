@@ -1,8 +1,8 @@
 Package: datetimeutils
 Type: Package
 Title: Utilities for Dates and Times
-Version: 0.6-1
-Date: 2023-04-03
+Version: 0.6-2
+Date: 2023-09-20
 Maintainer: Enrico Schumann <es@enricoschumann.net>
 Authors@R: c(person("Enrico", "Schumann",
                     role  = c("aut", "cre"),
@@ -23,6 +23,7 @@ Description: Utilities for handling dates and times, such
    where possible.
 Suggests: tinytest
 License: GPL-3
-URL: http://enricoschumann.net/R/packages/datetimeutils/,
+URL: http://enricoschumann.net/R/packages/datetimeutils/ ,
+     https://git.sr.ht/~enricoschumann/datetimeutils ,
      https://github.com/enricoschumann/datetimeutils
 LazyData: yes

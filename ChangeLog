@@ -1,3 +1,10 @@
+2023-09-20  Enrico Schumann  <es@enricoschumann.net>
+
+        * DESCRIPTION (Version): 0.6-2
+
+        * vignettes/datetimeutils_examples.Rnw: use
+        "inconsolata" instead of "DejaVuSansMono"
+
 2023-04-03  Enrico Schumann  <es@enricoschumann.net>
 
         * DESCRIPTION (Version): 0.6-1

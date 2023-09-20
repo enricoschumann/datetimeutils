@@ -3,8 +3,8 @@
 \usepackage[left = 3cm, top = 2cm, bottom = 2cm, right = 4cm]{geometry}
 \usepackage[noae,nogin]{Sweave}
 \usepackage{libertine}
-\usepackage[scaled=0.8]{DejaVuSansMono}
-\usepackage[T1]{fontenc}
+\usepackage[scaled=0.9]{inconsolata}
+% \usepackage[T1]{fontenc}
 \renewcommand*\familydefault{\sfdefault}
 \usepackage{amsmath,amstext}
 \usepackage{hyperref}
@@ -12,6 +12,7 @@
 \usepackage{xcolor}
 \usepackage{framed}
 \usepackage{fancyvrb}
+\usepackage[flushmargin]{footmisc}
 \definecolor{grau2}{rgb}{.2,.2,.2}
 \definecolor{grau7}{rgb}{.7,.7,.7}
 \DefineVerbatimEnvironment{Sinput}{Verbatim}{}
@@ -24,7 +25,7 @@
 
 <<echo=false>>=
 options(continue = "  ", digits = 3, width = 70, useFancyQuotes = FALSE)
-require("datetimeutils")
+library("datetimeutils")
 @
 
 \begin{document}
@@ -41,7 +42,7 @@ require("datetimeutils")
 \noindent\textbf{\texttt{convert\_date}}\smallskip
 
 \noindent Convert dates in numeric external formats
-(e.g. from \textsc{matlab} or Excel) to Date.
+(e.g. from \textsc{\textsf{matlab}} or Excel) to Date.
 <<>>=
 convert_date(40000, "excel")
 convert_date(725935, "matlab")

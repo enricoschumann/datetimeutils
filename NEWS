@@ -1,3 +1,10 @@
+v0.6-2  (2023-09-20)
+
+  o tiny updates in vignette
+
+  o there is an additional public Git repository at
+    https://git.sr.ht/~enricoschumann/datetimeutils
+
 v0.6-1  (2023-04-03)
 
   o no user-visible changes (fixed some timezone issues
