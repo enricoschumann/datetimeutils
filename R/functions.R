@@ -545,23 +545,23 @@ month <- function(x, as.character = FALSE) {
 
 hour <- function(x, as.character = FALSE) {
     if (as.character)
-        as.character(as.POSIXlt(Sys.time())$hour)
+        as.character(as.POSIXlt(x)$hour)
     else
-        as.POSIXlt(Sys.time())$hour
+        as.POSIXlt(x)$hour
 }
 
 minute <- function(x, as.character = FALSE) {
     if (as.character)
-        as.character(as.POSIXlt(Sys.time())$min)
+        as.character(as.POSIXlt(x)$min)
     else
-        as.POSIXlt(Sys.time())$min
+        as.POSIXlt(x)$min
 }
 
 second <- function(x, as.character = FALSE) {
     if (as.character)
-        as.character(as.POSIXlt(Sys.time())$sec)
+        as.character(as.POSIXlt(x)$sec)
     else
-        as.POSIXlt(Sys.time())$sec
+        as.POSIXlt(x)$sec
 }
 
 .weekday <- function(dates)

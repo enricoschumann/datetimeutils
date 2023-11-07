@@ -1,3 +1,8 @@
+v0.6-3  (2023-11-02)
+
+  o fix functions 'hour', 'minute' and 'second', which
+    had been broken
+
 v0.6-2  (2023-09-20)
 
   o tiny updates in vignette

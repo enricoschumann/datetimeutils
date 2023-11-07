@@ -517,6 +517,7 @@ expect_equal(nth_day(2017, period = "quarter", n = 2),
                  by = "1 quarter"))
 
 
+
 ## ---------------------
 
 expect_equal(year(as.Date("2018-1-1")+1:3),
@@ -555,3 +556,15 @@ expect_equal(end_of_quarter(dates), dates2)
 expect_true(is_businessday(as.Date("2022-08-01")))
 expect_false(is_businessday(as.Date("2022-08-01"),
                             holidays = "2022-08-01"))
+
+
+
+## --------- hour,min,sec ---------
+
+t <- as.POSIXct(c("2022-01-01 17:10:00",
+                  "2022-01-01 18:11:01"))
+expect_equal(hour(t), c(17, 18))
+expect_equal(minute(t), c(10, 11))
+expect_equal(second(t), c(0, 1))
+
+expect_equal(second(t, as.character = TRUE), c("0", "1"))
