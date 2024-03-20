@@ -15,7 +15,6 @@
 | Hawaiian Standard Time          | Pacific/Honolulu               |
 | Hawaiian Standard Time          | Pacific/Rarotonga              |
 | Hawaiian Standard Time          | Pacific/Tahiti                 |
-| Hawaiian Standard Time          | Pacific/Johnston               |
 | Hawaiian Standard Time          | Etc/GMT+10                     |
 | Marquesas Standard Time         | Pacific/Marquesas              |
 | Alaskan Standard Time           | America/Anchorage              |
@@ -27,7 +26,6 @@
 | UTC-09                          | Etc/GMT+9                      |
 | UTC-09                          | Pacific/Gambier                |
 | Pacific Standard Time (Mexico)  | America/Tijuana                |
-| Pacific Standard Time (Mexico)  | America/Santa_Isabel           |
 | UTC-08                          | Etc/GMT+8                      |
 | UTC-08                          | Pacific/Pitcairn               |
 | Pacific Standard Time           | America/Los_Angeles            |
@@ -44,7 +42,6 @@
 | Mountain Standard Time          | America/Edmonton               |
 | Mountain Standard Time          | America/Cambridge_Bay          |
 | Mountain Standard Time          | America/Inuvik                 |
-| Mountain Standard Time          | America/Yellowknife            |
 | Mountain Standard Time          | America/Ciudad_Juarez          |
 | Mountain Standard Time          | America/Boise                  |
 | Mountain Standard Time          | MST7MDT                        |
@@ -60,7 +57,6 @@
 | Central America Standard Time   | Etc/GMT+6                      |
 | Central Standard Time           | America/Chicago                |
 | Central Standard Time           | America/Winnipeg               |
-| Central Standard Time           | America/Rainy_River            |
 | Central Standard Time           | America/Rankin_Inlet           |
 | Central Standard Time           | America/Resolute               |
 | Central Standard Time           | America/Matamoros              |
@@ -95,10 +91,6 @@
 | Eastern Standard Time           | America/Nassau                 |
 | Eastern Standard Time           | America/Toronto                |
 | Eastern Standard Time           | America/Iqaluit                |
-| Eastern Standard Time           | America/Montreal               |
-| Eastern Standard Time           | America/Nipigon                |
-| Eastern Standard Time           | America/Pangnirtung            |
-| Eastern Standard Time           | America/Thunder_Bay            |
 | Eastern Standard Time           | America/Detroit                |
 | Eastern Standard Time           | America/Indiana/Petersburg     |
 | Eastern Standard Time           | America/Indiana/Vincennes      |
@@ -296,8 +288,6 @@
 | FLE Standard Time               | Europe/Helsinki                |
 | FLE Standard Time               | Europe/Vilnius                 |
 | FLE Standard Time               | Europe/Riga                    |
-| FLE Standard Time               | Europe/Uzhgorod                |
-| FLE Standard Time               | Europe/Zaporozhye              |
 | Israel Standard Time            | Asia/Jerusalem                 |
 | South Sudan Standard Time       | Africa/Juba                    |
 | Kaliningrad Standard Time       | Europe/Kaliningrad             |
@@ -346,9 +336,11 @@
 | West Asia Standard Time         | Asia/Tashkent                  |
 | West Asia Standard Time         | Antarctica/Mawson              |
 | West Asia Standard Time         | Asia/Oral                      |
+| West Asia Standard Time         | Asia/Almaty                    |
 | West Asia Standard Time         | Asia/Aqtau                     |
 | West Asia Standard Time         | Asia/Aqtobe                    |
 | West Asia Standard Time         | Asia/Atyrau                    |
+| West Asia Standard Time         | Asia/Qostanay                  |
 | West Asia Standard Time         | Indian/Maldives                |
 | West Asia Standard Time         | Indian/Kerguelen               |
 | West Asia Standard Time         | Asia/Dushanbe                  |
@@ -361,12 +353,10 @@
 | India Standard Time             | Asia/Calcutta                  |
 | Sri Lanka Standard Time         | Asia/Colombo                   |
 | Nepal Standard Time             | Asia/Katmandu                  |
-| Central Asia Standard Time      | Asia/Almaty                    |
+| Central Asia Standard Time      | Asia/Bishkek                   |
 | Central Asia Standard Time      | Antarctica/Vostok              |
 | Central Asia Standard Time      | Asia/Urumqi                    |
 | Central Asia Standard Time      | Indian/Chagos                  |
-| Central Asia Standard Time      | Asia/Bishkek                   |
-| Central Asia Standard Time      | Asia/Qostanay                  |
 | Central Asia Standard Time      | Etc/GMT-6                      |
 | Bangladesh Standard Time        | Asia/Dhaka                     |
 | Bangladesh Standard Time        | Asia/Thimphu                   |
@@ -428,7 +418,6 @@
 | West Pacific Standard Time      | Pacific/Saipan                 |
 | West Pacific Standard Time      | Etc/GMT-10                     |
 | Tasmania Standard Time          | Australia/Hobart               |
-| Tasmania Standard Time          | Australia/Currie               |
 | Tasmania Standard Time          | Antarctica/Macquarie           |
 | Vladivostok Standard Time       | Asia/Vladivostok               |
 | Vladivostok Standard Time       | Asia/Ust-Nera                  |
