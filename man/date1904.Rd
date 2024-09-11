@@ -26,8 +26,7 @@ date1904(filename)
   \code{NA} if file could not be processed.
 }
 \author{
-  Enrico Schumann; type \code{spss}/\code{pspp}
-  suggested and based on a patch by J\"org Beyer
+  Enrico Schumann
 }
 \references{
   ECMA-376-1:2016 \emph{Office Open XML File Formats}.
