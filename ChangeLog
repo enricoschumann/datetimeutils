@@ -1,3 +1,10 @@
+2024-10-01  Enrico Schumann  <es@enricoschumann.net>
+
+        * data/tznames.txt: update timezone names
+
+        * R/data.R: add vector "Easter", currently not
+        exported
+
 2024-04-01  Enrico Schumann  <es@enricoschumann.net>
 
         * DESCRIPTION (Version): 0.6-4
