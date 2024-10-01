@@ -30,7 +30,6 @@
 | UTC-08                          | Pacific/Pitcairn               |
 | Pacific Standard Time           | America/Los_Angeles            |
 | Pacific Standard Time           | America/Vancouver              |
-| Pacific Standard Time           | PST8PDT                        |
 | US Mountain Standard Time       | America/Phoenix                |
 | US Mountain Standard Time       | America/Creston                |
 | US Mountain Standard Time       | America/Dawson_Creek           |
@@ -44,7 +43,6 @@
 | Mountain Standard Time          | America/Inuvik                 |
 | Mountain Standard Time          | America/Ciudad_Juarez          |
 | Mountain Standard Time          | America/Boise                  |
-| Mountain Standard Time          | MST7MDT                        |
 | Yukon Standard Time             | America/Whitehorse             |
 | Yukon Standard Time             | America/Dawson                 |
 | Central America Standard Time   | America/Guatemala              |
@@ -67,7 +65,6 @@
 | Central Standard Time           | America/North_Dakota/Beulah    |
 | Central Standard Time           | America/North_Dakota/Center    |
 | Central Standard Time           | America/North_Dakota/New_Salem |
-| Central Standard Time           | CST6CDT                        |
 | Easter Island Standard Time     | Pacific/Easter                 |
 | Central Standard Time (Mexico)  | America/Mexico_City            |
 | Central Standard Time (Mexico)  | America/Bahia_Banderas         |
@@ -97,7 +94,6 @@
 | Eastern Standard Time           | America/Indiana/Winamac        |
 | Eastern Standard Time           | America/Kentucky/Monticello    |
 | Eastern Standard Time           | America/Louisville             |
-| Eastern Standard Time           | EST5EDT                        |
 | Haiti Standard Time             | America/Port-au-Prince         |
 | Cuba Standard Time              | America/Havana                 |
 | US Eastern Standard Time        | America/Indianapolis           |
@@ -392,7 +388,6 @@
 | W. Australia Standard Time      | Australia/Perth                |
 | Taipei Standard Time            | Asia/Taipei                    |
 | Ulaanbaatar Standard Time       | Asia/Ulaanbaatar               |
-| Ulaanbaatar Standard Time       | Asia/Choibalsan                |
 | Aus Central W. Standard Time    | Australia/Eucla                |
 | Transbaikal Standard Time       | Asia/Chita                     |
 | Tokyo Standard Time             | Asia/Tokyo                     |
