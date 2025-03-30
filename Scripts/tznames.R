@@ -1,3 +1,6 @@
+## Script needs to be started from 'datetimeutils' directory
+
+
 win <- trimws(readLines("https://raw.githubusercontent.com/unicode-org/cldr/master/common/supplemental/windowsZones.xml"))
 win <- win[grep("<mapZone", win)]
 
@@ -13,11 +16,11 @@ tznames <- data.frame(Windows = trimws(unlist(from)),
 tznames <- tznames[!duplicated(do.call(paste, tznames)), ]
 
 save(tznames,
-     file = "datetimeutils/data/tznames.RData",
+     file = "data/tznames.RData",
      version = 2)
 
 library("orgutils")
-filename <- "datetimeutils/data/tznames.txt"
+filename <- "data/tznames.txt"
 
 cat("## -*- mode: org; -*-
 

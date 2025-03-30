@@ -1,5 +1,10 @@
 2025-03-30  Enrico Schumann  <es@enricoschumann.net>
 
+        * Scripts/tznames.R: script now needs to be run
+        from 'datetimeutils' directory, and the tz names
+        table in in RData format in the data subdirectory
+        is now included in the sources
+
         * NAMESPACE, R/data.R: export 'Easter'
 
 2024-10-01  Enrico Schumann  <es@enricoschumann.net>
