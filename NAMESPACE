@@ -33,6 +33,7 @@ export(
     timegrid,
     year,
     ## DATA
+    Easter,
     month.name.de,
     month.abb.de.din1355.1
     )

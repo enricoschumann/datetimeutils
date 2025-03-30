@@ -1,3 +1,7 @@
+2025-03-30  Enrico Schumann  <es@enricoschumann.net>
+
+        * NAMESPACE, R/data.R: export 'Easter'
+
 2024-10-01  Enrico Schumann  <es@enricoschumann.net>
 
         * data/tznames.txt: update timezone names

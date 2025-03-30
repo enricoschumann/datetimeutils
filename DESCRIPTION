@@ -1,8 +1,8 @@
 Package: datetimeutils
 Type: Package
 Title: Utilities for Dates and Times
-Version: 0.6-4
-Date: 2024-04-01
+Version: 0.6-5
+Date: 2025-03-30
 Maintainer: Enrico Schumann <es@enricoschumann.net>
 Authors@R: c(person("Enrico", "Schumann",
                     role  = c("aut", "cre"),

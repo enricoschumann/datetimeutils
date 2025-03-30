@@ -4,7 +4,6 @@ month.name.de <- c("Januar", "Februar", "M\u00e4rz",
                    "Oktober", "November", "Dezember")
 Encoding(month.name.de) <- "UTF-8"
 
-
 ## uses abbreviations DIN 1355-1
 month.abb.de.din1355.1 <- c("Jan", "Feb", "Mrz",
                             "Apr", "Mai", "Jun",
@@ -40,5 +39,6 @@ Easter <- structure(
       `2020` = 18364, `2021` = 18721,
       `2022` = 19099, `2023` = 19456,
       `2024` = 19813, `2025` = 20198,
-      `2026` = 20548, `2027` = 20905),
+      `2026` = 20548, `2027` = 20905,
+      `2028` = 21290, `2029` = 21640),
     class = "Date")
