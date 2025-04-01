@@ -43,7 +43,7 @@
 \references{
 
   See \url{https://www.iana.org/time-zones}
-  and \url{http://web.cs.ucla.edu/~eggert/tz/tz-link.htm} for more
+  and \url{https://web.cs.ucla.edu/~eggert/tz/tz-link.htm} for more
   information about the \code{tz} database.
 
   See also \code{\link{OlsonNames}}.

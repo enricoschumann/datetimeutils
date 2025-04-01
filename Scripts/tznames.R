@@ -25,7 +25,7 @@ filename <- "data/tznames.txt"
 cat("## -*- mode: org; -*-
 
 ## The data in this file are auto-generated from file 'windowsZones.xml'
-## in the Unicode Common Locale Data Repository (http://cldr.unicode.org/).
+## in the Unicode Common Locale Data Repository (https://cldr.unicode.org/).
 ## See https://www.unicode.org/copyright.html and https://www.unicode.org/license.html.
 
 ", file = filename, append = FALSE, sep = "")
