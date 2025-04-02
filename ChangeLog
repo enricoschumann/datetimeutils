@@ -1,3 +1,9 @@
+2025-04-01  Enrico Schumann  <es@enricoschumann.net>
+
+        * DESCRIPTION (Version): 0.6-5
+
+        * man/rfc822t.Rd: update links
+
 2025-03-30  Enrico Schumann  <es@enricoschumann.net>
 
         * Scripts/tznames.R: script now needs to be run

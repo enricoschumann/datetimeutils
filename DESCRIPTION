@@ -2,7 +2,7 @@ Package: datetimeutils
 Type: Package
 Title: Utilities for Dates and Times
 Version: 0.6-5
-Date: 2025-03-30
+Date: 2025-04-01
 Maintainer: Enrico Schumann <es@enricoschumann.net>
 Authors@R: c(person("Enrico", "Schumann",
                     role  = c("aut", "cre"),
@@ -23,7 +23,7 @@ Description: Utilities for handling dates and times, such
    where possible.
 Suggests: tinytest
 License: GPL-3
-URL: http://enricoschumann.net/R/packages/datetimeutils/ ,
+URL: https://enricoschumann.net/R/packages/datetimeutils/ ,
      https://git.sr.ht/~enricoschumann/datetimeutils ,
      https://github.com/enricoschumann/datetimeutils
 LazyData: yes

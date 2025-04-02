@@ -1,13 +1,11 @@
-v0.6-5  (2025-04-01; not yet released)
+v0.6-5  (2025-04-01)
 
   o tz data have been updated
 
   o a vector 'Easter' is now exported, which provides
     Easter sundays (in the Gregorian calendar) between
     1970--2029
-  
-  o ....
-  
+
 v0.6-4  (2024-04-01)
 
   o tz data have been updated

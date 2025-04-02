@@ -26,5 +26,6 @@ Easter
 }
 \examples{
 Easter["1970"]
+Easter[as.character(1980:1983)]
 }
 \keyword{datasets}

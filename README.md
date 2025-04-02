@@ -42,7 +42,7 @@ build it. In a shell (e.g. sh or bash):
     ## UPDATING
     #### later: cd to parent directory and ...
     $ cd datetimeutils
-	$ git pull
-	$ cd ..
+    $ git pull
+    $ cd ..
     $ R CMD build datetimeutils
     $ R CMD INSTALL datetimeutils_0.6-5.tar.gz  ## adjust version number

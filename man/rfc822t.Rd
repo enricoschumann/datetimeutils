@@ -32,7 +32,7 @@ rfc822t(x, include.dow = TRUE)
   Enrico Schumann
 }
 \references{
-  \url{https://www.ietf.org/rfc/rfc0822.txt}
+  \url{https://www.rfc-editor.org/rfc/rfc822.txt}
 
   \url{https://www.rssboard.org/rss-specification}
 }
