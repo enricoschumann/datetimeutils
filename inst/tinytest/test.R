@@ -568,3 +568,9 @@ expect_equal(minute(t), c(10, 11))
 expect_equal(second(t), c(0, 1))
 
 expect_equal(second(t, as.character = TRUE), c("0", "1"))
+
+
+
+## --------- tznames ---------
+i <- grep("Zurich", tznames[, "Olson"])
+tznames[i, ]
