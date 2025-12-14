@@ -169,6 +169,7 @@
 | Greenland Standard Time         | America/Godthab                |
 | Montevideo Standard Time        | America/Montevideo             |
 | Magallanes Standard Time        | America/Punta_Arenas           |
+| Magallanes Standard Time        | America/Coyhaique              |
 | Saint Pierre Standard Time      | America/Miquelon               |
 | Bahia Standard Time             | America/Bahia                  |
 | UTC-02                          | Etc/GMT+2                      |
